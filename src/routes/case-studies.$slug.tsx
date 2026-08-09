@@ -53,25 +53,35 @@ function CaseStudyPage() {
       />
 
       <Section>
-        <dl className="grid gap-6 sm:grid-cols-3">
-          {study.metrics.map((m) => (
-            <div key={m.label} className="card-elevate p-6">
-              <dt className="eyebrow">{m.label}</dt>
-              <dd className="mt-2 text-3xl font-semibold">{m.value}</dd>
-            </div>
-          ))}
-        </dl>
-
-        <div className="mt-16 grid gap-12 lg:grid-cols-2">
+        <div className="grid gap-12 lg:grid-cols-2">
           <div>
             <SectionHeading eyebrow="Situation" title="Where they started" />
             <p className="mt-5 text-base leading-[1.75] text-muted-foreground">{study.challenge}</p>
           </div>
           <div>
-            <SectionHeading eyebrow="Approach" title="What we did" />
-            <p className="mt-5 text-base leading-[1.75] text-muted-foreground">{study.approach}</p>
+            <SectionHeading eyebrow="Strategy" title="The decision" />
+            <p className="mt-5 text-base leading-[1.75] text-muted-foreground">{study.strategy}</p>
+          </div>
+          <div>
+            <SectionHeading eyebrow="Execution" title="What we did" />
+            <p className="mt-5 text-base leading-[1.75] text-muted-foreground">{study.execution}</p>
+          </div>
+          <div>
+            <SectionHeading eyebrow="Technology" title="What we built" />
+            <p className="mt-5 text-base leading-[1.75] text-muted-foreground">{study.technology}</p>
           </div>
         </div>
+      </Section>
+
+      <Section tone="muted">
+        <SectionHeading eyebrow="Outcome" title="What changed" />
+        <ul className="mt-10 grid gap-3 sm:grid-cols-3">
+          {(study.results as string[]).map((r, i) => (
+            <li key={i} className="card-elevate p-6 text-sm font-semibold">
+              {r}
+            </li>
+          ))}
+        </ul>
       </Section>
 
       <CtaBand
