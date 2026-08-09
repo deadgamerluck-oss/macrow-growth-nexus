@@ -10,33 +10,206 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as DigitalRouteImport } from './routes/digital'
+import { Route as MarcommRouteImport } from './routes/marcomm'
+import { Route as TechnologyRouteImport } from './routes/technology'
+import { Route as CaseStudiesIndexRouteImport } from './routes/case-studies.index'
+import { Route as CaseStudiesSlugRouteImport } from './routes/case-studies.$slug'
+import { Route as IndustriesIndexRouteImport } from './routes/industries.index'
+import { Route as IndustriesIndustryRouteImport } from './routes/industries.$industry'
+import { Route as InsightsIndexRouteImport } from './routes/insights.index'
+import { Route as InsightsSlugRouteImport } from './routes/insights.$slug'
+import { Route as SolutionsIndexRouteImport } from './routes/solutions.index'
+import { Route as SolutionsObjectiveRouteImport } from './routes/solutions.$objective'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DigitalRoute = DigitalRouteImport.update({
+  id: '/digital',
+  path: '/digital',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MarcommRoute = MarcommRouteImport.update({
+  id: '/marcomm',
+  path: '/marcomm',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TechnologyRoute = TechnologyRouteImport.update({
+  id: '/technology',
+  path: '/technology',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CaseStudiesIndexRoute = CaseStudiesIndexRouteImport.update({
+  id: '/case-studies/',
+  path: '/case-studies/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CaseStudiesSlugRoute = CaseStudiesSlugRouteImport.update({
+  id: '/case-studies/$slug',
+  path: '/case-studies/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesIndexRoute = IndustriesIndexRouteImport.update({
+  id: '/industries/',
+  path: '/industries/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndustriesIndustryRoute = IndustriesIndustryRouteImport.update({
+  id: '/industries/$industry',
+  path: '/industries/$industry',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InsightsIndexRoute = InsightsIndexRouteImport.update({
+  id: '/insights/',
+  path: '/insights/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InsightsSlugRoute = InsightsSlugRouteImport.update({
+  id: '/insights/$slug',
+  path: '/insights/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SolutionsIndexRoute = SolutionsIndexRouteImport.update({
+  id: '/solutions/',
+  path: '/solutions/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SolutionsObjectiveRoute = SolutionsObjectiveRouteImport.update({
+  id: '/solutions/$objective',
+  path: '/solutions/$objective',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/digital': typeof DigitalRoute
+  '/marcomm': typeof MarcommRoute
+  '/technology': typeof TechnologyRoute
+  '/case-studies/$slug': typeof CaseStudiesSlugRoute
+  '/industries/$industry': typeof IndustriesIndustryRoute
+  '/insights/$slug': typeof InsightsSlugRoute
+  '/solutions/$objective': typeof SolutionsObjectiveRoute
+  '/case-studies/': typeof CaseStudiesIndexRoute
+  '/industries/': typeof IndustriesIndexRoute
+  '/insights/': typeof InsightsIndexRoute
+  '/solutions/': typeof SolutionsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/digital': typeof DigitalRoute
+  '/marcomm': typeof MarcommRoute
+  '/technology': typeof TechnologyRoute
+  '/case-studies/$slug': typeof CaseStudiesSlugRoute
+  '/industries/$industry': typeof IndustriesIndustryRoute
+  '/insights/$slug': typeof InsightsSlugRoute
+  '/solutions/$objective': typeof SolutionsObjectiveRoute
+  '/case-studies': typeof CaseStudiesIndexRoute
+  '/industries': typeof IndustriesIndexRoute
+  '/insights': typeof InsightsIndexRoute
+  '/solutions': typeof SolutionsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/contact': typeof ContactRoute
+  '/digital': typeof DigitalRoute
+  '/marcomm': typeof MarcommRoute
+  '/technology': typeof TechnologyRoute
+  '/case-studies/$slug': typeof CaseStudiesSlugRoute
+  '/industries/$industry': typeof IndustriesIndustryRoute
+  '/insights/$slug': typeof InsightsSlugRoute
+  '/solutions/$objective': typeof SolutionsObjectiveRoute
+  '/case-studies/': typeof CaseStudiesIndexRoute
+  '/industries/': typeof IndustriesIndexRoute
+  '/insights/': typeof InsightsIndexRoute
+  '/solutions/': typeof SolutionsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/digital'
+    | '/marcomm'
+    | '/technology'
+    | '/case-studies/$slug'
+    | '/industries/$industry'
+    | '/insights/$slug'
+    | '/solutions/$objective'
+    | '/case-studies/'
+    | '/industries/'
+    | '/insights/'
+    | '/solutions/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/digital'
+    | '/marcomm'
+    | '/technology'
+    | '/case-studies/$slug'
+    | '/industries/$industry'
+    | '/insights/$slug'
+    | '/solutions/$objective'
+    | '/case-studies'
+    | '/industries'
+    | '/insights'
+    | '/solutions'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/digital'
+    | '/marcomm'
+    | '/technology'
+    | '/case-studies/$slug'
+    | '/industries/$industry'
+    | '/insights/$slug'
+    | '/solutions/$objective'
+    | '/case-studies/'
+    | '/industries/'
+    | '/insights/'
+    | '/solutions/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  ContactRoute: typeof ContactRoute
+  DigitalRoute: typeof DigitalRoute
+  MarcommRoute: typeof MarcommRoute
+  TechnologyRoute: typeof TechnologyRoute
+  CaseStudiesSlugRoute: typeof CaseStudiesSlugRoute
+  IndustriesIndustryRoute: typeof IndustriesIndustryRoute
+  InsightsSlugRoute: typeof InsightsSlugRoute
+  SolutionsObjectiveRoute: typeof SolutionsObjectiveRoute
+  CaseStudiesIndexRoute: typeof CaseStudiesIndexRoute
+  IndustriesIndexRoute: typeof IndustriesIndexRoute
+  InsightsIndexRoute: typeof InsightsIndexRoute
+  SolutionsIndexRoute: typeof SolutionsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,22 +221,116 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/digital': {
+      id: '/digital'
+      path: '/digital'
+      fullPath: '/digital'
+      preLoaderRoute: typeof DigitalRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/marcomm': {
+      id: '/marcomm'
+      path: '/marcomm'
+      fullPath: '/marcomm'
+      preLoaderRoute: typeof MarcommRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/technology': {
+      id: '/technology'
+      path: '/technology'
+      fullPath: '/technology'
+      preLoaderRoute: typeof TechnologyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/case-studies/': {
+      id: '/case-studies/'
+      path: '/case-studies'
+      fullPath: '/case-studies/'
+      preLoaderRoute: typeof CaseStudiesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/case-studies/$slug': {
+      id: '/case-studies/$slug'
+      path: '/case-studies/$slug'
+      fullPath: '/case-studies/$slug'
+      preLoaderRoute: typeof CaseStudiesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries/': {
+      id: '/industries/'
+      path: '/industries'
+      fullPath: '/industries/'
+      preLoaderRoute: typeof IndustriesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industries/$industry': {
+      id: '/industries/$industry'
+      path: '/industries/$industry'
+      fullPath: '/industries/$industry'
+      preLoaderRoute: typeof IndustriesIndustryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/insights/': {
+      id: '/insights/'
+      path: '/insights'
+      fullPath: '/insights/'
+      preLoaderRoute: typeof InsightsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/insights/$slug': {
+      id: '/insights/$slug'
+      path: '/insights/$slug'
+      fullPath: '/insights/$slug'
+      preLoaderRoute: typeof InsightsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions/': {
+      id: '/solutions/'
+      path: '/solutions'
+      fullPath: '/solutions/'
+      preLoaderRoute: typeof SolutionsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions/$objective': {
+      id: '/solutions/$objective'
+      path: '/solutions/$objective'
+      fullPath: '/solutions/$objective'
+      preLoaderRoute: typeof SolutionsObjectiveRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  ContactRoute: ContactRoute,
+  DigitalRoute: DigitalRoute,
+  MarcommRoute: MarcommRoute,
+  TechnologyRoute: TechnologyRoute,
+  CaseStudiesSlugRoute: CaseStudiesSlugRoute,
+  IndustriesIndustryRoute: IndustriesIndustryRoute,
+  InsightsSlugRoute: InsightsSlugRoute,
+  SolutionsObjectiveRoute: SolutionsObjectiveRoute,
+  CaseStudiesIndexRoute: CaseStudiesIndexRoute,
+  IndustriesIndexRoute: IndustriesIndexRoute,
+  InsightsIndexRoute: InsightsIndexRoute,
+  SolutionsIndexRoute: SolutionsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
