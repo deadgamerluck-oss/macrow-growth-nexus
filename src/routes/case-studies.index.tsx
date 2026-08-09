@@ -46,16 +46,9 @@ function CaseStudiesIndex() {
               </p>
               <h2 className="mt-3 text-xl font-semibold leading-snug">{c.title}</h2>
               <p className="mt-3 flex-1 text-sm text-muted-foreground">{c.summary}</p>
-              <dl className="mt-6 grid grid-cols-3 gap-4 border-t border-border pt-5">
-                {c.metrics.map((m) => (
-                  <div key={m.label}>
-                    <dt className="text-[0.65rem] uppercase tracking-wider text-muted-foreground">
-                      {m.label}
-                    </dt>
-                    <dd className="mt-1 text-lg font-semibold">{m.value}</dd>
-                  </div>
-                ))}
-              </dl>
+              <p className="mt-6 border-t border-border pt-5 text-xs uppercase tracking-wider text-muted-foreground">
+                {c.stage} · {c.objective}
+              </p>
             </Link>
           ))}
         </div>
