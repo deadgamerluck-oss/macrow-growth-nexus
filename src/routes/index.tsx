@@ -109,7 +109,7 @@ function Home() {
           {pillars.map((pillar) => (
             <Link
               key={pillar.slug}
-              to={pillar.href as "/digital"}
+              to={`/${pillar.slug}`}
               className="card-elevate group flex flex-col p-7"
             >
               <p className="eyebrow">{pillar.tagline}</p>
