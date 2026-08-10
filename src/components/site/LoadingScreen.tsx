@@ -9,14 +9,13 @@ const SEEN_KEY = "macrow-intro-seen";
  * curtain lifts into the site. Shown once per browser session.
  */
 export function LoadingScreen() {
-  const [phase, setPhase] = useState<"hidden" | "in" | "out" | "done">("hidden");
+  const [phase, setPhase] = useState<"in" | "out" | "done">("in");
 
   useEffect(() => {
     if (sessionStorage.getItem(SEEN_KEY)) {
       setPhase("done");
       return;
     }
-    setPhase("in");
     document.body.style.overflow = "hidden";
     const outTimer = window.setTimeout(() => setPhase("out"), 2100);
     const doneTimer = window.setTimeout(() => {
@@ -31,7 +30,7 @@ export function LoadingScreen() {
     };
   }, []);
 
-  if (phase === "done" || phase === "hidden") return null;
+  if (phase === "done") return null;
 
   return (
     <div
