@@ -26,8 +26,8 @@ export function RavenMascot({ className = "h-40 w-40", animated = true, traced =
           <stop offset="100%" stopColor="#0f1013" />
         </linearGradient>
         <linearGradient id="raven-rim" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="var(--accent)" stopOpacity="0.75" />
-          <stop offset="100%" stopColor="var(--accent)" stopOpacity="0.1" />
+          <stop offset="0%" stopColor="#ff6a2b" stopOpacity="0.8" />
+          <stop offset="100%" stopColor="#ff6a2b" stopOpacity="0.12" />
         </linearGradient>
       </defs>
 
@@ -87,13 +87,13 @@ export function RavenMascot({ className = "h-40 w-40", animated = true, traced =
         />
         {/* perch */}
         <path d="M84 178l-4 24M96 184l2 20" stroke={traced ? "currentColor" : "#5a4a3f"} strokeWidth="2.4" strokeLinecap="round" />
-        <path d="M42 204h132" stroke="var(--accent)" strokeWidth="1.2" strokeOpacity="0.4" />
+        <path d="M42 204h132" stroke="#ff6a2b" strokeWidth="1.2" strokeOpacity="0.4" />
         {/* eye */}
         <circle
           cx="66"
           cy="47"
           r="4.6"
-          fill="var(--accent)"
+          fill="#ff6a2b"
           className={animated ? "raven-eye raven-glow" : undefined}
         />
       </g>
@@ -112,7 +112,7 @@ export function RavenGlyph({ className = "h-7 w-7" }: { className?: string }) {
       />
       <path d="M14.5 11 5 13l9.5 2Z" fill="currentColor" />
       <path d="M20 15c5 2.4 7.6 6.6 8 13-4-2.6-8.4-6.6-10.6-10.4-1.2-2 0-3.4 2.6-2.6Z" fill="currentColor" fillOpacity="0.45" />
-      <circle cx="16.5" cy="10.5" r="1.5" fill="var(--accent)" />
+      <circle cx="16.5" cy="10.5" r="1.5" fill="#ff6a2b" />
     </svg>
   );
 }
