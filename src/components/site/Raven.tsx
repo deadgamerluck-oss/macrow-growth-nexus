@@ -52,9 +52,10 @@ export function RavenMascot({ className = "h-40 w-40", animated = true, traced =
         />
         {/* crest feathers */}
         <path
-          d="M78 24c6-9 16-12 24-9-6 3-9 7-10 12M66 26c-2-9 3-17 11-19-4 6-5 12-3 18"
+          d="M80 25c7-7 16-9 23-6-8 2-13 6-16 11M69 23c1-7 6-12 13-13-5 4-8 8-9 14"
           stroke={traced ? "currentColor" : "#4a4e57"}
-          strokeWidth="2"
+          strokeWidth="2.6"
+          strokeOpacity="0.85"
           strokeLinecap="round"
           className={traced ? "raven-trace" : undefined}
         />
