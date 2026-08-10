@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { CtaBand, Section, SectionHeading } from "@/components/site/Primitives";
 import { EcosystemFlow, GrowthLoopSystem } from "@/components/site/Ecosystem";
 import { NeedFinder } from "@/components/site/NeedFinder";
+import { RavenMascot } from "@/components/site/Raven";
 import { StageSelector } from "@/components/site/StageSelector";
 import { industries, objectives, pillars } from "@/content/site";
 import { articles } from "@/content/insights";
@@ -63,7 +64,8 @@ function Home() {
           aria-hidden
         />
         <div className="container-macrow relative py-24 lg:py-36">
-          <div className="max-w-4xl animate-rise">
+          <div className="grid items-center gap-12 lg:grid-cols-[1fr_auto]">
+          <div className="max-w-3xl animate-rise">
             <p className="eyebrow">Digital · Marcomm · Technology</p>
             <h1 className="mt-5 text-4xl font-semibold leading-[1.03] sm:text-6xl lg:text-7xl">
               Growth belongs to those who observe first.
@@ -82,6 +84,8 @@ function Home() {
                 <Link to="/solutions">Explore solutions</Link>
               </Button>
             </div>
+          </div>
+            <RavenMascot className="raven-fly-in mx-auto h-56 w-56 text-foreground/90 lg:h-80 lg:w-80" />
           </div>
 
           <dl className="mt-20 grid gap-8 border-t border-border pt-10 sm:grid-cols-3">
