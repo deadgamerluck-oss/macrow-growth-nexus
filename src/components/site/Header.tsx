@@ -105,8 +105,7 @@ export function Header() {
                   <h2 className="mt-3 text-2xl font-semibold">{pillar.name}</h2>
                   <p className="mt-2 text-sm text-muted-foreground">{pillar.positioning}</p>
                   <Link
-                    to="/$pillar"
-                    params={{ pillar: pillar.slug }}
+                    to={`/${pillar.slug}` as "/digital"}
                     onClick={() => setOpen(null)}
                     className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-accent"
                   >
@@ -121,8 +120,7 @@ export function Header() {
                         {c.services.slice(0, 4).map((s) => (
                           <li key={s}>
                             <Link
-                              to="/$pillar"
-                              params={{ pillar: pillar.slug }}
+                              to={`/${pillar.slug}` as "/digital"}
                               onClick={() => setOpen(null)}
                               className="text-sm text-muted-foreground transition-colors hover:text-accent"
                             >
