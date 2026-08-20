@@ -67,6 +67,14 @@ export function Header() {
             Insights
           </Link>
           <Link
+            to="/careers"
+            onClick={() => setOpen(null)}
+            className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+            activeProps={{ className: "text-foreground" }}
+          >
+            Careers
+          </Link>
+          <Link
             to="/about"
             onClick={() => setOpen(null)}
             className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
@@ -187,6 +195,8 @@ export function Header() {
               { label: "Industries", to: "/industries" },
               { label: "Case Studies", to: "/case-studies" },
               { label: "Insights", to: "/insights" },
+              { label: "Blog", to: "/blog" },
+              { label: "Careers", to: "/careers" },
               { label: "About", to: "/about" },
             ].map((item) => (
               <Link
