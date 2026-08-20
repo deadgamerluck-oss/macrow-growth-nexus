@@ -18,6 +18,7 @@ import { Route as DigitalRouteImport } from './routes/digital'
 import { Route as MarcommRouteImport } from './routes/marcomm'
 import { Route as TechnologyRouteImport } from './routes/technology'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as CaseStudiesIndexRouteImport } from './routes/case-studies.index'
 import { Route as CaseStudiesSlugRouteImport } from './routes/case-studies.$slug'
 import { Route as IndustriesIndexRouteImport } from './routes/industries.index'
@@ -70,6 +71,11 @@ const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
   id: '/admin',
   path: '/admin',
   getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const CaseStudiesIndexRoute = CaseStudiesIndexRouteImport.update({
   id: '/case-studies/',
@@ -125,6 +131,7 @@ export interface FileRoutesByFullPath {
   '/industries/$industry': typeof IndustriesIndustryRoute
   '/insights/$slug': typeof InsightsSlugRoute
   '/solutions/$objective': typeof SolutionsObjectiveRoute
+  '/blog/': typeof BlogIndexRoute
   '/case-studies/': typeof CaseStudiesIndexRoute
   '/industries/': typeof IndustriesIndexRoute
   '/insights/': typeof InsightsIndexRoute
@@ -143,6 +150,7 @@ export interface FileRoutesByTo {
   '/industries/$industry': typeof IndustriesIndustryRoute
   '/insights/$slug': typeof InsightsSlugRoute
   '/solutions/$objective': typeof SolutionsObjectiveRoute
+  '/blog': typeof BlogIndexRoute
   '/case-studies': typeof CaseStudiesIndexRoute
   '/industries': typeof IndustriesIndexRoute
   '/insights': typeof InsightsIndexRoute
@@ -163,6 +171,7 @@ export interface FileRoutesById {
   '/industries/$industry': typeof IndustriesIndustryRoute
   '/insights/$slug': typeof InsightsSlugRoute
   '/solutions/$objective': typeof SolutionsObjectiveRoute
+  '/blog/': typeof BlogIndexRoute
   '/case-studies/': typeof CaseStudiesIndexRoute
   '/industries/': typeof IndustriesIndexRoute
   '/insights/': typeof InsightsIndexRoute
@@ -183,6 +192,7 @@ export interface FileRouteTypes {
     | '/industries/$industry'
     | '/insights/$slug'
     | '/solutions/$objective'
+    | '/blog/'
     | '/case-studies/'
     | '/industries/'
     | '/insights/'
@@ -201,6 +211,7 @@ export interface FileRouteTypes {
     | '/industries/$industry'
     | '/insights/$slug'
     | '/solutions/$objective'
+    | '/blog'
     | '/case-studies'
     | '/industries'
     | '/insights'
@@ -220,6 +231,7 @@ export interface FileRouteTypes {
     | '/industries/$industry'
     | '/insights/$slug'
     | '/solutions/$objective'
+    | '/blog/'
     | '/case-studies/'
     | '/industries/'
     | '/insights/'
@@ -239,6 +251,7 @@ export interface RootRouteChildren {
   IndustriesIndustryRoute: typeof IndustriesIndustryRoute
   InsightsSlugRoute: typeof InsightsSlugRoute
   SolutionsObjectiveRoute: typeof SolutionsObjectiveRoute
+  BlogIndexRoute: typeof BlogIndexRoute
   CaseStudiesIndexRoute: typeof CaseStudiesIndexRoute
   IndustriesIndexRoute: typeof IndustriesIndexRoute
   InsightsIndexRoute: typeof InsightsIndexRoute
@@ -309,6 +322,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/admin'
       preLoaderRoute: typeof AuthenticatedAdminRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/case-studies/': {
       id: '/case-studies/'
@@ -393,6 +413,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndustriesIndustryRoute: IndustriesIndustryRoute,
   InsightsSlugRoute: InsightsSlugRoute,
   SolutionsObjectiveRoute: SolutionsObjectiveRoute,
+  BlogIndexRoute: BlogIndexRoute,
   CaseStudiesIndexRoute: CaseStudiesIndexRoute,
   IndustriesIndexRoute: IndustriesIndexRoute,
   InsightsIndexRoute: InsightsIndexRoute,
