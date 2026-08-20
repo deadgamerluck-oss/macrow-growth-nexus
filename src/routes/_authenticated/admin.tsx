@@ -143,10 +143,10 @@ function useCrud(table: "blog_posts" | "career_openings" | "team_members", keys:
   const invalidate = () => keys.forEach((k) => qc.invalidateQueries({ queryKey: [k] }));
 
   const save = useMutation({
-    mutationFn: async ({ id, values }: { id?: string; values: Record<string, unknown> }) => {
+    mutationFn: async ({ id, values }: { id?: string | undefined; values: Record<string, unknown> }) => {
       const query = id
-        ? supabase.from(table).update(values).eq("id", id)
-        : supabase.from(table).insert(values);
+        ? supabase.from(table).update(values as never).eq("id", id)
+        : supabase.from(table).insert(values as never);
       const { error } = await query;
       if (error) throw new Error(error.message);
     },
@@ -258,7 +258,7 @@ function PostsPanel() {
             defaultValue={editing?.body ?? ""}
           />
           <div className="flex items-center gap-3">
-            <Switch id="post-pub" name="is_published" defaultChecked={editing?.is_published} />
+            <Switch id="post-pub" name="is_published" defaultChecked={editing?.is_published ?? false} />
             <Label htmlFor="post-pub">Published</Label>
           </div>
           <div className="flex gap-2">
@@ -356,7 +356,7 @@ function CareersPanel() {
             defaultValue={editing?.requirements ?? ""}
           />
           <div className="flex items-center gap-3">
-            <Switch id="job-pub" name="is_published" defaultChecked={editing?.is_published} />
+            <Switch id="job-pub" name="is_published" defaultChecked={editing?.is_published ?? false} />
             <Label htmlFor="job-pub">Published</Label>
           </div>
           <div className="flex gap-2">
@@ -533,10 +533,10 @@ function Field({
 }: {
   label: string;
   name: string;
-  defaultValue?: string;
-  placeholder?: string;
-  required?: boolean;
-  type?: string;
+  defaultValue?: string | undefined;
+  placeholder?: string | undefined;
+  required?: boolean | undefined;
+  type?: string | undefined;
 }) {
   return (
     <div className="space-y-1.5">
@@ -562,7 +562,7 @@ function AreaField({
   label: string;
   name: string;
   rows: number;
-  defaultValue?: string;
+  defaultValue?: string | undefined;
 }) {
   return (
     <div className="space-y-1.5">
