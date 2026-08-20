@@ -21,6 +21,7 @@ import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as CareersIndexRouteImport } from './routes/careers.index'
+import { Route as CareersSlugRouteImport } from './routes/careers.$slug'
 import { Route as CaseStudiesIndexRouteImport } from './routes/case-studies.index'
 import { Route as CaseStudiesSlugRouteImport } from './routes/case-studies.$slug'
 import { Route as IndustriesIndexRouteImport } from './routes/industries.index'
@@ -89,6 +90,11 @@ const CareersIndexRoute = CareersIndexRouteImport.update({
   path: '/careers/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CareersSlugRoute = CareersSlugRouteImport.update({
+  id: '/careers/$slug',
+  path: '/careers/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CaseStudiesIndexRoute = CaseStudiesIndexRouteImport.update({
   id: '/case-studies/',
   path: '/case-studies/',
@@ -140,6 +146,7 @@ export interface FileRoutesByFullPath {
   '/technology': typeof TechnologyRoute
   '/admin': typeof AuthenticatedAdminRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/careers/$slug': typeof CareersSlugRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/industries/$industry': typeof IndustriesIndustryRoute
   '/insights/$slug': typeof InsightsSlugRoute
@@ -161,6 +168,7 @@ export interface FileRoutesByTo {
   '/technology': typeof TechnologyRoute
   '/admin': typeof AuthenticatedAdminRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/careers/$slug': typeof CareersSlugRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/industries/$industry': typeof IndustriesIndustryRoute
   '/insights/$slug': typeof InsightsSlugRoute
@@ -184,6 +192,7 @@ export interface FileRoutesById {
   '/technology': typeof TechnologyRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/careers/$slug': typeof CareersSlugRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/industries/$industry': typeof IndustriesIndustryRoute
   '/insights/$slug': typeof InsightsSlugRoute
@@ -207,6 +216,7 @@ export interface FileRouteTypes {
     | '/technology'
     | '/admin'
     | '/blog/$slug'
+    | '/careers/$slug'
     | '/case-studies/$slug'
     | '/industries/$industry'
     | '/insights/$slug'
@@ -228,6 +238,7 @@ export interface FileRouteTypes {
     | '/technology'
     | '/admin'
     | '/blog/$slug'
+    | '/careers/$slug'
     | '/case-studies/$slug'
     | '/industries/$industry'
     | '/insights/$slug'
@@ -250,6 +261,7 @@ export interface FileRouteTypes {
     | '/technology'
     | '/_authenticated/admin'
     | '/blog/$slug'
+    | '/careers/$slug'
     | '/case-studies/$slug'
     | '/industries/$industry'
     | '/insights/$slug'
@@ -272,6 +284,7 @@ export interface RootRouteChildren {
   MarcommRoute: typeof MarcommRoute
   TechnologyRoute: typeof TechnologyRoute
   BlogSlugRoute: typeof BlogSlugRoute
+  CareersSlugRoute: typeof CareersSlugRoute
   CaseStudiesSlugRoute: typeof CaseStudiesSlugRoute
   IndustriesIndustryRoute: typeof IndustriesIndustryRoute
   InsightsSlugRoute: typeof InsightsSlugRoute
@@ -370,6 +383,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CareersIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/careers/$slug': {
+      id: '/careers/$slug'
+      path: '/careers/$slug'
+      fullPath: '/careers/$slug'
+      preLoaderRoute: typeof CareersSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/case-studies/': {
       id: '/case-studies/'
       path: '/case-studies'
@@ -450,6 +470,7 @@ const rootRouteChildren: RootRouteChildren = {
   MarcommRoute: MarcommRoute,
   TechnologyRoute: TechnologyRoute,
   BlogSlugRoute: BlogSlugRoute,
+  CareersSlugRoute: CareersSlugRoute,
   CaseStudiesSlugRoute: CaseStudiesSlugRoute,
   IndustriesIndustryRoute: IndustriesIndustryRoute,
   InsightsSlugRoute: InsightsSlugRoute,
