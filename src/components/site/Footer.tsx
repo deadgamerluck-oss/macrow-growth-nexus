@@ -36,9 +36,11 @@ const columns = [
     title: "Explore",
     links: [
       { label: "Insights", to: "/insights" as const },
+      { label: "Blog", to: "/blog" as const },
       { label: "Case Studies", to: "/case-studies" as const },
       { label: "Industries", to: "/industries" as const },
       { label: "About MACROW", to: "/about" as const },
+      { label: "Careers", to: "/careers" as const },
     ],
   },
 ];
