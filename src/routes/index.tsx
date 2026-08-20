@@ -6,8 +6,12 @@ import { CtaBand, Section, SectionHeading } from "@/components/site/Primitives";
 import { EcosystemFlow, GrowthLoopSystem } from "@/components/site/Ecosystem";
 import { NeedFinder } from "@/components/site/NeedFinder";
 import { StageSelector } from "@/components/site/StageSelector";
+import { ConsultPopup } from "@/components/site/ConsultPopup";
+import { Reveal, Stagger, StaggerItem } from "@/components/site/Reveal";
 import { industries, objectives, pillars } from "@/content/site";
 import { articles } from "@/content/insights";
+import heroLoop from "@/assets/hero-loop.mp4.asset.json";
+import heroPoster from "@/assets/hero-poster.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -55,41 +59,61 @@ function Home() {
 
   return (
     <>
-      <section className="relative overflow-hidden border-b border-border">
-        <div className="grid-mesh pointer-events-none absolute inset-0 opacity-60" aria-hidden />
-        <div
-          className="pointer-events-none absolute -right-40 top-0 h-[32rem] w-[32rem] rounded-full opacity-[0.18] blur-3xl animate-drift"
-          style={{ background: "var(--gradient-accent)" }}
+      <ConsultPopup />
+      <section className="surface-ink relative overflow-hidden border-b border-border">
+        <video
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-45"
+          src={heroLoop.url}
+          poster={heroPoster}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
           aria-hidden
         />
-        <div className="container-macrow relative py-24 lg:py-36">
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(100deg, color-mix(in oklab, var(--ink) 88%, transparent), color-mix(in oklab, var(--ink) 45%, transparent))",
+          }}
+          aria-hidden
+        />
+        <div className="grid-mesh pointer-events-none absolute inset-0 opacity-25" aria-hidden />
+        <div className="container-macrow relative py-28 lg:py-40">
           <div className="max-w-4xl animate-rise">
             <p className="eyebrow">Digital · Marcomm · Technology</p>
-            <h1 className="mt-5 text-4xl font-semibold leading-[1.03] sm:text-6xl lg:text-7xl">
+            <h1 className="mt-5 text-4xl font-semibold leading-[1.03] text-ink-foreground sm:text-6xl lg:text-7xl">
               Growth belongs to those who observe first.
             </h1>
-            <p className="mt-7 max-w-2xl text-lg leading-relaxed text-muted-foreground sm:text-xl">
+            <p className="mt-7 max-w-2xl text-lg leading-relaxed text-ink-foreground/75 sm:text-xl">
               MACROW is a global growth platform where strategy, marketing, communication and
               technology are planned as one system — so nothing is bought before it is understood.
             </p>
             <div className="mt-10 flex flex-wrap gap-3">
-              <Button asChild size="lg" className="rounded-full px-7">
+              <Button asChild size="lg" variant="secondary" className="rounded-full px-7">
                 <Link to="/contact">
                   Start a Conversation <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="rounded-full px-7">
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="rounded-full border-ink-foreground/30 bg-transparent px-7 text-ink-foreground hover:bg-ink-foreground/10 hover:text-ink-foreground"
+              >
                 <Link to="/solutions">Explore solutions</Link>
               </Button>
             </div>
           </div>
 
-          <dl className="mt-20 grid gap-8 border-t border-border pt-10 sm:grid-cols-3">
+          <dl className="mt-20 grid gap-8 border-t border-ink-foreground/15 pt-10 sm:grid-cols-3">
             {pillars.map((pillar) => (
               <div key={pillar.slug}>
                 <dt className="eyebrow">{pillar.tagline}</dt>
-                <dd className="mt-3 text-lg font-semibold">{pillar.name}</dd>
-                <dd className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                <dd className="mt-3 text-lg font-semibold text-ink-foreground">{pillar.name}</dd>
+                <dd className="mt-2 text-sm leading-relaxed text-ink-foreground/65">
                   {pillar.summary}
                 </dd>
               </div>
@@ -105,13 +129,13 @@ function Home() {
           intro="Most companies buy these in fragments. The gaps between vendors are where growth quietly leaks."
         />
         <EcosystemFlow />
-        <div className="mt-14 grid gap-5 lg:grid-cols-3">
+        <Stagger className="mt-14 grid gap-5 lg:grid-cols-3">
           {pillars.map((pillar) => (
-            <Link
-              key={pillar.slug}
-              to={`/${pillar.slug}`}
-              className="card-elevate group flex flex-col p-7"
-            >
+            <StaggerItem key={pillar.slug} className="h-full">
+              <Link
+                to={`/${pillar.slug}`}
+                className="card-elevate group flex h-full flex-col p-7"
+              >
               <p className="eyebrow">{pillar.tagline}</p>
               <h3 className="mt-3 flex items-center gap-2 text-xl font-semibold">
                 {pillar.name}
@@ -125,9 +149,10 @@ function Home() {
                   <li key={c.name}>{c.name}</li>
                 ))}
               </ul>
-            </Link>
+              </Link>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
       </Section>
 
       <Section tone="muted" id="stages">
@@ -166,8 +191,8 @@ function Home() {
         />
         <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {objectives.slice(0, 6).map((o) => (
+            <Reveal key={o.slug}>
             <Link
-              key={o.slug}
               to="/solutions/$objective"
               params={{ objective: o.slug }}
               className="card-elevate group flex items-center justify-between gap-3 p-5"
@@ -175,6 +200,7 @@ function Home() {
               <span className="text-sm font-semibold">{o.label}</span>
               <ArrowRight className="h-4 w-4 shrink-0 text-accent transition-transform group-hover:translate-x-1" />
             </Link>
+            </Reveal>
           ))}
         </div>
         <Button asChild variant="ghost" className="mt-8 rounded-full">
@@ -212,17 +238,18 @@ function Home() {
         />
         <div className="mt-12 grid gap-5 md:grid-cols-3">
           {featured.map((a) => (
+            <Reveal key={a.slug} className="h-full">
             <Link
-              key={a.slug}
               to="/insights/$slug"
               params={{ slug: a.slug }}
-              className="card-elevate flex flex-col p-6"
+              className="card-elevate flex h-full flex-col p-6"
             >
               <p className="eyebrow">{a.category}</p>
               <h3 className="mt-3 text-base font-semibold leading-snug">{a.title}</h3>
               <p className="mt-2 flex-1 text-sm text-muted-foreground">{a.description}</p>
               <p className="mt-5 text-xs text-muted-foreground">{a.readingTime}</p>
             </Link>
+            </Reveal>
           ))}
         </div>
         <Button asChild variant="ghost" className="mt-8 rounded-full">
