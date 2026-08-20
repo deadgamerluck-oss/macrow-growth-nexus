@@ -19,6 +19,7 @@ import { Route as MarcommRouteImport } from './routes/marcomm'
 import { Route as TechnologyRouteImport } from './routes/technology'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as CaseStudiesIndexRouteImport } from './routes/case-studies.index'
 import { Route as CaseStudiesSlugRouteImport } from './routes/case-studies.$slug'
 import { Route as IndustriesIndexRouteImport } from './routes/industries.index'
@@ -77,6 +78,11 @@ const BlogIndexRoute = BlogIndexRouteImport.update({
   path: '/blog/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CaseStudiesIndexRoute = CaseStudiesIndexRouteImport.update({
   id: '/case-studies/',
   path: '/case-studies/',
@@ -127,6 +133,7 @@ export interface FileRoutesByFullPath {
   '/marcomm': typeof MarcommRoute
   '/technology': typeof TechnologyRoute
   '/admin': typeof AuthenticatedAdminRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/industries/$industry': typeof IndustriesIndustryRoute
   '/insights/$slug': typeof InsightsSlugRoute
@@ -146,6 +153,7 @@ export interface FileRoutesByTo {
   '/marcomm': typeof MarcommRoute
   '/technology': typeof TechnologyRoute
   '/admin': typeof AuthenticatedAdminRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/industries/$industry': typeof IndustriesIndustryRoute
   '/insights/$slug': typeof InsightsSlugRoute
@@ -167,6 +175,7 @@ export interface FileRoutesById {
   '/marcomm': typeof MarcommRoute
   '/technology': typeof TechnologyRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/industries/$industry': typeof IndustriesIndustryRoute
   '/insights/$slug': typeof InsightsSlugRoute
@@ -188,6 +197,7 @@ export interface FileRouteTypes {
     | '/marcomm'
     | '/technology'
     | '/admin'
+    | '/blog/$slug'
     | '/case-studies/$slug'
     | '/industries/$industry'
     | '/insights/$slug'
@@ -207,6 +217,7 @@ export interface FileRouteTypes {
     | '/marcomm'
     | '/technology'
     | '/admin'
+    | '/blog/$slug'
     | '/case-studies/$slug'
     | '/industries/$industry'
     | '/insights/$slug'
@@ -227,6 +238,7 @@ export interface FileRouteTypes {
     | '/marcomm'
     | '/technology'
     | '/_authenticated/admin'
+    | '/blog/$slug'
     | '/case-studies/$slug'
     | '/industries/$industry'
     | '/insights/$slug'
@@ -247,6 +259,7 @@ export interface RootRouteChildren {
   DigitalRoute: typeof DigitalRoute
   MarcommRoute: typeof MarcommRoute
   TechnologyRoute: typeof TechnologyRoute
+  BlogSlugRoute: typeof BlogSlugRoute
   CaseStudiesSlugRoute: typeof CaseStudiesSlugRoute
   IndustriesIndustryRoute: typeof IndustriesIndustryRoute
   InsightsSlugRoute: typeof InsightsSlugRoute
@@ -330,6 +343,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/case-studies/': {
       id: '/case-studies/'
       path: '/case-studies'
@@ -409,6 +429,7 @@ const rootRouteChildren: RootRouteChildren = {
   DigitalRoute: DigitalRoute,
   MarcommRoute: MarcommRoute,
   TechnologyRoute: TechnologyRoute,
+  BlogSlugRoute: BlogSlugRoute,
   CaseStudiesSlugRoute: CaseStudiesSlugRoute,
   IndustriesIndustryRoute: IndustriesIndustryRoute,
   InsightsSlugRoute: InsightsSlugRoute,
