@@ -191,8 +191,8 @@ function Home() {
         />
         <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {objectives.slice(0, 6).map((o) => (
+            <Reveal key={o.slug}>
             <Link
-              key={o.slug}
               to="/solutions/$objective"
               params={{ objective: o.slug }}
               className="card-elevate group flex items-center justify-between gap-3 p-5"
@@ -200,6 +200,7 @@ function Home() {
               <span className="text-sm font-semibold">{o.label}</span>
               <ArrowRight className="h-4 w-4 shrink-0 text-accent transition-transform group-hover:translate-x-1" />
             </Link>
+            </Reveal>
           ))}
         </div>
         <Button asChild variant="ghost" className="mt-8 rounded-full">
@@ -237,17 +238,18 @@ function Home() {
         />
         <div className="mt-12 grid gap-5 md:grid-cols-3">
           {featured.map((a) => (
+            <Reveal key={a.slug} className="h-full">
             <Link
-              key={a.slug}
               to="/insights/$slug"
               params={{ slug: a.slug }}
-              className="card-elevate flex flex-col p-6"
+              className="card-elevate flex h-full flex-col p-6"
             >
               <p className="eyebrow">{a.category}</p>
               <h3 className="mt-3 text-base font-semibold leading-snug">{a.title}</h3>
               <p className="mt-2 flex-1 text-sm text-muted-foreground">{a.description}</p>
               <p className="mt-5 text-xs text-muted-foreground">{a.readingTime}</p>
             </Link>
+            </Reveal>
           ))}
         </div>
         <Button asChild variant="ghost" className="mt-8 rounded-full">
