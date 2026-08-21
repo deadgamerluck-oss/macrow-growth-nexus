@@ -108,17 +108,10 @@ function Home() {
             </div>
           </div>
 
-          <dl className="mt-20 grid gap-8 border-t border-ink-foreground/15 pt-10 sm:grid-cols-3">
-            {pillars.map((pillar) => (
-              <div key={pillar.slug}>
-                <dt className="eyebrow">{pillar.tagline}</dt>
-                <dd className="mt-3 text-lg font-semibold text-ink-foreground">{pillar.name}</dd>
-                <dd className="mt-2 text-sm leading-relaxed text-ink-foreground/65">
-                  {pillar.summary}
-                </dd>
-              </div>
-            ))}
-          </dl>
+          <p className="mt-20 max-w-xl border-t border-ink-foreground/15 pt-8 text-sm leading-relaxed text-ink-foreground/60">
+            Working globally with startups, SMEs and enterprises across fourteen sectors.
+          </p>
+
         </div>
       </section>
 
