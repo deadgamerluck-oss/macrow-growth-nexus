@@ -92,20 +92,20 @@ function AboutPage() {
           </Reveal>
           <Reveal delay={0.1} className="space-y-6 text-base leading-[1.75] text-muted-foreground">
             <p>
-              Most companies buy capability in fragments: an agency for ads, a studio for brand, a
-              vendor for software. Each one optimises its own metric, and nobody is accountable for
-              the business outcome.
+              We started MACROW after watching the same pattern repeat: three vendors, three
+              dashboards, three definitions of success, and no single person answerable for revenue.
             </p>
             <p>
-              MACROW is built the other way around. A single strategic view, three delivery pillars,
-              and one loop that keeps improving as evidence arrives. We tell clients what not to do
-              as often as what to do.
+              So we built the opposite. One strategic view, three delivery pillars, and a loop that
+              sharpens as evidence arrives. We tell clients what not to do as often as what to do —
+              and we say no to work that would only look busy.
             </p>
             <p>
               We operate globally and stay deliberately sector-aware: the method is consistent, the
-              application is not.
+              application never is.
             </p>
           </Reveal>
+
         </div>
       </Section>
 
