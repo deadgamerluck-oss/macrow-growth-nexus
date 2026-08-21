@@ -7,8 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { NeedFinder } from "@/components/site/NeedFinder";
-import { PageHero, Section, SectionHeading } from "@/components/site/Primitives";
+import { PageHero, Section } from "@/components/site/Primitives";
 
 const schema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
