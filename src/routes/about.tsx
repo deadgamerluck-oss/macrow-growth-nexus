@@ -72,7 +72,7 @@ function AboutPage() {
       <PageHero
         eyebrow="About MACROW"
         title="Intelligence, observation, adaptability."
-        intro="MACROW exists because growth stopped being a marketing problem. It is now a question of strategy, communication and technology moving together — which is exactly what fragmented vendors cannot deliver."
+        intro="Growth stopped being a marketing problem. It is now a question of strategy, communication and technology moving in the same direction — with one team accountable for the result."
       />
 
       <Section>
