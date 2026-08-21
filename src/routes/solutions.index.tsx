@@ -56,19 +56,20 @@ function SolutionsIndex() {
           ))}
         </div>
       </Section>
-      <Section tone="muted">
+      <Section tone="muted" id="discovery">
         <SectionHeading
           eyebrow="Discovery tool"
           title="A guided consultation, not a quiz."
-          intro="Five questions, one recommendation. Built as a consultation, not a quiz."
+          intro="Five questions, answered the way you'd answer them in a first meeting. You get a recommendation — no email required."
         />
         <NeedFinder />
       </Section>
       <CtaBand
-        title="Bring the objective. We will handle the order."
-        body="Bring the objective. We'll bring the sequence."
+        title="Bring the objective, we'll bring the sequence."
+        body="Tell us the outcome you're measured on and we'll tell you what we'd do first."
         action="Start a Conversation"
       />
+
     </>
   );
 }
