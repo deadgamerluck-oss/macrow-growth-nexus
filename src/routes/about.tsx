@@ -4,7 +4,6 @@ import { Compass, Eye, Layers, Repeat } from "lucide-react";
 import { CtaBand, PageHero, Section, SectionHeading } from "@/components/site/Primitives";
 import { Reveal } from "@/components/site/Reveal";
 import { TeamSection } from "@/components/site/TeamSection";
-import { pillars } from "@/content/site";
 import teamCollab from "@/assets/team-collab.jpg";
 
 export const Route = createFileRoute("/about")({

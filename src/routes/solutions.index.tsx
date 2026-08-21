@@ -59,13 +59,13 @@ function SolutionsIndex() {
       <Section tone="muted">
         <SectionHeading
           eyebrow="Discovery tool"
-          title="Not sure what you need?"
+          title="A guided consultation, not a quiz."
           intro="Five questions, one recommendation. Built as a consultation, not a quiz."
         />
         <NeedFinder />
       </Section>
       <CtaBand
-        title="Let's build what's next."
+        title="Bring the objective. We will handle the order."
         body="Bring the objective. We'll bring the sequence."
         action="Start a Conversation"
       />
