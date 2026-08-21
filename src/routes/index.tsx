@@ -4,7 +4,6 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CtaBand, Section, SectionHeading } from "@/components/site/Primitives";
 import { EcosystemFlow, GrowthLoopSystem } from "@/components/site/Ecosystem";
-import { NeedFinder } from "@/components/site/NeedFinder";
 import { StageSelector } from "@/components/site/StageSelector";
 import { ConsultPopup } from "@/components/site/ConsultPopup";
 import { Reveal, Stagger, StaggerItem } from "@/components/site/Reveal";
@@ -119,7 +118,7 @@ function Home() {
         <SectionHeading
           eyebrow="The ecosystem"
           title="Three pillars that only work together."
-          intro="Most companies buy these in fragments. The gaps between vendors are where growth quietly leaks."
+          intro="Bought separately they compete for budget. Planned together they compound — one diagnosis, one sequence, one owner."
         />
         <EcosystemFlow />
         <Stagger className="mt-14 grid gap-5 lg:grid-cols-3">
