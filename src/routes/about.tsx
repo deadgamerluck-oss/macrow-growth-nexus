@@ -135,24 +135,12 @@ function AboutPage() {
         </div>
       </Section>
 
-      <Section tone="muted">
-        <SectionHeading eyebrow="Capabilities" title="Three pillars, one plan" />
-        <div className="mt-12 grid gap-5 lg:grid-cols-3">
-          {pillars.map((pillar) => (
-            <div key={pillar.slug} className="card-elevate p-7">
-              <p className="eyebrow">{pillar.tagline}</p>
-              <h3 className="mt-3 text-xl font-semibold">{pillar.name}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{pillar.summary}</p>
-            </div>
-          ))}
-        </div>
-      </Section>
-
       <CtaBand
-        title="Let's build what's next."
+        title="Meet the thinking behind the work."
         body="Bring the ambition and the constraints. We'll bring the plan."
         action="Start a Conversation"
       />
+
     </>
   );
 }
