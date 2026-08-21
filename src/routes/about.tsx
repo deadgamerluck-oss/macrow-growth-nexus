@@ -4,7 +4,6 @@ import { Compass, Eye, Layers, Repeat } from "lucide-react";
 import { CtaBand, PageHero, Section, SectionHeading } from "@/components/site/Primitives";
 import { Reveal } from "@/components/site/Reveal";
 import { TeamSection } from "@/components/site/TeamSection";
-import { pillars } from "@/content/site";
 import teamCollab from "@/assets/team-collab.jpg";
 
 export const Route = createFileRoute("/about")({
@@ -72,7 +71,7 @@ function AboutPage() {
       <PageHero
         eyebrow="About MACROW"
         title="Intelligence, observation, adaptability."
-        intro="MACROW exists because growth stopped being a marketing problem. It is now a question of strategy, communication and technology moving together — which is exactly what fragmented vendors cannot deliver."
+        intro="Growth stopped being a marketing problem. It is now a question of strategy, communication and technology moving in the same direction — with one team accountable for the result."
       />
 
       <Section>
@@ -92,20 +91,20 @@ function AboutPage() {
           </Reveal>
           <Reveal delay={0.1} className="space-y-6 text-base leading-[1.75] text-muted-foreground">
             <p>
-              Most companies buy capability in fragments: an agency for ads, a studio for brand, a
-              vendor for software. Each one optimises its own metric, and nobody is accountable for
-              the business outcome.
+              We started MACROW after watching the same pattern repeat: three vendors, three
+              dashboards, three definitions of success, and no single person answerable for revenue.
             </p>
             <p>
-              MACROW is built the other way around. A single strategic view, three delivery pillars,
-              and one loop that keeps improving as evidence arrives. We tell clients what not to do
-              as often as what to do.
+              So we built the opposite. One strategic view, three delivery pillars, and a loop that
+              sharpens as evidence arrives. We tell clients what not to do as often as what to do —
+              and we say no to work that would only look busy.
             </p>
             <p>
               We operate globally and stay deliberately sector-aware: the method is consistent, the
-              application is not.
+              application never is.
             </p>
           </Reveal>
+
         </div>
       </Section>
 
@@ -135,24 +134,12 @@ function AboutPage() {
         </div>
       </Section>
 
-      <Section tone="muted">
-        <SectionHeading eyebrow="Capabilities" title="Three pillars, one plan" />
-        <div className="mt-12 grid gap-5 lg:grid-cols-3">
-          {pillars.map((pillar) => (
-            <div key={pillar.slug} className="card-elevate p-7">
-              <p className="eyebrow">{pillar.tagline}</p>
-              <h3 className="mt-3 text-xl font-semibold">{pillar.name}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{pillar.summary}</p>
-            </div>
-          ))}
-        </div>
-      </Section>
-
       <CtaBand
-        title="Let's build what's next."
+        title="Meet the thinking behind the work."
         body="Bring the ambition and the constraints. We'll bring the plan."
         action="Start a Conversation"
       />
+
     </>
   );
 }

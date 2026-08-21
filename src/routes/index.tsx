@@ -4,7 +4,6 @@ import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CtaBand, Section, SectionHeading } from "@/components/site/Primitives";
 import { EcosystemFlow, GrowthLoopSystem } from "@/components/site/Ecosystem";
-import { NeedFinder } from "@/components/site/NeedFinder";
 import { StageSelector } from "@/components/site/StageSelector";
 import { ConsultPopup } from "@/components/site/ConsultPopup";
 import { Reveal, Stagger, StaggerItem } from "@/components/site/Reveal";
@@ -108,17 +107,10 @@ function Home() {
             </div>
           </div>
 
-          <dl className="mt-20 grid gap-8 border-t border-ink-foreground/15 pt-10 sm:grid-cols-3">
-            {pillars.map((pillar) => (
-              <div key={pillar.slug}>
-                <dt className="eyebrow">{pillar.tagline}</dt>
-                <dd className="mt-3 text-lg font-semibold text-ink-foreground">{pillar.name}</dd>
-                <dd className="mt-2 text-sm leading-relaxed text-ink-foreground/65">
-                  {pillar.summary}
-                </dd>
-              </div>
-            ))}
-          </dl>
+          <p className="mt-20 max-w-xl border-t border-ink-foreground/15 pt-8 text-sm leading-relaxed text-ink-foreground/60">
+            Working globally with startups, SMEs and enterprises across fourteen sectors.
+          </p>
+
         </div>
       </section>
 
@@ -126,7 +118,7 @@ function Home() {
         <SectionHeading
           eyebrow="The ecosystem"
           title="Three pillars that only work together."
-          intro="Most companies buy these in fragments. The gaps between vendors are where growth quietly leaks."
+          intro="Bought separately they compete for budget. Planned together they compound — one diagnosis, one sequence, one owner."
         />
         <EcosystemFlow />
         <Stagger className="mt-14 grid gap-5 lg:grid-cols-3">
@@ -174,20 +166,11 @@ function Home() {
         <GrowthLoopSystem />
       </Section>
 
-      <Section id="need-finder">
+      <Section id="start-here">
         <SectionHeading
-          eyebrow="Need finder"
-          title="Not sure what you actually need?"
-          intro="Answer a few questions the way you'd answer them in a first meeting. You'll get a recommendation, not a sales pitch."
-        />
-        <NeedFinder />
-      </Section>
-
-      <Section tone="muted">
-        <SectionHeading
-          eyebrow="By objective"
-          title="Start from the outcome you want."
-          intro="Nobody wakes up wanting a channel. They want a result."
+          eyebrow="Where to start"
+          title="Pick the outcome. We'll sequence the work."
+          intro="Nobody wakes up wanting a channel — they want a result. Choose an objective, or tell us your sector and we'll adapt the method to it."
         />
         <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {objectives.slice(0, 6).map((o) => (
@@ -203,21 +186,8 @@ function Home() {
             </Reveal>
           ))}
         </div>
-        <Button asChild variant="ghost" className="mt-8 rounded-full">
-          <Link to="/solutions">
-            All solutions <ArrowRight className="ml-2 h-4 w-4" />
-          </Link>
-        </Button>
-      </Section>
-
-      <Section>
-        <SectionHeading
-          eyebrow="Industries"
-          title="Context changes the answer."
-          intro="The method is consistent. The application never is."
-        />
-        <div className="mt-12 flex flex-wrap gap-2.5">
-          {industries.map((i) => (
+        <div className="mt-10 flex flex-wrap gap-2.5 border-t border-border pt-8">
+          {industries.slice(0, 8).map((i) => (
             <Link
               key={i.slug}
               to="/industries/$industry"
@@ -227,8 +197,20 @@ function Home() {
               {i.name}
             </Link>
           ))}
+          <Link
+            to="/industries"
+            className="rounded-full border border-accent/40 px-4 py-2 text-sm font-medium text-accent"
+          >
+            All industries
+          </Link>
         </div>
+        <Button asChild variant="ghost" className="mt-8 rounded-full">
+          <Link to="/solutions">
+            Explore all solutions <ArrowRight className="ml-2 h-4 w-4" />
+          </Link>
+        </Button>
       </Section>
+
 
       <Section tone="muted">
         <SectionHeading

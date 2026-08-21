@@ -107,7 +107,7 @@ function BlogPostPage() {
       </article>
 
       <CtaBand
-        title="Let's build what's next."
+        title="Turn this thinking into a plan."
         body="Bring the ambition and the constraints. We'll bring the plan."
         action="Start a Conversation"
       />

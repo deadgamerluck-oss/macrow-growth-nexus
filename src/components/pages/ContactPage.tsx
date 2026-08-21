@@ -7,8 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { NeedFinder } from "@/components/site/NeedFinder";
-import { PageHero, Section, SectionHeading } from "@/components/site/Primitives";
+import { PageHero, Section } from "@/components/site/Primitives";
 
 const schema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
@@ -142,33 +141,26 @@ export function ContactPage() {
               </p>
             </div>
             <div className="card-elevate p-6">
-              <p className="eyebrow">Not sure what you need?</p>
+              <p className="eyebrow">Still scoping</p>
               <p className="mt-3 text-sm text-muted-foreground">
-                Answer five questions and we'll outline a starting combination of capabilities.
+                Use the discovery tool first — five questions, one recommended starting combination
+                of capabilities.
               </p>
               <Link
-                to="/contact"
+                to="/solutions"
                 hash="discovery"
                 className="mt-4 inline-block text-sm font-medium text-accent hover:underline"
               >
-                I'm not sure what I need →
+                Open the discovery tool →
               </Link>
             </div>
           </aside>
         </div>
       </Section>
-
-      <Section tone="muted" id="discovery">
-        <SectionHeading
-          eyebrow="Discovery tool"
-          title="Not sure what you need?"
-          intro="A short guided consultation. No email required to see the recommendation."
-        />
-        <NeedFinder />
-      </Section>
     </>
   );
 }
+
 
 function Field({
   label,

@@ -92,7 +92,7 @@ function ObjectivePage() {
       </Section>
 
       <CtaBand
-        title="Let's build what's next."
+        title="Want this outcome in your business?"
         body="We'll map this objective to a sequence that fits your stage and budget."
         action="Start a Conversation"
       />
