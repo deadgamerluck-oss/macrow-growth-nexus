@@ -107,14 +107,6 @@ function Home() {
               </Button>
             </div>
           </div>
-<<<<<<< HEAD
-=======
-
-          <p className="mt-20 max-w-xl border-t border-ink-foreground/15 pt-8 text-sm leading-relaxed text-ink-foreground/60">
-            Working globally with startups, SMEs and enterprises across fourteen sectors.
-          </p>
-
->>>>>>> 3aee5768c9426697145542b598a09d6d91c2c22e
         </div>
       </section>
 

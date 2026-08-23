@@ -70,13 +70,9 @@ function SolutionsIndex() {
         body="Tell us the outcome you're measured on and we'll tell you what we'd do first."
         action="Start a Conversation"
       />
-<<<<<<< HEAD
       <Section className="py-12 w-full" id="contact-form" tone="muted">
         <ContactForm />
       </Section>
-=======
-
->>>>>>> 3aee5768c9426697145542b598a09d6d91c2c22e
     </>
   );
 }
