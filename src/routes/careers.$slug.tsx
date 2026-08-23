@@ -114,9 +114,7 @@ function CareerDetail() {
               Send a short note about why this role, plus links to work you own.
             </p>
             <Button asChild className="mt-5 w-full rounded-full">
-              <a
-                href={`mailto:careers@macrow.com?subject=${encodeURIComponent(`Application: ${job.title}`)}`}
-              >
+              <a href={`mailto:careers@macrow.com?subject=${encodeURIComponent(`Application: ${job.title}`)}`}>
                 Apply by email
               </a>
             </Button>
@@ -132,4 +130,4 @@ function CareerDetail() {
       />
     </>
   );
-}
+}   
