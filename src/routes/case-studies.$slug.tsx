@@ -93,7 +93,7 @@ function CaseStudyPage() {
       </Section>
 
       <CtaBand
-        title="Let's build what's next."
+        title="Have a similar problem to solve?"
         body="Every engagement starts with a conversation about outcomes, not deliverables."
         action="Start a Conversation"
       />

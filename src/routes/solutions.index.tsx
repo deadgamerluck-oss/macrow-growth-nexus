@@ -57,22 +57,26 @@ function SolutionsIndex() {
           ))}
         </div>
       </Section>
-      <Section tone="muted">
+      <Section tone="muted" id="discovery">
         <SectionHeading
           eyebrow="Discovery tool"
-          title="Not sure what you need?"
-          intro="Five questions, one recommendation. Built as a consultation, not a quiz."
+          title="A guided consultation, not a quiz."
+          intro="Five questions, answered the way you'd answer them in a first meeting. You get a recommendation — no email required."
         />
         <NeedFinder />
       </Section>
       <CtaBand
-        title="Let's build what's next."
-        body="Bring the objective. We'll bring the sequence."
+        title="Bring the objective, we'll bring the sequence."
+        body="Tell us the outcome you're measured on and we'll tell you what we'd do first."
         action="Start a Conversation"
       />
+<<<<<<< HEAD
       <Section className="py-12 w-full" id="contact-form" tone="muted">
         <ContactForm />
       </Section>
+=======
+
+>>>>>>> 3aee5768c9426697145542b598a09d6d91c2c22e
     </>
   );
 }

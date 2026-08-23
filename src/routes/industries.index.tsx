@@ -32,7 +32,7 @@ function IndustriesIndex() {
     <>
       <PageHero
         eyebrow="Industries"
-        title="Context changes the answer."
+        title="The method is consistent. The application never is."
         intro="The same capability behaves differently in a hospital, a factory and a SaaS company. These are the priorities we start from in each sector."
       />
       <Section>
