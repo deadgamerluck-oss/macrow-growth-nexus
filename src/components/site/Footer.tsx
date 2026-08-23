@@ -58,10 +58,10 @@ const columns = [
 ];
 
 const socials = [
-  { label: "LinkedIn", Icon: Linkedin },
-  { label: "Instagram", Icon: Instagram },
-  { label: "Facebook", Icon: Facebook },
-  { label: "YouTube", Icon: Youtube },
+  { label: "LinkedIn", Icon: Linkedin, links: "https://www.linkedin.com/company/macrow-digital/" },
+  { label: "Instagram", Icon: Instagram, links: "https://www.instagram.com/macrowdigital/" },
+  { label: "Facebook", Icon: Facebook, links: "https://www.facebook.com/macrowdigital/" },
+  // { label: "YouTube", Icon: Youtube, links: "https://www.linkedin.com/company/macrow-digital/" },
 ];
 
 export function Footer() {
@@ -81,23 +81,18 @@ export function Footer() {
             A global Digital, Marcomm and Technology growth partner for businesses at every stage.
           </p>
           <div className="mt-6 flex gap-2">
-            {socials.map(({ label, Icon }) => (
+            {socials.map(({ label, Icon, links }) => (
               <a
                 key={label}
-                href="#"
+                href={links}
                 aria-label={label}
+                target="_blank"
                 className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-ink-foreground/20 text-ink-foreground/70 transition-colors hover:border-accent hover:text-accent"
               >
                 <Icon className="h-4 w-4" />
               </a>
             ))}
-            <a
-              href="#"
-              aria-label="X"
-              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-ink-foreground/20 text-sm text-ink-foreground/70 transition-colors hover:border-accent hover:text-accent"
-            >
-              X
-            </a>
+
           </div>
         </div>
 
