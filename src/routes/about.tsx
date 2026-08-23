@@ -4,11 +4,8 @@ import { Compass, Eye, Layers, Repeat } from "lucide-react";
 import { CtaBand, PageHero, Section, SectionHeading } from "@/components/site/Primitives";
 import { Reveal } from "@/components/site/Reveal";
 import { TeamSection } from "@/components/site/TeamSection";
-<<<<<<< HEAD
 import { ContactForm } from "@/components/site/ContactForm";
 import { pillars } from "@/content/site";
-=======
->>>>>>> 3aee5768c9426697145542b598a09d6d91c2c22e
 import teamCollab from "@/assets/team-collab.jpg";
 
 export const Route = createFileRoute("/about")({
@@ -155,12 +152,9 @@ function AboutPage() {
         action="Start a Conversation"
       />
 
-<<<<<<< HEAD
       <Section className="py-12 w-full" id="contact-form" tone="muted">
         <ContactForm />
       </Section>
-=======
->>>>>>> 3aee5768c9426697145542b598a09d6d91c2c22e
     </>
   );
 }
