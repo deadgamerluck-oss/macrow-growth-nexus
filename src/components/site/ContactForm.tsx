@@ -195,9 +195,7 @@ export function ContactForm() {
           <Button type="submit" size="lg" className="mt-8 rounded-full px-7" disabled={submitting}>
             {submitting ? "Sending…" : "Start a Conversation"}
           </Button>
-          <p className="mt-3 text-xs text-muted-foreground">
-            Submissions are routed directly to our inbox via EmailJS.
-          </p>
+
         </form>
       )}
     </div>
