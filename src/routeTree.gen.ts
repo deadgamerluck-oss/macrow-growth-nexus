@@ -28,6 +28,7 @@ import { Route as IndustriesIndexRouteImport } from './routes/industries.index'
 import { Route as IndustriesIndustryRouteImport } from './routes/industries.$industry'
 import { Route as InsightsIndexRouteImport } from './routes/insights.index'
 import { Route as InsightsSlugRouteImport } from './routes/insights.$slug'
+import { Route as ServicesServiceSlugRouteImport } from './routes/services/$serviceSlug'
 import { Route as SolutionsIndexRouteImport } from './routes/solutions.index'
 import { Route as SolutionsObjectiveRouteImport } from './routes/solutions.$objective'
 
@@ -125,6 +126,11 @@ const InsightsSlugRoute = InsightsSlugRouteImport.update({
   path: '/insights/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesServiceSlugRoute = ServicesServiceSlugRouteImport.update({
+  id: '/services/$serviceSlug',
+  path: '/services/$serviceSlug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SolutionsIndexRoute = SolutionsIndexRouteImport.update({
   id: '/solutions/',
   path: '/solutions/',
@@ -150,6 +156,7 @@ export interface FileRoutesByFullPath {
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/industries/$industry': typeof IndustriesIndustryRoute
   '/insights/$slug': typeof InsightsSlugRoute
+  '/services/$serviceSlug': typeof ServicesServiceSlugRoute
   '/solutions/$objective': typeof SolutionsObjectiveRoute
   '/blog/': typeof BlogIndexRoute
   '/careers/': typeof CareersIndexRoute
@@ -172,6 +179,7 @@ export interface FileRoutesByTo {
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/industries/$industry': typeof IndustriesIndustryRoute
   '/insights/$slug': typeof InsightsSlugRoute
+  '/services/$serviceSlug': typeof ServicesServiceSlugRoute
   '/solutions/$objective': typeof SolutionsObjectiveRoute
   '/blog': typeof BlogIndexRoute
   '/careers': typeof CareersIndexRoute
@@ -196,6 +204,7 @@ export interface FileRoutesById {
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
   '/industries/$industry': typeof IndustriesIndustryRoute
   '/insights/$slug': typeof InsightsSlugRoute
+  '/services/$serviceSlug': typeof ServicesServiceSlugRoute
   '/solutions/$objective': typeof SolutionsObjectiveRoute
   '/blog/': typeof BlogIndexRoute
   '/careers/': typeof CareersIndexRoute
@@ -220,6 +229,7 @@ export interface FileRouteTypes {
     | '/case-studies/$slug'
     | '/industries/$industry'
     | '/insights/$slug'
+    | '/services/$serviceSlug'
     | '/solutions/$objective'
     | '/blog/'
     | '/careers/'
@@ -242,6 +252,7 @@ export interface FileRouteTypes {
     | '/case-studies/$slug'
     | '/industries/$industry'
     | '/insights/$slug'
+    | '/services/$serviceSlug'
     | '/solutions/$objective'
     | '/blog'
     | '/careers'
@@ -265,6 +276,7 @@ export interface FileRouteTypes {
     | '/case-studies/$slug'
     | '/industries/$industry'
     | '/insights/$slug'
+    | '/services/$serviceSlug'
     | '/solutions/$objective'
     | '/blog/'
     | '/careers/'
@@ -288,6 +300,7 @@ export interface RootRouteChildren {
   CaseStudiesSlugRoute: typeof CaseStudiesSlugRoute
   IndustriesIndustryRoute: typeof IndustriesIndustryRoute
   InsightsSlugRoute: typeof InsightsSlugRoute
+  ServicesServiceSlugRoute: typeof ServicesServiceSlugRoute
   SolutionsObjectiveRoute: typeof SolutionsObjectiveRoute
   BlogIndexRoute: typeof BlogIndexRoute
   CareersIndexRoute: typeof CareersIndexRoute
@@ -432,6 +445,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof InsightsSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/$serviceSlug': {
+      id: '/services/$serviceSlug'
+      path: '/services/$serviceSlug'
+      fullPath: '/services/$serviceSlug'
+      preLoaderRoute: typeof ServicesServiceSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/solutions/': {
       id: '/solutions/'
       path: '/solutions'
@@ -474,6 +494,7 @@ const rootRouteChildren: RootRouteChildren = {
   CaseStudiesSlugRoute: CaseStudiesSlugRoute,
   IndustriesIndustryRoute: IndustriesIndustryRoute,
   InsightsSlugRoute: InsightsSlugRoute,
+  ServicesServiceSlugRoute: ServicesServiceSlugRoute,
   SolutionsObjectiveRoute: SolutionsObjectiveRoute,
   BlogIndexRoute: BlogIndexRoute,
   CareersIndexRoute: CareersIndexRoute,

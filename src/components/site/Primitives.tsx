@@ -92,10 +92,14 @@ export function CtaBand({
   title,
   body,
   action,
+  href,
+  to = "/contact",
 }: {
   title: string;
   body: string;
   action: string;
+  href?: string;
+  to?: string;
 }) {
   return (
     <section className="surface-ink">
@@ -105,30 +109,29 @@ export function CtaBand({
           <p className="mt-4 text-ink-foreground/70">{body}</p>
         </div>
         <Button asChild size="lg" variant="secondary" className="rounded-full px-7">
-          <Link to="/contact">
-            {action} <ArrowRight className="ml-2 h-4 w-4" />
-          </Link>
+          {href ? (
+            <a href={href}>
+              {action} <ArrowRight className="ml-2 h-4 w-4" />
+            </a>
+          ) : (
+            <Link to={to as any}>
+              {action} <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          )}
         </Button>
       </div>
     </section>
   );
 }
 
-export function Breadcrumbs({
-  items,
-}: {
-  items: { label: string; to?: string }[];
-}) {
+export function Breadcrumbs({ items }: { items: { label: string; to?: string }[] }) {
   return (
     <nav aria-label="Breadcrumb" className="container-macrow pt-8">
       <ol className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
         {items.map((item, i) => (
           <li key={item.label} className="flex items-center gap-2">
             {item.to ? (
-              <Link
-                to={item.to as "/"}
-                className="transition-colors hover:text-accent"
-              >
+              <Link to={item.to as "/"} className="transition-colors hover:text-accent">
                 {item.label}
               </Link>
             ) : (

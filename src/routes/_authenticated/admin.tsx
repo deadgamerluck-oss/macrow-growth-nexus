@@ -143,9 +143,18 @@ function useCrud(table: "blog_posts" | "career_openings" | "team_members", keys:
   const invalidate = () => keys.forEach((k) => qc.invalidateQueries({ queryKey: [k] }));
 
   const save = useMutation({
-    mutationFn: async ({ id, values }: { id?: string | undefined; values: Record<string, unknown> }) => {
+    mutationFn: async ({
+      id,
+      values,
+    }: {
+      id?: string | undefined;
+      values: Record<string, unknown>;
+    }) => {
       const query = id
-        ? supabase.from(table).update(values as never).eq("id", id)
+        ? supabase
+            .from(table)
+            .update(values as never)
+            .eq("id", id)
         : supabase.from(table).insert(values as never);
       const { error } = await query;
       if (error) throw new Error(error.message);
@@ -232,11 +241,7 @@ function PostsPanel() {
         <form onSubmit={submit} className="space-y-4" key={editing?.id ?? "new"}>
           <Field label="Title" name="title" defaultValue={editing?.title} required />
           <Field label="Slug (optional)" name="slug" defaultValue={editing?.slug} />
-          <Field
-            label="Category"
-            name="category"
-            defaultValue={editing?.category ?? "Insight"}
-          />
+          <Field label="Category" name="category" defaultValue={editing?.category ?? "Insight"} />
           <Field label="Author" name="author_name" defaultValue={editing?.author_name ?? ""} />
           <Field
             label="Reading time"
@@ -250,7 +255,12 @@ function PostsPanel() {
             defaultValue={editing?.cover_image_url ?? ""}
             placeholder="https://…"
           />
-          <AreaField label="Excerpt" name="excerpt" rows={2} defaultValue={editing?.excerpt ?? ""} />
+          <AreaField
+            label="Excerpt"
+            name="excerpt"
+            rows={2}
+            defaultValue={editing?.excerpt ?? ""}
+          />
           <AreaField
             label="Body (Markdown-ish: ## for headings)"
             name="body"
@@ -258,7 +268,11 @@ function PostsPanel() {
             defaultValue={editing?.body ?? ""}
           />
           <div className="flex items-center gap-3">
-            <Switch id="post-pub" name="is_published" defaultChecked={editing?.is_published ?? false} />
+            <Switch
+              id="post-pub"
+              name="is_published"
+              defaultChecked={editing?.is_published ?? false}
+            />
             <Label htmlFor="post-pub">Published</Label>
           </div>
           <div className="flex gap-2">
@@ -342,7 +356,12 @@ function CareersPanel() {
             name="apply_email"
             defaultValue={editing?.apply_email ?? "careers@macrow.com"}
           />
-          <AreaField label="Summary" name="summary" rows={2} defaultValue={editing?.summary ?? ""} />
+          <AreaField
+            label="Summary"
+            name="summary"
+            rows={2}
+            defaultValue={editing?.summary ?? ""}
+          />
           <AreaField
             label="Responsibilities (one per line)"
             name="responsibilities"
@@ -356,7 +375,11 @@ function CareersPanel() {
             defaultValue={editing?.requirements ?? ""}
           />
           <div className="flex items-center gap-3">
-            <Switch id="job-pub" name="is_published" defaultChecked={editing?.is_published ?? false} />
+            <Switch
+              id="job-pub"
+              name="is_published"
+              defaultChecked={editing?.is_published ?? false}
+            />
             <Label htmlFor="job-pub">Published</Label>
           </div>
           <div className="flex gap-2">
@@ -430,7 +453,11 @@ function TeamPanel() {
             defaultValue={editing?.photo_url ?? ""}
             placeholder="https://…"
           />
-          <Field label="LinkedIn URL" name="linkedin_url" defaultValue={editing?.linkedin_url ?? ""} />
+          <Field
+            label="LinkedIn URL"
+            name="linkedin_url"
+            defaultValue={editing?.linkedin_url ?? ""}
+          />
           <Field
             label="Sort order"
             name="sort_order"

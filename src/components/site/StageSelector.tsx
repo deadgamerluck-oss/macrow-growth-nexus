@@ -32,11 +32,7 @@ export function StageSelector() {
         })}
       </div>
 
-      <div
-        role="tabpanel"
-        key={stage.id}
-        className="card-elevate animate-rise p-7 lg:p-10"
-      >
+      <div role="tabpanel" key={stage.id} className="card-elevate animate-rise p-7 lg:p-10">
         <h3 className="text-2xl font-semibold sm:text-3xl">{stage.headline}</h3>
         <p className="mt-4 max-w-2xl text-muted-foreground">{stage.context}</p>
         <p className="eyebrow mt-8">Recommended capabilities</p>

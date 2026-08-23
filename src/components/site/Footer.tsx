@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Linkedin, Instagram, Facebook, Youtube } from "lucide-react";
 
-import { Wordmark } from "./RavenMark";
+import logoUrl from "@/assets/logo.png";
 
 const columns = [
   {
@@ -17,9 +17,21 @@ const columns = [
   {
     title: "Solutions",
     links: [
-      { label: "Brand Building", to: "/solutions/$objective" as const, params: { objective: "build-a-brand" } },
-      { label: "Lead Generation", to: "/solutions/$objective" as const, params: { objective: "generate-leads" } },
-      { label: "Business Growth", to: "/solutions/$objective" as const, params: { objective: "increase-sales" } },
+      {
+        label: "Brand Building",
+        to: "/solutions/$objective" as const,
+        params: { objective: "build-a-brand" },
+      },
+      {
+        label: "Lead Generation",
+        to: "/solutions/$objective" as const,
+        params: { objective: "generate-leads" },
+      },
+      {
+        label: "Business Growth",
+        to: "/solutions/$objective" as const,
+        params: { objective: "increase-sales" },
+      },
       {
         label: "Digital Transformation",
         to: "/solutions/$objective" as const,
@@ -54,16 +66,19 @@ const socials = [
 
 export function Footer() {
   return (
-    <footer className="surface-ink mt-24">
+    <footer className="surface-ink">
       <div className="container-macrow grid gap-12 py-16 lg:grid-cols-[1.4fr_1fr_1fr_1fr_1fr] lg:py-20">
         <div className="max-w-xs">
-          <Wordmark inverted />
+          <img
+            src={logoUrl}
+            alt="MACROW"
+            className="h-8 w-auto object-contain brightness-0 invert"
+          />
           <p className="mt-4 text-sm text-ink-foreground/70">
             Digital. Marcomm. Technology. Growth.
           </p>
           <p className="mt-4 text-sm text-ink-foreground/60">
-            A global Digital, Marcomm and Technology growth partner for businesses at every
-            stage.
+            A global Digital, Marcomm and Technology growth partner for businesses at every stage.
           </p>
           <div className="mt-6 flex gap-2">
             {socials.map(({ label, Icon }) => (

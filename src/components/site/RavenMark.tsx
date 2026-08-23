@@ -1,12 +1,8 @@
+import logoUrl from "@/assets/logo.png";
+
 export function RavenMark({ className = "h-7 w-7" }: { className?: string }) {
   return (
-    <svg
-      viewBox="0 0 32 32"
-      className={className}
-      role="img"
-      aria-label="MACROW mark"
-      fill="none"
-    >
+    <svg viewBox="0 0 32 32" className={className} role="img" aria-label="MACROW mark" fill="none">
       <path
         d="M4 24 L15 5 L20 14 L28 8 L24 24 Z"
         stroke="currentColor"
@@ -23,16 +19,19 @@ export function RavenMark({ className = "h-7 w-7" }: { className?: string }) {
 }
 
 export function Wordmark({ inverted = false }: { inverted?: boolean }) {
-  return (
-    <span className="flex items-center gap-2.5">
-      <RavenMark className={inverted ? "h-6 w-6 text-accent" : "h-6 w-6 text-accent"} />
-      <span
-        className={`font-display text-lg font-bold tracking-[0.14em] ${
-          inverted ? "text-ink-foreground" : "text-foreground"
-        }`}
-      >
-        MACROW
+  if (inverted) {
+    return (
+      <span className="flex items-center gap-2.5">
+        <RavenMark className="h-6 w-6 text-accent" />
+        <span className="font-display text-xl font-bold tracking-widest text-ink-foreground">
+          MACROW
+        </span>
       </span>
+    );
+  }
+  return (
+    <span className="flex items-center">
+      <img src={logoUrl} alt="MACROW" className="h-12 w-auto object-contain " />
     </span>
   );
 }

@@ -1,7 +1,14 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 
 import { Button } from "@/components/ui/button";
-import { Breadcrumbs, CtaBand, PageHero, Section, SectionHeading } from "@/components/site/Primitives";
+import {
+  Breadcrumbs,
+  CtaBand,
+  PageHero,
+  Section,
+  SectionHeading,
+} from "@/components/site/Primitives";
+import { ContactForm } from "@/components/site/ContactForm";
 import { industries } from "@/content/site";
 import { caseStudies } from "@/content/insights";
 
@@ -95,6 +102,9 @@ function IndustryPage() {
         body="We'll start with your market, your buying cycle and the systems you already run."
         action="Start a Conversation"
       />
+      <Section className="py-12 w-full" id="contact-form" tone="muted">
+        <ContactForm />
+      </Section>
     </>
   );
 }
@@ -102,7 +112,10 @@ function IndustryPage() {
 function IndustryNotFound() {
   return (
     <Section>
-      <SectionHeading title="This industry page doesn't exist" intro="Browse all sectors instead." />
+      <SectionHeading
+        title="This industry page doesn't exist"
+        intro="Browse all sectors instead."
+      />
       <Button asChild className="mt-8 rounded-full">
         <Link to="/industries">All industries</Link>
       </Button>

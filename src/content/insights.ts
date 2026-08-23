@@ -79,7 +79,9 @@ export const articles: Article[] = [
       },
       {
         heading: "The numbers that matter",
-        paragraphs: ["Ignore most dashboard metrics. These four decide whether the programme works."],
+        paragraphs: [
+          "Ignore most dashboard metrics. These four decide whether the programme works.",
+        ],
         list: [
           "Cost per qualified lead — not cost per lead",
           "Conversion rate from lead to customer",
@@ -340,8 +342,7 @@ export const caseStudies: CaseStudy[] = [
     objective: "Improve customer experience",
     summary:
       "Demo case study — structure only. Replace narrative and metrics with approved client detail.",
-    challenge:
-      "Trials started but rarely reached the moment the product proves useful.",
+    challenge: "Trials started but rarely reached the moment the product proves useful.",
     strategy:
       "Define the single activation event, then remove every step that does not lead to it.",
     execution:
@@ -364,8 +365,7 @@ export const caseStudies: CaseStudy[] = [
       "Demo case study — structure only. Replace narrative and metrics with approved client detail.",
     challenge:
       "Enquiries arrived across six channels with no shared record, so follow-up depended on individuals.",
-    strategy:
-      "Centralise capture first, then automate follow-up by programme and stage.",
+    strategy: "Centralise capture first, then automate follow-up by programme and stage.",
     execution:
       "Unified forms and call tracking, defined stage ownership, and built counsellor dashboards with daily priorities.",
     technology: "CRM implementation, automation workflows, consolidated reporting.",

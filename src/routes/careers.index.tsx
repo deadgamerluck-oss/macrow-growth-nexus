@@ -45,7 +45,11 @@ function CareersIndex() {
       <Section>
         <SectionHeading
           eyebrow="Open roles"
-          title={isLoading ? "Loading roles…" : `${openings.length} open position${openings.length === 1 ? "" : "s"}`}
+          title={
+            isLoading
+              ? "Loading roles…"
+              : `${openings.length} open position${openings.length === 1 ? "" : "s"}`
+          }
           intro="Don't see your role? Write to us anyway — we keep a bench of people we want to work with."
         />
 
@@ -95,6 +99,7 @@ function CareersIndex() {
         title="Not a role, but still a fit?"
         body="Send us the work you're proudest of and what you want to build next."
         action="Get in touch"
+        href="mailto:careers@macrow.com?subject=General%20Application"
       />
     </>
   );

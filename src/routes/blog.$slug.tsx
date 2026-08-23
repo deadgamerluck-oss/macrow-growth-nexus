@@ -61,7 +61,11 @@ function BlogPostPage() {
   return (
     <>
       <Breadcrumbs
-        items={[{ label: "Home", to: "/" }, { label: "Blog", to: "/blog" }, { label: post.category }]}
+        items={[
+          { label: "Home", to: "/" },
+          { label: "Blog", to: "/blog" },
+          { label: post.category },
+        ]}
       />
       <article className="container-macrow py-12 lg:py-16">
         <p className="eyebrow">{post.category}</p>
@@ -98,7 +102,10 @@ function BlogPostPage() {
                 {block.replace(/^##\s*/, "")}
               </h2>
             ) : (
-              <p key={i} className="whitespace-pre-line text-base leading-[1.8] text-muted-foreground">
+              <p
+                key={i}
+                className="whitespace-pre-line text-base leading-[1.8] text-muted-foreground"
+              >
                 {block}
               </p>
             ),

@@ -1,7 +1,13 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 
 import { Button } from "@/components/ui/button";
-import { Breadcrumbs, CtaBand, PageHero, Section, SectionHeading } from "@/components/site/Primitives";
+import {
+  Breadcrumbs,
+  CtaBand,
+  PageHero,
+  Section,
+  SectionHeading,
+} from "@/components/site/Primitives";
 import { caseStudies } from "@/content/insights";
 
 export const Route = createFileRoute("/case-studies/$slug")({
@@ -68,7 +74,9 @@ function CaseStudyPage() {
           </div>
           <div>
             <SectionHeading eyebrow="Technology" title="What we built" />
-            <p className="mt-5 text-base leading-[1.75] text-muted-foreground">{study.technology}</p>
+            <p className="mt-5 text-base leading-[1.75] text-muted-foreground">
+              {study.technology}
+            </p>
           </div>
         </div>
       </Section>
@@ -96,7 +104,10 @@ function CaseStudyPage() {
 function CaseStudyNotFound() {
   return (
     <Section>
-      <SectionHeading title="This case study doesn't exist" intro="Browse all published work instead." />
+      <SectionHeading
+        title="This case study doesn't exist"
+        intro="Browse all published work instead."
+      />
       <Button asChild className="mt-8 rounded-full">
         <Link to="/case-studies">All case studies</Link>
       </Button>

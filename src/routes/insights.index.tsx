@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 
 import { Input } from "@/components/ui/input";
 import { CtaBand, PageHero, Section, SectionHeading } from "@/components/site/Primitives";
+import { ContactForm } from "@/components/site/ContactForm";
 import { articles, insightCategories } from "@/content/insights";
 
 export const Route = createFileRoute("/insights/")({
@@ -48,7 +49,10 @@ function InsightsIndex() {
     [query, category],
   );
 
-  const usedCategories = ["All", ...insightCategories.filter((c) => articles.some((a) => a.category === c))];
+  const usedCategories = [
+    "All",
+    ...insightCategories.filter((c) => articles.some((a) => a.category === c)),
+  ];
 
   return (
     <>
@@ -106,20 +110,23 @@ function InsightsIndex() {
                 <h2 className="mt-3 text-lg font-semibold leading-snug">{a.title}</h2>
                 <p className="mt-2 flex-1 text-sm text-muted-foreground">{a.description}</p>
                 <p className="mt-5 text-xs text-muted-foreground">
-                  {a.author} · {new Date(a.date).toLocaleDateString("en-GB", { dateStyle: "medium" })}{" "}
-                  · {a.readingTime}
+                  {a.author} ·{" "}
+                  {new Date(a.date).toLocaleDateString("en-GB", { dateStyle: "medium" })} ·{" "}
+                  {a.readingTime}
                 </p>
               </Link>
             ))}
           </div>
         )}
       </Section>
-
       <CtaBand
         title="Need help applying this?"
         body="Reading is the first step. We can help you sequence the work."
         action="Start a Conversation"
       />
+      <Section className="py-12 w-full" id="contact-form" tone="muted">
+        <ContactForm />
+      </Section>
     </>
   );
 }

@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 
 import { CtaBand, PageHero, Section, SectionHeading } from "@/components/site/Primitives";
+import { ContactForm } from "@/components/site/ContactForm";
 import { industries } from "@/content/site";
 
 export const Route = createFileRoute("/industries/")({
@@ -55,6 +56,9 @@ function IndustriesIndex() {
         body="The method transfers. Tell us the market and we'll tell you how we'd approach it."
         action="Start a Conversation"
       />
+      <Section className="py-12 w-full" id="contact-form" tone="muted">
+        <ContactForm />
+      </Section>
     </>
   );
 }

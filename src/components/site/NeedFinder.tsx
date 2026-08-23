@@ -37,8 +37,14 @@ const questions: Question[] = [
     options: [
       { label: "Nobody knows we exist", tags: ["SEO", "Social Media Marketing"] },
       { label: "Traffic doesn't convert", tags: ["Conversion Rate Optimization", "UI/UX Design"] },
-      { label: "Our systems don't talk to each other", tags: ["API Development", "CRM Development"] },
-      { label: "We can't see what's working", tags: ["Analytics & Reporting", "Attribution Setup"] },
+      {
+        label: "Our systems don't talk to each other",
+        tags: ["API Development", "CRM Development"],
+      },
+      {
+        label: "We can't see what's working",
+        tags: ["Analytics & Reporting", "Attribution Setup"],
+      },
     ],
   },
   {
@@ -48,7 +54,10 @@ const questions: Question[] = [
       { label: "Marketing", tags: ["Digital Strategy", "Performance Marketing"] },
       { label: "Branding and communication", tags: ["Brand Identity", "Creative Design"] },
       { label: "Technology", tags: ["Website Development", "Custom Software"] },
-      { label: "Honestly, a combination", tags: ["Digital Strategy", "Brand Strategy", "Technology Consulting"] },
+      {
+        label: "Honestly, a combination",
+        tags: ["Digital Strategy", "Brand Strategy", "Technology Consulting"],
+      },
     ],
   },
   {
@@ -119,7 +128,9 @@ export function NeedFinder() {
 
         {done && (
           <div className="animate-rise">
-            <h3 className="text-2xl font-semibold sm:text-3xl">Your MACROW growth recommendation</h3>
+            <h3 className="text-2xl font-semibold sm:text-3xl">
+              Your MACROW growth recommendation
+            </h3>
             <p className="mt-3 max-w-2xl text-muted-foreground">
               Based on your answers, this is the combination we would discuss first. It is a
               starting point for a conversation, not a fixed package.

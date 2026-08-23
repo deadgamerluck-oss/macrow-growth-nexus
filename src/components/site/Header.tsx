@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { useEffect, useState } from "react";
+import { slugify } from "@/lib/utils";
 
 import { Button } from "@/components/ui/button";
 import { pillars, objectives, industries } from "@/content/site";
@@ -128,7 +129,7 @@ export function Header() {
                         {c.services.slice(0, 4).map((s) => (
                           <li key={s}>
                             <Link
-                              to={`/${pillar.slug}` as "/digital"}
+                              to={`/services/${slugify(s)}` as any}
                               onClick={() => setOpen(null)}
                               className="text-sm text-muted-foreground transition-colors hover:text-accent"
                             >

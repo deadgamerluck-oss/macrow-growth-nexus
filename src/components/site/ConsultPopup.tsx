@@ -50,14 +50,57 @@ export function ConsultPopup() {
       return;
     }
     setSubmitting(true);
-    const { error } = await supabase.from("consultation_requests").insert(payload);
-    setSubmitting(false);
-    if (error) {
-      toast.error("We couldn't send that. Please try again.");
+
+    const serviceId = import.meta.env["VITE_EMAILJS_SERVICE_ID"];
+    const templateId = import.meta.env["VITE_EMAILJS_TEMPLATE_ID"];
+    const publicKey = import.meta.env["VITE_EMAILJS_PUBLIC_KEY"];
+
+    if (!serviceId || !templateId || !publicKey) {
+      toast.error("EmailJS credentials are not configured.");
+      setSubmitting(false);
       return;
     }
-    setDone(true);
-    toast.success("Request received — we'll be in touch within one business day.");
+
+    try {
+      const templateParams = {
+        name: payload.name,
+        email: payload.email,
+        mobile: "",
+        company: payload.company || "",
+        country: "",
+        website: "",
+        business_stage: "",
+        service_focus: "",
+        budget: "",
+        help: "Popup Consultation Request",
+        message: payload.goal || "",
+        time: new Date().toLocaleString(),
+      };
+
+      const response = await fetch("https://api.emailjs.com/api/v1.0/email/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          service_id: serviceId,
+          template_id: templateId,
+          user_id: publicKey,
+          template_params: templateParams,
+        }),
+      });
+
+      if (response.ok) {
+        setDone(true);
+        toast.success("Request received — we'll be in touch within one business day.");
+      } else {
+        toast.error("We couldn't send that. Please try again.");
+      }
+    } catch (error) {
+      toast.error("An error occurred while sending the request.");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -69,11 +112,7 @@ export function ConsultPopup() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
         >
-          <div
-            className="absolute inset-0 bg-ink/70"
-            onClick={() => setOpen(false)}
-            aria-hidden
-          />
+          <div className="absolute inset-0 bg-ink/70" onClick={() => setOpen(false)} aria-hidden />
           <motion.div
             role="dialog"
             aria-modal="true"

@@ -4,6 +4,7 @@ import { Compass, Eye, Layers, Repeat } from "lucide-react";
 import { CtaBand, PageHero, Section, SectionHeading } from "@/components/site/Primitives";
 import { Reveal } from "@/components/site/Reveal";
 import { TeamSection } from "@/components/site/TeamSection";
+import { ContactForm } from "@/components/site/ContactForm";
 import { pillars } from "@/content/site";
 import teamCollab from "@/assets/team-collab.jpg";
 
@@ -105,6 +106,16 @@ function AboutPage() {
               We operate globally and stay deliberately sector-aware: the method is consistent, the
               application is not.
             </p>
+            <p>
+              Our teams are senior by design. We don't sell you on partners and staff your account
+              with juniors. The strategists who diagnose the problem are the same people who own the
+              execution and report on the outcome.
+            </p>
+            <p>
+              This means smaller teams, faster iteration, and complete alignment between what is
+              promised and what is delivered. We believe that strategy without execution is just
+              hallucination, and execution without strategy is just noise.
+            </p>
           </Reveal>
         </div>
       </Section>
@@ -153,6 +164,10 @@ function AboutPage() {
         body="Bring the ambition and the constraints. We'll bring the plan."
         action="Start a Conversation"
       />
+
+      <Section className="py-12 w-full" id="contact-form" tone="muted">
+        <ContactForm />
+      </Section>
     </>
   );
 }

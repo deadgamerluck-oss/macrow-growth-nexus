@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 
 import { CtaBand, PageHero, Section, SectionHeading } from "@/components/site/Primitives";
+import { ContactForm } from "@/components/site/ContactForm";
 import { NeedFinder } from "@/components/site/NeedFinder";
 import { objectives } from "@/content/site";
 
@@ -69,6 +70,9 @@ function SolutionsIndex() {
         body="Bring the objective. We'll bring the sequence."
         action="Start a Conversation"
       />
+      <Section className="py-12 w-full" id="contact-form" tone="muted">
+        <ContactForm />
+      </Section>
     </>
   );
 }

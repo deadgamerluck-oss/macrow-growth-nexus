@@ -29,22 +29,12 @@ export const pillars: Pillar[] = [
         name: "Strategy & Planning",
         description:
           "The market, the audience, the offer and the channel mix — decided before spend starts.",
-        services: [
-          "Digital Strategy",
-          "Brand Strategy",
-          "Website Strategy",
-          "Growth Marketing",
-        ],
+        services: ["Digital Strategy", "Brand Strategy", "Website Strategy", "Growth Marketing"],
       },
       {
         name: "Performance Marketing",
         description: "Paid acquisition managed against pipeline and revenue, not impressions.",
-        services: [
-          "Google Ads",
-          "Meta Ads",
-          "Lead Generation",
-          "Conversion Rate Optimization",
-        ],
+        services: ["Google Ads", "Meta Ads", "Lead Generation", "Conversion Rate Optimization"],
       },
       {
         name: "Search",
@@ -102,12 +92,7 @@ export const pillars: Pillar[] = [
       {
         name: "Creative",
         description: "Ideas built to work in market, not only in a presentation.",
-        services: [
-          "Creative Strategy",
-          "Creative Design",
-          "Campaign Development",
-          "Advertising",
-        ],
+        services: ["Creative Strategy", "Creative Design", "Campaign Development", "Advertising"],
       },
       {
         name: "Content & Copy",
@@ -122,12 +107,7 @@ export const pillars: Pillar[] = [
       {
         name: "Production",
         description: "Film, motion and design output at the volume modern channels demand.",
-        services: [
-          "Video Production",
-          "Motion Graphics",
-          "Social Media Creative",
-          "Packaging",
-        ],
+        services: ["Video Production", "Motion Graphics", "Social Media Creative", "Packaging"],
       },
       {
         name: "Corporate Communication",
@@ -144,8 +124,7 @@ export const pillars: Pillar[] = [
     slug: "technology",
     name: "Technology",
     tagline: "360° Technology Solutions",
-    positioning:
-      "Products, platforms and automation that hold up as the business grows.",
+    positioning: "Products, platforms and automation that hold up as the business grows.",
     summary:
       "Technology decisions are business decisions. We design and build the systems your marketing, operations and customers depend on.",
     cta: "Discuss Your Product",
@@ -335,21 +314,36 @@ export const objectives: Objective[] = [
     slug: "increase-sales",
     label: "Increase sales",
     description: "Fewer leaks between interest and purchase.",
-    services: ["Conversion Rate Optimization", "Marketing Automation", "Email Marketing", "Analytics & Reporting"],
+    services: [
+      "Conversion Rate Optimization",
+      "Marketing Automation",
+      "Email Marketing",
+      "Analytics & Reporting",
+    ],
     pillars: ["Digital"],
   },
   {
     slug: "improve-visibility",
     label: "Improve visibility",
     description: "Be found when your category is being searched.",
-    services: ["Search Engine Optimization", "Local SEO", "Content Marketing", "Reputation Management"],
+    services: [
+      "Search Engine Optimization",
+      "Local SEO",
+      "Content Marketing",
+      "Reputation Management",
+    ],
     pillars: ["Digital"],
   },
   {
     slug: "scale-marketing",
     label: "Scale marketing",
     description: "Add channels and volume without losing coherence.",
-    services: ["Growth Marketing", "Creative Strategy", "Campaign Development", "Marketing Automation"],
+    services: [
+      "Growth Marketing",
+      "Creative Strategy",
+      "Campaign Development",
+      "Marketing Automation",
+    ],
     pillars: ["Digital", "Marcomm"],
   },
   {
@@ -370,7 +364,12 @@ export const objectives: Objective[] = [
     slug: "transform-digitally",
     label: "Transform digitally",
     description: "Modernise systems, data and ways of working in sequence.",
-    services: ["Digital Transformation", "Technology Consulting", "Cloud Solutions", "Data & Analytics"],
+    services: [
+      "Digital Transformation",
+      "Technology Consulting",
+      "Cloud Solutions",
+      "Data & Analytics",
+    ],
     pillars: ["Technology", "Digital"],
   },
   {
@@ -384,7 +383,12 @@ export const objectives: Objective[] = [
     slug: "improve-customer-experience",
     label: "Improve customer experience",
     description: "Make every touchpoint feel like the same company.",
-    services: ["UI/UX Design", "Product Communication", "Marketing Automation", "Maintenance & Support"],
+    services: [
+      "UI/UX Design",
+      "Product Communication",
+      "Marketing Automation",
+      "Maintenance & Support",
+    ],
     pillars: ["Technology", "Marcomm"],
   },
 ];

@@ -5,23 +5,43 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Stagger, StaggerItem } from "@/components/site/Reveal";
 import { teamQuery } from "@/lib/content";
 
-export function TeamSection() {
-  const { data, isLoading } = useQuery(teamQuery);
-  const members = (data ?? []).filter((m) => m.is_active);
+const mockMembers = [
+  {
+    id: "1",
+    name: "Alex Mercer",
+    role: "Head of Digital",
+    pillar: "Digital",
+    bio: "Alex leads our digital growth strategy, focusing on measurable performance and scalable acquisition.",
+    is_active: true,
+  },
+  {
+    id: "2",
+    name: "Sarah Jenkins",
+    role: "Lead Strategist",
+    pillar: "Strategy",
+    bio: "Sarah brings 10+ years of experience aligning brand narrative with business objectives.",
+    is_active: true,
+  },
+  {
+    id: "3",
+    name: "David Chen",
+    role: "Chief Technology Officer",
+    pillar: "Technology",
+    bio: "David oversees our automation and AI solutions, ensuring they fit seamlessly into existing ops.",
+    is_active: true,
+  },
+  {
+    id: "4",
+    name: "Elena Rodriguez",
+    role: "Marcomm Director",
+    pillar: "Marcomm",
+    bio: "Elena drives our communication efforts, turning complex products into clear, compelling stories.",
+    is_active: true,
+  },
+];
 
-  if (isLoading) {
-    return (
-      <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-        {[0, 1, 2, 3].map((i) => (
-          <div key={i} className="space-y-3">
-            <Skeleton className="aspect-[4/5] w-full rounded-lg" />
-            <Skeleton className="h-4 w-2/3" />
-            <Skeleton className="h-3 w-1/2" />
-          </div>
-        ))}
-      </div>
-    );
-  }
+export function TeamSection() {
+  const members = mockMembers;
 
   if (members.length === 0) {
     return (
