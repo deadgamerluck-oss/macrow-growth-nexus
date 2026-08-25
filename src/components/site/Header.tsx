@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X, ArrowUpRight, Linkedin } from "lucide-react";
 import { useEffect, useState } from "react";
 import { slugify } from "@/lib/utils";
 
@@ -27,7 +27,7 @@ export function Header() {
   const pillar = pillars.find((p) => p.slug === open);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/70 bg-background/85 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-[#111] text-white">
       <div className="container-macrow flex h-16 items-center justify-between gap-6 lg:h-20">
         <Link to="/" aria-label="MACROW home" onClick={() => setOpen(null)}>
           <Wordmark />
@@ -37,7 +37,7 @@ export function Header() {
           {pillars.map((p) => (
             <button
               key={p.slug}
-              className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground data-[active=true]:text-foreground"
+              className="px-2.5 py-2 text-[13px] font-medium text-white transition-colors hover:text-accent data-[active=true]:text-accent"
               data-active={open === p.slug}
               aria-expanded={open === p.slug}
               onClick={() => setOpen(open === p.slug ? null : (p.slug as MegaKey))}
@@ -46,14 +46,16 @@ export function Header() {
             </button>
           ))}
           <button
-            className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+            className="px-2.5 py-2 text-[13px] font-medium text-white transition-colors hover:text-accent data-[active=true]:text-accent"
+            data-active={open === "solutions"}
             aria-expanded={open === "solutions"}
             onClick={() => setOpen(open === "solutions" ? null : "solutions")}
           >
             Solutions
           </button>
           <button
-            className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+            className="px-2.5 py-2 text-[13px] font-medium text-white transition-colors hover:text-accent data-[active=true]:text-accent"
+            data-active={open === "industries"}
             aria-expanded={open === "industries"}
             onClick={() => setOpen(open === "industries" ? null : "industries")}
           >
@@ -62,32 +64,35 @@ export function Header() {
           <Link
             to="/insights"
             onClick={() => setOpen(null)}
-            className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
-            activeProps={{ className: "text-foreground" }}
+            className="px-2.5 py-2 text-[13px] font-medium text-white transition-colors hover:text-accent"
+            activeProps={{ className: "text-accent" }}
           >
             Insights
           </Link>
           <Link
             to="/careers"
             onClick={() => setOpen(null)}
-            className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
-            activeProps={{ className: "text-foreground" }}
+            className="px-2.5 py-2 text-[13px] font-medium text-white transition-colors hover:text-accent"
+            activeProps={{ className: "text-accent" }}
           >
             Careers
           </Link>
           <Link
             to="/about"
             onClick={() => setOpen(null)}
-            className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
-            activeProps={{ className: "text-foreground" }}
+            className="px-2.5 py-2 text-[13px] font-medium text-white transition-colors hover:text-accent"
+            activeProps={{ className: "text-accent" }}
           >
             About
           </Link>
         </nav>
 
-        <div className="hidden lg:block">
-          <Button asChild size="sm" className="rounded-full px-5">
-            <Link to="/contact">Start a Conversation</Link>
+        <div className="hidden lg:flex items-center gap-6">
+          <a href="https://www.linkedin.com/company/macrow-digital/" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="bg-white hover:bg-white/90 p-1 transition-colors">
+            <Linkedin className="h-4 w-4 text-black" fill="currentColor" strokeWidth={0} />
+          </a>
+          <Button asChild size="sm" className="rounded-none bg-accent hover:bg-accent/90 text-white px-5 py-2 h-auto text-xs font-bold tracking-wider uppercase">
+            <Link to="/contact">Contact Us</Link>
           </Button>
         </div>
 
@@ -103,7 +108,7 @@ export function Header() {
 
       {open && (
         <div
-          className="hidden border-t border-border bg-card lg:block"
+          className="hidden border-t border-white/10 bg-[#111] lg:block"
           onMouseLeave={() => setOpen(null)}
         >
           <div className="container-macrow py-8">
@@ -111,8 +116,8 @@ export function Header() {
               <div className="grid gap-8 lg:grid-cols-[18rem_1fr]">
                 <div>
                   <p className="eyebrow">{pillar.tagline}</p>
-                  <h2 className="mt-3 text-2xl font-semibold">{pillar.name}</h2>
-                  <p className="mt-2 text-sm text-muted-foreground">{pillar.positioning}</p>
+                  <h2 className="mt-3 text-2xl font-semibold text-white">{pillar.name}</h2>
+                  <p className="mt-2 text-sm text-white/70">{pillar.positioning}</p>
                   <Link
                     to={`/${pillar.slug}` as "/digital"}
                     onClick={() => setOpen(null)}
@@ -124,14 +129,14 @@ export function Header() {
                 <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
                   {pillar.capabilities.map((c) => (
                     <div key={c.name}>
-                      <p className="text-sm font-semibold">{c.name}</p>
+                      <p className="text-sm font-semibold text-white">{c.name}</p>
                       <ul className="mt-2 space-y-1.5">
                         {c.services.slice(0, 4).map((s) => (
                           <li key={s}>
                             <Link
                               to={`/services/${slugify(s)}` as any}
                               onClick={() => setOpen(null)}
-                              className="text-sm text-muted-foreground transition-colors hover:text-accent"
+                              className="text-sm text-white/70 transition-colors hover:text-accent"
                             >
                               {s}
                             </Link>
@@ -154,7 +159,7 @@ export function Header() {
                       to="/solutions/$objective"
                       params={{ objective: o.slug }}
                       onClick={() => setOpen(null)}
-                      className="rounded-md px-2 py-2 text-sm text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+                      className="rounded-md px-2 py-2 text-sm text-white/70 transition-colors hover:bg-white/5 hover:text-white"
                     >
                       I want to {o.label.toLowerCase()}
                     </Link>
@@ -173,7 +178,7 @@ export function Header() {
                       to="/industries/$industry"
                       params={{ industry: i.slug }}
                       onClick={() => setOpen(null)}
-                      className="rounded-md px-2 py-2 text-sm text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+                      className="rounded-md px-2 py-2 text-sm text-white/70 transition-colors hover:bg-white/5 hover:text-white"
                     >
                       {i.name}
                     </Link>

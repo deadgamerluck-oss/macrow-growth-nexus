@@ -23,7 +23,7 @@ export function EcosystemFlow() {
   const [active, setActive] = useState(0);
 
   return (
-    <div className="mt-12 grid gap-4 lg:grid-cols-5">
+    <div className="mt-8 lg:mt-12 grid gap-4 lg:grid-cols-5">
       {layers.map((layer, i) => (
         <button
           key={layer.name}
@@ -31,23 +31,17 @@ export function EcosystemFlow() {
           onFocus={() => setActive(i)}
           onClick={() => setActive(i)}
           aria-pressed={active === i}
-          className={`relative rounded-xl border p-6 text-left transition-all ${
+          className={`relative border p-5 sm:p-6 text-left transition-all ${
             active === i
-              ? "border-accent bg-card shadow-[var(--shadow-elevate)]"
-              : "border-border bg-card/50 hover:border-accent/40"
+              ? "border-white/60 bg-white/5"
+              : "border-white/30 bg-transparent hover:border-white/50 hover:bg-white/5"
           }`}
         >
-          <span className="font-display text-xs font-bold tracking-[0.2em] text-accent">
-            0{i + 1}
+          <span className="block text-[13px] font-bold text-white">
+            0{i + 1}<br />
+            <span className="text-base mt-1 block">{layer.name}</span>
           </span>
-          <p className="mt-3 text-lg font-semibold">{layer.name}</p>
-          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{layer.detail}</p>
-          {i < layers.length - 1 && (
-            <span
-              aria-hidden
-              className="absolute -right-2 top-1/2 hidden h-px w-4 bg-border lg:block"
-            />
-          )}
+          <p className="mt-4 text-[13px] leading-relaxed text-white/80">{layer.detail}</p>
         </button>
       ))}
     </div>
@@ -59,32 +53,50 @@ export function GrowthLoopSystem() {
   const step = growthLoop[active]!;
 
   return (
-    <div className="mt-12 grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-center">
-      <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
-        {growthLoop.map((s, i) => (
-          <button
-            key={s.step}
-            onClick={() => setActive(i)}
-            aria-pressed={active === i}
-            className={`rounded-lg border p-4 text-left transition-all ${
-              active === i
-                ? "border-accent bg-accent/10 text-ink-foreground"
-                : "border-ink-foreground/15 text-ink-foreground/70 hover:border-accent/50"
-            }`}
-          >
-            <span className="block font-display text-xs tracking-[0.2em] text-accent">
-              {s.step}
-            </span>
-            <span className="mt-2 block text-sm font-semibold">{s.name}</span>
-          </button>
-        ))}
+    <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:gap-24 items-stretch">
+      <div className="flex flex-col justify-center">
+        <div className="mb-12 max-w-2xl">
+          <p className="text-[10px] font-bold tracking-[0.15em] text-slate-500 uppercase">
+            The MACROW Growth Loop
+          </p>
+          <h2 className="mt-4 text-4xl leading-[1.1] sm:text-5xl lg:text-[3.25rem] font-serif text-slate-900 font-medium">
+            Observe, decide, build,<br />amplify, measure, adapt.
+          </h2>
+          <p className="mt-5 text-[13px] leading-relaxed text-slate-500 max-w-lg">
+            Not a funnel with an end. A loop that gets sharper every cycle because evidence accumulates.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+          {growthLoop.map((s, i) => (
+            <button
+              key={s.step}
+              onClick={() => setActive(i)}
+              aria-pressed={active === i}
+              className={`border p-4 text-left transition-all rounded-none min-h-[90px] flex flex-col justify-center ${
+                active === i
+                  ? "border-accent bg-accent text-white shadow-md"
+                  : "border-accent bg-transparent text-slate-900 hover:bg-white/40 hover:shadow-sm"
+              }`}
+            >
+              <span className={`block text-[13px] font-bold ${active === i ? "text-white" : "text-slate-900"}`}>
+                {s.step}
+              </span>
+              <span className={`mt-1 block text-[11px] ${active === i ? "text-white/90" : "text-slate-500"}`}>
+                {s.name}
+              </span>
+            </button>
+          ))}
+        </div>
       </div>
-      <div key={step.step} className="animate-rise rounded-2xl border border-ink-foreground/15 p-8">
-        <p className="font-display text-5xl font-bold text-accent">{step.step}</p>
-        <h3 className="mt-4 text-2xl font-semibold text-ink-foreground">{step.name}</h3>
-        <p className="mt-3 text-ink-foreground/70">{step.detail}</p>
-        <p className="mt-6 text-sm text-ink-foreground/50">
-          The loop is continuous. Every cycle informs the next decision.
+      
+      <div key={step.step} className="animate-rise border-[1.5px] border-accent bg-transparent p-10 lg:p-14 flex flex-col justify-center rounded-none shadow-sm min-h-[400px]">
+        <p className="font-serif text-[7rem] leading-[0.9] font-medium text-accent">
+          {step.step}
+        </p>
+        <h3 className="mt-6 text-[22px] font-bold text-slate-900">{step.name}</h3>
+        <p className="mt-3 text-[14px] leading-relaxed text-slate-500 max-w-sm">
+          {step.detail}
         </p>
       </div>
     </div>

@@ -64,6 +64,7 @@
   --color-copper: var(--copper);
   --font-display: var(--font-display);
   --font-sans: var(--font-body);
+  --font-serif: var(--font-serif);
 }
 
 :root {
@@ -93,6 +94,7 @@
   --ring: oklch(0.647 0.253 30.5);
   --font-display: "Sora", ui-sans-serif, system-ui, sans-serif;
   --font-body: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   --gradient-ink: linear-gradient(140deg, oklch(0.14 0 0), oklch(0.24 0.03 30));
   --gradient-accent: linear-gradient(
     100deg,

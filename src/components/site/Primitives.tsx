@@ -89,12 +89,14 @@ export function PageHero({
 }
 
 export function CtaBand({
+  eyebrow,
   title,
   body,
   action,
   href,
   to = "/contact",
 }: {
+  eyebrow?: string;
   title: string;
   body: string;
   action: string;
@@ -102,23 +104,38 @@ export function CtaBand({
   to?: string;
 }) {
   return (
-    <section className="surface-ink">
-      <div className="container-macrow flex flex-col gap-8 py-16 lg:flex-row lg:items-center lg:justify-between lg:py-20">
+    <section className="bg-[#111111] py-24">
+      <div className="container-macrow flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between">
         <div className="max-w-2xl">
-          <h2 className="text-3xl font-semibold text-ink-foreground sm:text-4xl">{title}</h2>
-          <p className="mt-4 text-ink-foreground/70">{body}</p>
+          {eyebrow && (
+            <p className="text-[10px] font-bold tracking-[0.15em] text-white/60 uppercase mb-4">
+              {eyebrow}
+            </p>
+          )}
+          <h2 className="text-4xl leading-[1.1] sm:text-5xl lg:text-[3.5rem] font-serif font-medium text-white">
+            {title}
+          </h2>
+          <p className="mt-5 text-[13px] leading-relaxed text-white/60 max-w-md">
+            {body}
+          </p>
         </div>
-        <Button asChild size="lg" variant="secondary" className="rounded-full px-7">
+        <div className="shrink-0">
           {href ? (
-            <a href={href}>
+            <a 
+              href={href}
+              className="inline-flex items-center justify-center bg-accent text-white px-8 py-4 text-[14px] font-medium hover:bg-accent/90 transition-colors rounded-none"
+            >
               {action} <ArrowRight className="ml-2 h-4 w-4" />
             </a>
           ) : (
-            <Link to={to as any}>
+            <Link 
+              to={to as any}
+              className="inline-flex items-center justify-center bg-accent text-white px-8 py-4 text-[14px] font-medium hover:bg-accent/90 transition-colors rounded-none"
+            >
               {action} <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           )}
-        </Button>
+        </div>
       </div>
     </section>
   );

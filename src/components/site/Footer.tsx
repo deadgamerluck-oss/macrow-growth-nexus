@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Linkedin, Instagram, Facebook, Youtube } from "lucide-react";
 
-import logoUrl from "@/assets/logo.png";
+import logoUrl from "@/assets/logo-black.png";
 
 const columns = [
   {
@@ -66,48 +66,47 @@ const socials = [
 
 export function Footer() {
   return (
-    <footer className="surface-ink">
-      <div className="container-macrow grid gap-12 py-16 lg:grid-cols-[1.4fr_1fr_1fr_1fr_1fr] lg:py-20">
-        <div className="max-w-xs">
+    <footer className="bg-white border-t border-slate-200">
+      <div className="container-macrow grid gap-10 py-16 lg:grid-cols-[1.5fr_1fr_1.2fr_1fr_1.5fr] lg:py-20">
+        <div className="max-w-xs pr-4">
           <img
             src={logoUrl}
-            alt="MACROW"
-            className="h-8 w-auto object-contain brightness-0 invert"
+            alt="MACROW DIGITAL"
+            className="h-20 w-auto object-contain"
           />
-          <p className="mt-4 text-sm text-ink-foreground/70">
-            Digital. Marcomm. Technology. Growth.
+          <p className="mt-6 text-[13px] text-slate-500">
+            Digital . Marcomm . Technology . Growth
           </p>
-          <p className="mt-4 text-sm text-ink-foreground/60">
+          <p className="mt-4 text-[13px] leading-relaxed text-slate-500">
             A global Digital, Marcomm and Technology growth partner for businesses at every stage.
           </p>
-          <div className="mt-6 flex gap-2">
+          <div className="mt-6 flex gap-1">
             {socials.map(({ label, Icon, links }) => (
               <a
                 key={label}
                 href={links}
                 aria-label={label}
                 target="_blank"
-                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-ink-foreground/20 text-ink-foreground/70 transition-colors hover:border-accent hover:text-accent"
+                className="inline-flex h-[30px] w-[30px] items-center justify-center bg-accent text-white transition-opacity hover:opacity-90 rounded-none"
               >
-                <Icon className="h-4 w-4" />
+                <Icon className="h-4 w-4 fill-current" strokeWidth={0} />
               </a>
             ))}
-
           </div>
         </div>
 
         {columns.map((col) => (
           <div key={col.title}>
-            <p className="text-xs font-semibold uppercase tracking-[0.16em] text-ink-foreground/50">
+            <p className="text-[12px] font-medium uppercase tracking-wider text-accent">
               {col.title}
             </p>
-            <ul className="mt-4 space-y-2.5">
+            <ul className="mt-6 space-y-3.5">
               {col.links.map((l) => (
                 <li key={l.label}>
                   <Link
                     to={l.to}
                     params={"params" in l ? l.params : {}}
-                    className="text-sm text-ink-foreground/75 transition-colors hover:text-accent"
+                    className="text-[13px] text-slate-700 transition-colors hover:text-accent"
                   >
                     {l.label}
                   </Link>
@@ -117,26 +116,27 @@ export function Footer() {
           </div>
         ))}
 
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-ink-foreground/50">
-            Contact
+        <div className="space-y-4">
+          <p className="text-[13px] text-slate-700">
+            Working with business<br />across markets.
           </p>
-          <address className="mt-4 space-y-2 text-sm not-italic text-ink-foreground/75">
-            <p>Ahmedabad, Gujarat, India</p>
-            <p>Working with businesses across markets.</p>
-          </address>
-          <Link
-            to="/contact"
-            className="mt-4 inline-block text-sm font-medium text-accent hover:underline"
-          >
-            Start a Conversation
-          </Link>
+          <p className="text-[13px] text-slate-700 mt-6">
+            Ahmedabad, Gujarat, India
+          </p>
+          <p className="text-[13px] text-slate-700">
+            Patna, Bihar, India
+          </p>
+          <p className="text-[13px] text-slate-700">
+            <a href="mailto:growth@macrowdigital.com" className="hover:text-accent transition-colors">
+              growth@macrowdigital.com
+            </a>
+          </p>
         </div>
       </div>
 
-      <div className="border-t border-ink-foreground/10">
-        <div className="container-macrow flex flex-col gap-2 py-6 text-xs text-ink-foreground/50 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} MACROW. All rights reserved.</p>
+      <div className="border-t border-slate-200">
+        <div className="container-macrow flex flex-col gap-2 py-5 text-[11px] text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+          <p>© {new Date().getFullYear()} MACROW DIGITAL. All rights reserved</p>
           <p>Built in India. Designed for the world.</p>
         </div>
       </div>
