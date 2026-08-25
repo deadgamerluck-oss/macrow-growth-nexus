@@ -21,8 +21,8 @@ const schema = z.object({
   description: z.string().trim().min(1, "Project description is required").max(2000),
 });
 
-const selectClass =
-  "h-11 w-full rounded-md border border-input bg-card px-3 text-sm text-foreground outline-none transition-colors focus:border-accent focus:ring-2 focus:ring-ring/30";
+const inputClass =
+  "h-11 w-full rounded-none border border-accent bg-transparent px-3 text-[13px] text-slate-900 outline-none transition-colors focus:border-accent focus:ring-1 focus:ring-accent placeholder:text-slate-400";
 
 export function ContactForm() {
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -96,39 +96,17 @@ export function ContactForm() {
   };
 
   return (
-    <div className="flex flex-col gap-12 items-start w-full">
-      <div className="space-y-8 w-full max-w-3xl">
-        <div className="space-y-6">
-          <div>
-            <p className="eyebrow">Where we are</p>
-            <p className="mt-3 font-medium text-foreground">Ahmedabad, Gujarat, India</p>
-            <p className="mt-1 text-sm text-muted-foreground">
-              Working with businesses across markets.
-            </p>
-          </div>
-          <div>
-            <p className="eyebrow">Direct contact</p>
-            <p className="mt-3 text-sm text-muted-foreground">
-              <a
-                href="mailto:hello@macrow.com"
-                className="font-medium text-foreground hover:text-accent transition-colors"
-              >
-                hello@macrow.com
-              </a>
-            </p>
-          </div>
-        </div>
-      </div>
-
+    <div className="w-full">
       {success ? (
-        <div className="card-elevate p-12 lg:p-16 w-full flex flex-col items-center justify-center text-center space-y-4">
-          <h3 className="text-3xl font-semibold text-foreground">
-            Thank you for choosing MACROW Digital, we will contact you soon.
+        <div className="bg-[#f4f4f4] p-12 lg:p-16 w-full flex flex-col items-center justify-center text-center space-y-4 rounded-none shadow-xl min-h-[400px]">
+          <h3 className="text-3xl font-serif text-slate-900 font-bold">
+            Thank you for choosing MACROW.
           </h3>
+          <p className="text-slate-500">We will contact you shortly.</p>
         </div>
       ) : (
-        <form onSubmit={onSubmit} noValidate className="card-elevate p-6 lg:p-9 w-full">
-          <div className="grid gap-5 sm:grid-cols-2">
+        <form onSubmit={onSubmit} noValidate className="bg-[#f4f4f4] p-8 lg:p-12 w-full rounded-none shadow-xl">
+          <div className="grid gap-6 sm:grid-cols-2">
             <Field label="Name" name="name" error={errors["name"]} required />
             <Field label="Work Email" name="email" type="email" error={errors["email"]} required />
             <Field
@@ -141,9 +119,12 @@ export function ContactForm() {
             <Field label="Company" name="company" />
             <Field label="Country" name="country" />
             <Field label="Website" name="website" placeholder="https://" />
+            
             <div>
-              <Label htmlFor="stage">Business Stage</Label>
-              <select id="stage" name="stage" className={`mt-2 ${selectClass}`}>
+              <Label htmlFor="stage" className="text-[12px] font-bold text-slate-500 mb-2 block">
+                Business Stage
+              </Label>
+              <select id="stage" name="stage" className={inputClass}>
                 <option>Starting from zero</option>
                 <option>Startup</option>
                 <option>Growing business</option>
@@ -151,9 +132,12 @@ export function ContactForm() {
                 <option>Established enterprise</option>
               </select>
             </div>
+            
             <div>
-              <Label htmlFor="service">Service focus</Label>
-              <select id="service" name="service" className={`mt-2 ${selectClass}`}>
+              <Label htmlFor="service" className="text-[12px] font-bold text-slate-500 mb-2 block">
+                Service focus
+              </Label>
+              <select id="service" name="service" className={inputClass}>
                 <option>Digital</option>
                 <option>Marcomm</option>
                 <option>Technology</option>
@@ -164,26 +148,36 @@ export function ContactForm() {
                 <option>Not Sure</option>
               </select>
             </div>
-            <Field
-              label="Budget Range"
-              name="budget"
-              placeholder="e.g. $5,000 - $10,000"
-              error={errors["budget"]}
-            />
-            <div className="sm:col-span-2">
-              <Label htmlFor="need">What do you need help with?</Label>
-              <Input id="need" name="need" className="mt-2 h-11" placeholder="In one line" />
+            
+            <div className="sm:col-span-1">
+              <Field
+                label="Budget Range"
+                name="budget"
+                placeholder="e.g. $5,000 - $10,000"
+                error={errors["budget"]}
+                required
+              />
             </div>
+            <div className="hidden sm:block" />
+
+            <div className="sm:col-span-1">
+              <Field 
+                label="What do you need help with?" 
+                name="need" 
+                placeholder="In one line" 
+              />
+            </div>
+            <div className="hidden sm:block" />
+
             <div className="sm:col-span-2">
-              <Label htmlFor="description">
+              <Label htmlFor="description" className="text-[12px] font-bold text-slate-500 mb-2 block">
                 Project Description <span className="text-accent">*</span>
               </Label>
               <Textarea
                 id="description"
                 name="description"
-                rows={5}
-                className="mt-2"
-                placeholder="What's happening now, and what would a good outcome look like?"
+                rows={4}
+                className={`${inputClass} h-auto py-3 resize-y`}
                 aria-invalid={Boolean(errors["description"])}
               />
               {errors["description"] && (
@@ -192,10 +186,18 @@ export function ContactForm() {
             </div>
           </div>
 
-          <Button type="submit" size="lg" className="mt-8 rounded-full px-7" disabled={submitting}>
-            {submitting ? "Sending…" : "Start a Conversation"}
-          </Button>
-
+          <div className="mt-8">
+            <button
+              type="submit"
+              disabled={submitting}
+              className="inline-flex items-center justify-center bg-accent text-white px-8 py-3 text-[14px] font-medium hover:bg-accent/90 transition-colors rounded-none disabled:opacity-50"
+            >
+              {submitting ? "Sending…" : "Start a conversation"}
+              <svg className="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </button>
+          </div>
         </form>
       )}
     </div>
@@ -219,7 +221,7 @@ function Field({
 }) {
   return (
     <div>
-      <Label htmlFor={name}>
+      <Label htmlFor={name} className="text-[12px] font-bold text-slate-500 mb-2 block">
         {label} {required && <span className="text-accent">*</span>}
       </Label>
       <Input
@@ -228,7 +230,7 @@ function Field({
         type={type}
         placeholder={placeholder}
         aria-invalid={Boolean(error)}
-        className="mt-2 h-11"
+        className={inputClass}
       />
       {error && <p className="mt-1.5 text-xs text-destructive">{error}</p>}
     </div>

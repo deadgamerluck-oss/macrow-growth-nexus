@@ -199,7 +199,7 @@ export function ContactPage() {
                     <option>$100,000+</option>
                   </select>
                 </div>
-                <div className="sm:col-span-2">
+                <div className="sm:col-span-3">
                   <Label htmlFor="need">What do you need help with?</Label>
                   <Input id="need" name="need" className="mt-2 h-11" placeholder="In one line" />
                 </div>
