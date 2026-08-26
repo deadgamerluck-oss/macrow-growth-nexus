@@ -24,12 +24,30 @@ export function Header() {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
+
   const pillar = pillars.find((p) => p.slug === open);
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-[#111] text-white">
       <div className="container-macrow flex h-16 items-center justify-between gap-6 lg:h-20">
-        <Link to="/" aria-label="MACROW home" onClick={() => setOpen(null)}>
+        <Link 
+          to="/" 
+          aria-label="MACROW home" 
+          onClick={() => {
+            setOpen(null);
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }}
+        >
           <Wordmark />
         </Link>
 
@@ -191,7 +209,7 @@ export function Header() {
       )}
 
       {mobileOpen && (
-        <div className="border-t border-border bg-card lg:hidden">
+        <div className="border-t border-border bg-white text-black lg:hidden">
           <nav className="container-macrow flex flex-col py-4" aria-label="Mobile">
             {[
               { label: "Digital", to: "/digital" },
@@ -209,12 +227,12 @@ export function Header() {
                 key={item.to}
                 to={item.to}
                 onClick={() => setMobileOpen(false)}
-                className="border-b border-border/60 py-3.5 text-base font-medium"
+                className="border-b border-black/10 py-3.5 text-base font-medium hover:text-accent transition-colors"
               >
                 {item.label}
               </Link>
             ))}
-            <Button asChild className="mt-5 rounded-full">
+            <Button asChild className="mt-5 rounded-full bg-accent text-white hover:bg-accent/90">
               <Link to="/contact" onClick={() => setMobileOpen(false)}>
                 Start a Conversation
               </Link>
