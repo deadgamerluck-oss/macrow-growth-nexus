@@ -18,21 +18,14 @@ export function ConsultPopup() {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    if (window.sessionStorage.getItem(SEEN_KEY)) return;
+    if (window.localStorage.getItem(SEEN_KEY)) return;
 
     const show = () => {
-      window.sessionStorage.setItem(SEEN_KEY, "1");
+      window.localStorage.setItem(SEEN_KEY, "1");
       setOpen(true);
     };
-    const timer = window.setTimeout(show, 15000);
-    const onLeave = (e: MouseEvent) => {
-      if (e.clientY <= 0) show();
-    };
-    document.addEventListener("mouseleave", onLeave);
-    return () => {
-      window.clearTimeout(timer);
-      document.removeEventListener("mouseleave", onLeave);
-    };
+    
+    show();
   }, []);
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {

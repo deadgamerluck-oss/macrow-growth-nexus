@@ -167,7 +167,7 @@ function Home() {
       </Section>
 
       <Section className="!bg-[#990a00] !py-24" id="stages">
-        <div className="max-w-3xl">
+        <div className="max-w-7xl">
           <p className="text-[10px] font-bold tracking-widest text-white/70 uppercase">Business stage selector</p>
           <h2 className="mt-4 text-4xl leading-[1.1] sm:text-5xl lg:text-[3.5rem] font-serif text-white font-medium">
             The right move depends on where<br />you are.
@@ -262,13 +262,13 @@ function Home() {
         />
 
         <div className="relative z-10 max-w-3xl mb-12">
-          <p className="text-[10px] font-extrabold tracking-[0.15em] text-black uppercase">
+          <p className="text-[20px] font-extrabold tracking-[0.15em] text-black uppercase">
             Learning hub
           </p>
           <h2 className="mt-5 text-4xl leading-[1.1] sm:text-5xl lg:text-[3.5rem] font-serif text-gray-900 font-medium">
             Understand it before<br />you buy it.
           </h2>
-          <p className="mt-5 text-[13px] leading-relaxed text-black max-w-[400px]">
+          <p className="mt-5 text-[15px] font-semibold  leading-relaxed text-gray-900 max-w-[400px]">
             Plain-language explainers for founders and teams new to marketing and technology.
           </p>
         </div>

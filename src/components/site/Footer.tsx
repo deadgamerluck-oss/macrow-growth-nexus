@@ -89,7 +89,7 @@ export function Footer() {
                 target="_blank"
                 className="inline-flex h-[30px] w-[30px] items-center justify-center bg-accent text-white transition-opacity hover:opacity-90 rounded-none"
               >
-                <Icon className="h-4 w-4 fill-current" strokeWidth={0} />
+                <Icon className="h-4 w-4" />
               </a>
             ))}
           </div>
