@@ -262,7 +262,7 @@ function Home() {
         />
 
         <div className="relative z-10 max-w-3xl mb-12">
-          <p className="text-[20px] font-extrabold tracking-[0.15em] text-black uppercase">
+          <p className="text-[15px] font-bold tracking-[0.15em] text-black uppercase">
             Learning hub
           </p>
           <h2 className="mt-5 text-4xl leading-[1.1] sm:text-5xl lg:text-[3.5rem] font-serif text-gray-900 font-medium">

@@ -3,7 +3,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import { Section } from "./Primitives";
 import { Star } from "lucide-react";
 
-const testimonials = [
+export const testimonials = [
   {
     name: "Hippo Learn",
     category: "Education service",

@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useRouterState } from "@tanstack/react-router";
 import { Menu, X, ArrowUpRight, Linkedin } from "lucide-react";
 import { useEffect, useState } from "react";
 import { slugify } from "@/lib/utils";
@@ -12,6 +12,8 @@ type MegaKey = "digital" | "marcomm" | "technology" | "solutions" | "industries"
 export function Header() {
   const [open, setOpen] = useState<MegaKey>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+  
+  const currentPath = useRouterState({ select: (s) => s.location.pathname });
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -56,7 +58,7 @@ export function Header() {
             <button
               key={p.slug}
               className="px-2.5 py-2 text-[13px] font-medium text-white transition-colors hover:text-accent data-[active=true]:text-accent"
-              data-active={open === p.slug}
+              data-active={open === p.slug || currentPath.startsWith(`/${p.slug}`)}
               aria-expanded={open === p.slug}
               onClick={() => setOpen(open === p.slug ? null : (p.slug as MegaKey))}
             >
@@ -65,7 +67,7 @@ export function Header() {
           ))}
           <button
             className="px-2.5 py-2 text-[13px] font-medium text-white transition-colors hover:text-accent data-[active=true]:text-accent"
-            data-active={open === "solutions"}
+            data-active={open === "solutions" || currentPath.startsWith("/solutions")}
             aria-expanded={open === "solutions"}
             onClick={() => setOpen(open === "solutions" ? null : "solutions")}
           >
@@ -73,7 +75,7 @@ export function Header() {
           </button>
           <button
             className="px-2.5 py-2 text-[13px] font-medium text-white transition-colors hover:text-accent data-[active=true]:text-accent"
-            data-active={open === "industries"}
+            data-active={open === "industries" || currentPath.startsWith("/industries")}
             aria-expanded={open === "industries"}
             onClick={() => setOpen(open === "industries" ? null : "industries")}
           >
