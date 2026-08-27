@@ -4,6 +4,9 @@ import { Linkedin } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Stagger, StaggerItem } from "@/components/site/Reveal";
 import { teamQuery } from "@/lib/content";
+import lakshman from "@/assets/lakshman.jpg";
+import atul from "@/assets/atul.jpg";
+import honey from "@/assets/honey.jpg";
 
 const mockMembers = [
   {
@@ -13,7 +16,7 @@ const mockMembers = [
     pillar: "TECHNOLOGY",
     bio: "He oversees our automation and AI solutions, ensuring they fit seamlessly into existing ops.",
     is_active: true,
-    photo_url: "https://i.pravatar.cc/500?img=11",
+    photo_url: lakshman,
   },
   {
     id: "2",
@@ -22,7 +25,7 @@ const mockMembers = [
     pillar: "MARCOMM",
     bio: "He leads our digital growth strategy, focusing on measurable performance and scalable acquisition.",
     is_active: true,
-    photo_url: "https://i.pravatar.cc/500?img=68",
+    photo_url: atul,
   },
   {
     id: "3",
@@ -31,7 +34,7 @@ const mockMembers = [
     pillar: "DIGITAL",
     bio: "She brings 9+ years of experience aligning brand narrative with business objectives.",
     is_active: true,
-    photo_url: "https://i.pravatar.cc/500?img=47",
+    photo_url: honey
   },
 ];
 
@@ -51,13 +54,13 @@ export function TeamSection() {
       {members.map((m) => (
         <StaggerItem key={m.id}>
           <article className="flex flex-col h-full overflow-hidden">
-            <div className="relative aspect-square overflow-hidden bg-white/10">
+            <div className="relative aspect-[4/5] overflow-hidden bg-white/10">
               {m.photo_url ? (
                 <img
                   src={m.photo_url}
                   alt={`${m.name}, ${m.role} at MACROW`}
                   loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-700 hover:scale-[1.04]"
+                  className="h-full w-full object-cover"
                 />
               ) : (
                 <div className="flex h-full items-center justify-center text-2xl font-semibold text-white/40">

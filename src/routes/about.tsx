@@ -7,8 +7,9 @@ import { TeamSection } from "@/components/site/TeamSection";
 import { ContactForm } from "@/components/site/ContactForm";
 import { TestimonialCarousel } from "@/components/site/TestimonialCarousel";
 import { pillars } from "@/content/site";
-import teamCollab from "@/assets/team-collab.jpg";
-import heroPoster from "@/assets/hero-poster.jpg";
+import teamCollab from "@/assets/team-banner.jpg";
+import team2 from "@/assets/team.jpg";
+import heroPoster from "@/assets/hero-bg.jpg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -138,7 +139,7 @@ function AboutPage() {
             </Reveal>
             <Reveal delay={0.1} className="h-full">
               <img
-                src={teamCollab}
+                src={team2}
                 alt="MACROW strategists reviewing a growth plan together"
                 loading="lazy"
                 className="h-full w-full object-cover"
@@ -185,7 +186,13 @@ function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-[#111111] py-20 lg:py-28 border-t border-white/5">
+      <div className="bg-[#111111]">
+        <div className="container-macrow">
+          <hr className="border-white/10" />
+        </div>
+      </div>
+
+      <section className="bg-[#111111] py-20 lg:py-28">
         <div className="container-macrow flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10">
           <div className="max-w-2xl">
             <p className="text-[10px] font-bold tracking-[0.15em] text-[#ff3b00] uppercase mb-4">
