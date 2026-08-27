@@ -12,7 +12,7 @@ const mockMembers = [
   {
     id: "1",
     name: "Lakshman Sharma",
-    role: "CO-FOUNDER, CMO",
+    role: "CO-FOUNDER",
     pillar: "TECHNOLOGY",
     bio: "He oversees our automation and AI solutions, ensuring they fit seamlessly into existing ops.",
     is_active: true,
@@ -21,7 +21,7 @@ const mockMembers = [
   {
     id: "2",
     name: "Atul Sinha",
-    role: "CO-FOUNDER, HEAD OF DIGITAL",
+    role: "CO-FOUNDER",
     pillar: "MARCOMM",
     bio: "He leads our digital growth strategy, focusing on measurable performance and scalable acquisition.",
     is_active: true,
@@ -30,7 +30,7 @@ const mockMembers = [
   {
     id: "3",
     name: "Honey Sinha",
-    role: "MACROW DIRECTOR, LEAD STRATEGIST",
+    role: " DIRECTOR, LEAD STRATEGIST",
     pillar: "DIGITAL",
     bio: "She brings 9+ years of experience aligning brand narrative with business objectives.",
     is_active: true,
@@ -69,11 +69,11 @@ export function TeamSection() {
               )}
             </div>
             <div className="bg-[#990a00] p-8 flex-1 flex flex-col">
-              {m.pillar && (
+              {/* {m.pillar && (
                 <p className="text-[10px] font-bold tracking-[0.15em] text-white/80 uppercase mb-4">
                   {m.pillar}
                 </p>
-              )}
+              )} */}
               <h3 className="text-2xl font-serif font-medium text-white">{m.name}</h3>
               <p className="text-[11px] uppercase tracking-wider text-white/80 mt-2 mb-5">
                 {m.role}
