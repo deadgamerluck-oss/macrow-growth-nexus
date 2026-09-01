@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Star } from "lucide-react";
-
+import bgrelatedhero from "@/assets/brandrelativebg.jpg"
 import {
   Accordion,
   AccordionContent,
@@ -14,7 +14,6 @@ import {
   CtaBand,
   SectionHeading,
 } from "@/components/site/Primitives";
-import { ContactForm } from "@/components/site/ContactForm";
 import { pillars, objectives, type Pillar } from "@/content/site";
 import { slugify } from "@/lib/utils";
 import { TestimonialCarousel } from "@/components/site/TestimonialCarousel";
@@ -327,9 +326,9 @@ function ServiceRoute() {
       </section>
 
       {/* RELATED SERVICES SECTION */}
-      <section className="py-20 lg:py-32 bg-[#d11900] text-white overflow-hidden">
+      <section className="py-10 lg:py-20 bg-[#d11900] text-white overflow-hidden">
         <div className="container-macrow">
-          <div className="grid lg:grid-cols-[1fr_1fr] gap-16 items-center">
+          <div className="grid lg:grid-cols-[1fr_1fr] gap-10 items-center">
             {/* Left Column */}
             <div>
               <p className="text-[10px] font-bold tracking-[0.15em] text-white/90 uppercase mb-4">
@@ -352,9 +351,9 @@ function ServiceRoute() {
                 <p className="text-[14px] text-slate-500 leading-relaxed">
                   {parentCapability.description}
                 </p>
-                <Link to="/contact" className="mt-8 inline-flex items-center text-sm font-bold text-slate-900 hover:text-accent transition-colors group w-fit">
+                {/* <Link to="/contact" className="mt-8 inline-flex items-center text-sm font-bold text-slate-900 hover:text-accent transition-colors group w-fit">
                   Discuss this <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
-                </Link>
+                </Link> */}
               </div>
             </div>
 
@@ -413,8 +412,9 @@ function ServiceRoute() {
       </section>
 
       {/* RELATED OBJECTIVES SECTION */}
-      <section className="relative py-20 lg:py-32 bg-[#fdfcf9]">
-        <div className="absolute top-0 left-0 bottom-0 w-1/3 bg-cover bg-center opacity-5 mix-blend-multiply pointer-events-none" style={{ backgroundImage: `url(${subrelatedImg})` }} />
+      <section className="relative py-20 lg:py-32 ">
+
+        <div className="absolute inset-0 w-full bg-cover bg-center pointer-events-none" style={{ backgroundImage: `url(${bgrelatedhero})` }} />
 
         <div className="container-macrow relative z-10">
           <div className="max-w-2xl mb-16">
@@ -502,27 +502,7 @@ function ServiceRoute() {
       </section>
 
       {/* TESTIMONIALS SECTION */}
-      <TestimonialCarousel />
-
-      {/* CONTACT FORM SECTION */}
-      <section className="bg-[#111111] py-20 lg:py-32 text-white w-full" id="contact-form">
-        <div className="container-macrow max-w-5xl mx-auto">
-          <div className="max-w-2xl mb-16">
-            <p className="text-[10px] font-bold tracking-[0.15em] text-white/60 uppercase mb-4">
-              CONTACT US
-            </p>
-            <h2 className="text-4xl sm:text-5xl lg:text-[4rem] font-serif text-white mb-6">
-              Partner with<br />MACROW
-            </h2>
-            <p className="text-sm text-white/60">
-              Bring us your product, roadmap, or problem. We'll tell you where to start.
-            </p>
-          </div>
-          <div className="bg-white">
-            <ContactForm />
-          </div>
-        </div>
-      </section>
+      {/* <TestimonialCarousel /> */}
     </>
   );
 }

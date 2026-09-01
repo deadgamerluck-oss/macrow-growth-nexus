@@ -213,7 +213,7 @@ function AboutPage() {
         </div>
       </section>
 
-      <TestimonialCarousel />
+      {/* <TestimonialCarousel /> */}
 
       <section className="bg-[#111111] py-20 lg:py-28" id="contact-form">
         <div className="container-macrow max-w-5xl mx-auto">

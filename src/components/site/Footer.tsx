@@ -158,7 +158,10 @@ export function Footer() {
 
       <div className="border-t border-slate-200">
         <div className="container-macrow flex flex-col gap-2 py-5 text-[11px] text-slate-500 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} MACROW DIGITAL. All rights reserved</p>
+          <div className="flex items-center gap-4">
+            <p>© {new Date().getFullYear()} MACROW DIGITAL. All rights reserved</p>
+            <Link to="/privacy" className="hover:text-accent transition-colors">Privacy Policy</Link>
+          </div>
           <p>Built in India. Designed for the world.</p>
         </div>
       </div>

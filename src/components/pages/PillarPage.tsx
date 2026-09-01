@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
+import subrelatedImg from "@/assets/subgrelated.jpg";
 
 import {
   Accordion,
@@ -15,7 +16,6 @@ import {
   Section,
   SectionHeading,
 } from "@/components/site/Primitives";
-import { ContactForm } from "@/components/site/ContactForm";
 import type { Pillar } from "@/content/site";
 import { objectives } from "@/content/site";
 
@@ -155,8 +155,8 @@ export function PillarPage({ pillar }: { pillar: Pillar }) {
         </div>
       </Section>
 
-      <section className="relative py-20 lg:py-32 bg-[#fdfcf9]">
-        <div className="absolute top-0 left-0 bottom-0 w-1/3 bg-cover bg-center opacity-5 mix-blend-multiply pointer-events-none" style={{ backgroundImage: `url('/assets/subgrelated.jpg')` }} />
+      <section className="relative py-20 lg:py-32 ">
+        <div className="absolute inset-0 w-full bg-cover bg-center pointer-events-none" style={{ backgroundImage: `url(${subrelatedImg})` }} />
 
         <div className="container-macrow relative z-10">
           <div className="max-w-2xl mb-16">
@@ -208,9 +208,6 @@ export function PillarPage({ pillar }: { pillar: Pillar }) {
         body="Tell us the situation. We'll tell you what we'd do first, and what we'd leave for later."
         action="Start a Conversation"
       />
-      <Section className="py-12 w-full" id="contact-form" tone="muted">
-        <ContactForm />
-      </Section>
     </>
   );
 }

@@ -18,6 +18,7 @@ import { Footer } from "@/components/site/Footer";
 import { Toaster } from "@/components/ui/sonner";
 import { ContactForm } from "@/components/site/ContactForm";
 import { Section } from "@/components/site/Primitives";
+import { CookieBanner } from "@/components/site/CookieBanner";
 
 function NotFoundComponent() {
   return (
@@ -151,7 +152,7 @@ function RootComponent() {
     const handleClick = (e: MouseEvent) => {
       const target = (e.target as HTMLElement).closest('a');
       if (!target) return;
-      
+
       const href = target.getAttribute('href');
       if (href) {
         if (href === "/contact") {
@@ -169,7 +170,7 @@ function RootComponent() {
         }
       }
     };
-    
+
     document.addEventListener('click', handleClick, true);
     return () => document.removeEventListener('click', handleClick, true);
   }, []);
@@ -183,7 +184,6 @@ function RootComponent() {
           {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
           <Outlet />
         </main>
-        <Footer />
         <Section className="!bg-[#111111] !py-24" id="contact-form">
           <div className=" mx-auto">
             <div className="mb-10">
@@ -200,7 +200,10 @@ function RootComponent() {
             <ContactForm />
           </div>
         </Section>
+        <Footer />
+
       </div>
+      <CookieBanner />
       <Toaster />
     </QueryClientProvider>
   );

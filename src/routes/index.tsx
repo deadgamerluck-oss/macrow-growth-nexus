@@ -316,7 +316,7 @@ function Home() {
         action="Start a conversation"
       />
 
-      <TestimonialCarousel />
+      {/* <TestimonialCarousel /> */}
 
     </>
   );

@@ -2,7 +2,6 @@ import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 
 import { Button } from "@/components/ui/button";
 import { Breadcrumbs, CtaBand, Section, SectionHeading } from "@/components/site/Primitives";
-import { ContactForm } from "@/components/site/ContactForm";
 import { articleBySlug, articles, type Article } from "@/content/insights";
 
 export const Route = createFileRoute("/insights/$slug")({
@@ -130,9 +129,6 @@ function ArticlePage() {
         body="We can turn this into a plan for your business, at your stage."
         action="Start a Conversation"
       />
-      <Section className="py-12 w-full" id="contact-form" tone="muted">
-        <ContactForm />
-      </Section>
     </>
   );
 }
