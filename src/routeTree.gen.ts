@@ -16,6 +16,7 @@ import { Route as AuthRouteImport } from './routes/auth'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as DigitalRouteImport } from './routes/digital'
 import { Route as MarcommRouteImport } from './routes/marcomm'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as TechnologyRouteImport } from './routes/technology'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
@@ -64,6 +65,11 @@ const DigitalRoute = DigitalRouteImport.update({
 const MarcommRoute = MarcommRouteImport.update({
   id: '/marcomm',
   path: '/marcomm',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TechnologyRoute = TechnologyRouteImport.update({
@@ -149,6 +155,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/digital': typeof DigitalRoute
   '/marcomm': typeof MarcommRoute
+  '/privacy': typeof PrivacyRoute
   '/technology': typeof TechnologyRoute
   '/admin': typeof AuthenticatedAdminRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -172,6 +179,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/digital': typeof DigitalRoute
   '/marcomm': typeof MarcommRoute
+  '/privacy': typeof PrivacyRoute
   '/technology': typeof TechnologyRoute
   '/admin': typeof AuthenticatedAdminRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -197,6 +205,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/digital': typeof DigitalRoute
   '/marcomm': typeof MarcommRoute
+  '/privacy': typeof PrivacyRoute
   '/technology': typeof TechnologyRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRoute
   '/blog/$slug': typeof BlogSlugRoute
@@ -222,6 +231,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/digital'
     | '/marcomm'
+    | '/privacy'
     | '/technology'
     | '/admin'
     | '/blog/$slug'
@@ -245,6 +255,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/digital'
     | '/marcomm'
+    | '/privacy'
     | '/technology'
     | '/admin'
     | '/blog/$slug'
@@ -269,6 +280,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/digital'
     | '/marcomm'
+    | '/privacy'
     | '/technology'
     | '/_authenticated/admin'
     | '/blog/$slug'
@@ -294,6 +306,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   DigitalRoute: typeof DigitalRoute
   MarcommRoute: typeof MarcommRoute
+  PrivacyRoute: typeof PrivacyRoute
   TechnologyRoute: typeof TechnologyRoute
   BlogSlugRoute: typeof BlogSlugRoute
   CareersSlugRoute: typeof CareersSlugRoute
@@ -359,6 +372,13 @@ declare module '@tanstack/react-router' {
       path: '/marcomm'
       fullPath: '/marcomm'
       preLoaderRoute: typeof MarcommRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/technology': {
@@ -488,6 +508,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   DigitalRoute: DigitalRoute,
   MarcommRoute: MarcommRoute,
+  PrivacyRoute: PrivacyRoute,
   TechnologyRoute: TechnologyRoute,
   BlogSlugRoute: BlogSlugRoute,
   CareersSlugRoute: CareersSlugRoute,

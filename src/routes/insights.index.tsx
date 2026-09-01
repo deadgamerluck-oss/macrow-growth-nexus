@@ -4,7 +4,6 @@ import { useMemo, useState } from "react";
 
 import { Input } from "@/components/ui/input";
 import { CtaBand, PageHero, Section, SectionHeading } from "@/components/site/Primitives";
-import { ContactForm } from "@/components/site/ContactForm";
 import { articles, insightCategories } from "@/content/insights";
 
 export const Route = createFileRoute("/insights/")({
@@ -124,9 +123,6 @@ function InsightsIndex() {
         body="Reading is the first step. We can help you sequence the work."
         action="Start a Conversation"
       />
-      <Section className="py-12 w-full" id="contact-form" tone="muted">
-        <ContactForm />
-      </Section>
     </>
   );
 }

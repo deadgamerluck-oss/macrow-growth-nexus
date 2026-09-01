@@ -8,7 +8,6 @@ import {
   Section,
   SectionHeading,
 } from "@/components/site/Primitives";
-import { ContactForm } from "@/components/site/ContactForm";
 import { industries } from "@/content/site";
 import { caseStudies } from "@/content/insights";
 
@@ -102,9 +101,6 @@ function IndustryPage() {
         body="We'll start with your market, your buying cycle and the systems you already run."
         action="Start a Conversation"
       />
-      <Section className="py-12 w-full" id="contact-form" tone="muted">
-        <ContactForm />
-      </Section>
     </>
   );
 }
