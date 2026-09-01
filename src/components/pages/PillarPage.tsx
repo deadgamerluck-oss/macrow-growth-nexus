@@ -155,27 +155,41 @@ export function PillarPage({ pillar }: { pillar: Pillar }) {
         </div>
       </Section>
 
-      <Section>
-        <SectionHeading eyebrow="Related objectives" title="Start from what you want to achieve" />
-        <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {related.map((o) => (
-            <Link
-              key={o.slug}
-              to="/solutions/$objective"
-              params={{ objective: o.slug }}
-              className="card-elevate group flex items-center justify-between gap-4 p-5"
-            >
-              <span>
-                <span className="block text-sm font-semibold">
+      <section className="relative py-20 lg:py-32 bg-[#fdfcf9]">
+        <div className="absolute top-0 left-0 bottom-0 w-1/3 bg-cover bg-center opacity-5 mix-blend-multiply pointer-events-none" style={{ backgroundImage: `url('/assets/subgrelated.jpg')` }} />
+
+        <div className="container-macrow relative z-10">
+          <div className="max-w-2xl mb-16">
+            <p className="text-[10px] font-bold tracking-[0.15em] text-slate-500 uppercase mb-4">
+              Related objectives
+            </p>
+            <h2 className="text-4xl sm:text-5xl lg:text-[3.5rem] font-serif text-slate-900 leading-[1.1]">
+              Start from what you<br />want to achieve
+            </h2>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {related.map((o, idx) => (
+              <Link
+                key={o.slug}
+                to="/solutions/$objective"
+                params={{ objective: o.slug }}
+                className="bg-white border border-accent p-8 hover:shadow-xl transition-all block group"
+              >
+                <div className="text-[4rem] leading-none font-serif text-accent mb-6">
+                  {String(idx + 1).padStart(2, "0")}
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-accent transition-colors">
                   I want to {o.label.toLowerCase()}
-                </span>
-                <span className="mt-1 block text-xs text-muted-foreground">{o.description}</span>
-              </span>
-              <ArrowRight className="h-4 w-4 shrink-0 text-accent transition-transform group-hover:translate-x-1" />
-            </Link>
-          ))}
+                </h3>
+                <p className="text-[14px] text-slate-500 leading-relaxed">
+                  {o.description}
+                </p>
+              </Link>
+            ))}
+          </div>
         </div>
-      </Section>
+      </section>
 
       <Section tone="muted">
         <SectionHeading eyebrow="FAQ" title={`Common questions about ${pillar.name}`} />

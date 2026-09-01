@@ -318,22 +318,6 @@ function Home() {
 
       <TestimonialCarousel />
 
-      <Section className="!bg-[#111111] !py-24" id="contact-form">
-        <div className=" mx-auto">
-          <div className="mb-10">
-            <p className="text-[10px] font-bold tracking-[0.15em] text-white/60 uppercase">
-              Contact us
-            </p>
-            <h2 className="mt-4 text-4xl leading-[1.1] sm:text-5xl lg:text-[3.5rem] font-serif font-medium text-white">
-              Partner with<br />MACROW
-            </h2>
-            <p className="mt-4 text-[13px] leading-relaxed text-white/60 max-w-lg">
-              Bring us your product, roadmap, or problem. We'll tell you where to start.
-            </p>
-          </div>
-          <ContactForm />
-        </div>
-      </Section>
     </>
   );
 }
