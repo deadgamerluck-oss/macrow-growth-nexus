@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Linkedin, Instagram, Facebook, Youtube } from "lucide-react";
+import { toast } from "sonner";
 
 import logoUrl from "@/assets/logo-black.png";
 
@@ -101,17 +102,38 @@ export function Footer() {
               {col.title}
             </p>
             <ul className="mt-6 space-y-3.5">
-              {col.links.map((l) => (
-                <li key={l.label}>
-                  <Link
-                    to={l.to}
-                    params={"params" in l ? l.params : {}}
-                    className="text-[13px] text-slate-700 transition-colors hover:text-accent"
-                  >
-                    {l.label}
-                  </Link>
-                </li>
-              ))}
+              {col.links.map((l) => {
+                const isComingSoon = ["/marcomm", "/technology", "/solutions", "/industries", "/insights", "/blog", "/careers"].some(route => l.to.startsWith(route));
+                if (isComingSoon) {
+                  return (
+                    <li key={l.label} className="relative group w-fit">
+                      <button
+                        onClick={(e) => {
+                          e.preventDefault();
+                          toast("Coming soon");
+                        }}
+                        className="text-[13px] text-slate-700 transition-colors hover:text-accent"
+                      >
+                        {l.label}
+                      </button>
+                      <span className="absolute top-full mt-1 left-1/2 -translate-x-1/2 whitespace-nowrap bg-red-500 text-white text-[10px] px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50">
+                        Coming soon
+                      </span>
+                    </li>
+                  );
+                }
+                return (
+                  <li key={l.label}>
+                    <Link
+                      to={l.to}
+                      params={"params" in l ? l.params : {}}
+                      className="text-[13px] text-slate-700 transition-colors hover:text-accent"
+                    >
+                      {l.label}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         ))}
