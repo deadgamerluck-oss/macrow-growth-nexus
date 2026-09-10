@@ -162,7 +162,7 @@ function RootComponent() {
           return;
         }
 
-        const isComingSoon = ["/marcomm", "/technology", "/solutions", "/industries", "/insights", "/careers", "/blog"].some(route => href.startsWith(route));
+        const isComingSoon = ["/technology", "/solutions", "/industries", "/insights", "/careers", "/blog"].some(route => href.startsWith(route));
         if (isComingSoon) {
           e.preventDefault();
           e.stopPropagation();

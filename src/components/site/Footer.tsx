@@ -103,7 +103,7 @@ export function Footer() {
             </p>
             <ul className="mt-6 space-y-3.5">
               {col.links.map((l) => {
-                const isComingSoon = ["/marcomm", "/technology", "/solutions", "/industries", "/insights", "/blog", "/careers"].some(route => l.to.startsWith(route));
+                const isComingSoon = ["/technology", "/solutions", "/industries", "/insights", "/blog", "/careers"].some(route => l.to.startsWith(route));
                 if (isComingSoon) {
                   return (
                     <li key={l.label} className="relative group w-fit">
