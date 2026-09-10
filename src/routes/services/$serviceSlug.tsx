@@ -101,9 +101,9 @@ const serviceHeroData: Record<string, { subtitle: string; cardTitle: string; car
     cardBody: "A high-performing website brings demand, distribution, and measurement together in one connected system—turning the right audience, offer, and channel mix into measurable business growth."
   },
   "brand-strategy": {
-    subtitle: "Clear.\nConsistent.\nCoherent.",
-    cardTitle: "One Clear Story, Everywhere.",
-    cardBody: "A strong brand goes beyond a logo or a campaign. We shape one clear story and express it consistently across every audience, format, and market—creating a brand that feels connected, recognisable, and purposeful."
+    subtitle: "Unify.\nAdapt.\nResonate.",
+    cardTitle: "One Story, Everywhere It Matters",
+    cardBody: "Marcomm that aligns your narrative across audiences, formats, and markets—so your brand speaks with one clear voice, no matter where it’s heard."
   },
   "digital-strategy": {
     subtitle: "Unified.\nStrategic.\nMeasurable.",
@@ -194,6 +194,97 @@ const serviceHeroData: Record<string, { subtitle: string; cardTitle: string; car
     subtitle: "Create.\nConnect.\nConvert.",
     cardTitle: "Content That Drives Real Growth",
     cardBody: "Content marketing that unites audience demand, strategic distribution, and performance measurement into one system—so every piece you publish works harder, reaches further, and delivers measurable results."
+  },
+  "brand-identity": {
+    subtitle: "One voice .\nConsistent .\nAmplify.",
+    cardTitle: "One Story, Every Audience, Everywhere",
+    cardBody: "Marcomm that delivers a single, consistent narrative across all audiences, formats, and markets—so your brand is always clear, coherent, and compelling."
+  },
+  "corporate-branding": {
+    subtitle: "Define .\nExpress .\nDeliver.",
+    cardTitle: "Your Story, Defined and Delivered",
+    cardBody: "Marcomm shapes how your business is understood—aligning positioning, identity, and creative execution into one coherent system that speaks clearly across every audience, format, and market."
+  },
+  "employer-branding": {
+    subtitle: "Position .\nExpress .\nProduce.",
+    cardTitle: "Your Brand, Clearly Understood Everywhere",
+    cardBody: "Marcomm defines your positioning, identity, and creative system—then produces work that tells one clear story across every audience, format, and market."
+  },
+  "video-production": {
+    subtitle: "Clarify .\nUnify .\nExecute.",
+    cardTitle: "One Story, Told Consistently Everywhere",
+    cardBody: "Marcomm defines your positioning, identity, and creative system—then produces work that expresses one clear story across every audience, format, and market."
+  },
+  "motion-graphics": {
+    subtitle: "Define .\nUnify .\nProduce.",
+    cardTitle: "Your Brand, One Clear Story",
+    cardBody: "Marcomm shapes how your business is understood by defining positioning, identity, and the creative system that carries it—then producing work that speaks consistently across every audience, format, and market."
+  },
+  "social-media-creative": {
+    subtitle: "Clarify .\nAlign .\nDeliver.",
+    cardTitle: "One Story, Every Platform, Always Clear",
+    cardBody: "Marcomm defines your positioning, identity, and creative system—then produces social media work that tells one clear story consistently across every audience, format, and market."
+  },
+  "packaging": {
+    subtitle: "Define .\nDesign.\nDeliver.",
+    cardTitle: "One Story, Packaged for Impact",
+    cardBody: "Marcomm defines your positioning, identity, and creative system—then produces packaging that expresses one clear story consistently across every audience, format, and market."
+  },
+  "creative-strategy": {
+    subtitle: "Strategise.\nUnify.\nExecute",
+    cardTitle: "Your Brand, One Clear Story",
+    cardBody: "Marcomm shapes how your business is understood by defining positioning, identity, and the creative system that carries it—then producing work that speaks consistently across every audience, format, and market."
+  },
+  "creative-design": {
+    subtitle: "Position.\nCraft.\nConvert.",
+    cardTitle: "One Story, Designed for B2B",
+    cardBody: "Marcomm defines your positioning, identity, and creative system—then produces design work that tells one clear story consistently across every B2B audience, format, and market."
+  },
+  "campaign-development": {
+    subtitle: "Plan.\nCreate.\nLaunch.",
+    cardTitle: "Campaigns That Drive B2B Growth",
+    cardBody: "Marcomm aligns your positioning, identity, and creative system to build campaigns that speak with one clear voice—turning complex B2B narratives into focused, high-impact work that moves decision-makers across every channel and market."
+  },
+  "advertising": {
+    subtitle: "Target.\nPersuade.\nConvert.",
+    cardTitle: "Advertising That Moves B2B Decisions",
+    cardBody: "Marcomm defines your positioning, identity, and creative system—then produces advertising that speaks with one clear, persuasive voice to the right B2B audiences across every format and market."
+  },
+  "corporate-communication": {
+    subtitle: "Align.\nAssure.\nAdvance.",
+    cardTitle: "One Voice, Every B2B Conversation",
+    cardBody: "Marcomm defines your positioning, identity, and creative system—then produces corporate communication that builds trust, clarity, and credibility with every B2B stakeholder, across every format and market."
+  },
+  "product-communication": {
+    subtitle: "Clarify.\nDifferentiate.\nConvert",
+    cardTitle: "Product Stories That Win B2B Deals",
+    cardBody: "Marcomm defines your positioning, identity, and creative system—then produces product communication that turns complex features into clear, compelling narratives that resonate with B2B buyers across every audience, format, and market."
+
+  },
+  "influencer-creator-campaigns": {
+    subtitle: "Partner.\nAmplify.\nConvert",
+    cardTitle: "Influencer Campaigns Built for B2B",
+    cardBody: "Marcomm defines your positioning, identity, and creative system—then produces influencer and creator campaigns that carry one clear, credible story to the right B2B audiences across every format and market."
+  },
+  "content-strategy": {
+    subtitle: "Map.\nMessage.\nMove.",
+    cardTitle: "Content Strategy That Drives B2B Decisions",
+    cardBody: "Marcomm defines your positioning, identity, and creative system—then builds content strategies that turn complex B2B narratives into clear, purposeful stories that guide buyers across every audience, format, and market."
+  },
+  "copywriting": {
+    subtitle: "Craft.\nConvince.\nConvert.",
+    cardTitle: "Copy That Closes B2B Deals",
+    cardBody: "Marcomm defines your positioning, identity, and creative system—then produces copywriting that turns complex B2B value into clear, persuasive words that move decision-makers across every audience, format, and market."
+  },
+  "visual-communication": {
+    subtitle: "Show.\nSimplify.\nSell.",
+    cardTitle: "Visual Stories That Win B2B Buyers",
+    cardBody: "Marcomm defines your positioning, identity, and creative system—then produces visual communication that turns complex B2B ideas into clear, compelling visuals that resonate with decision-makers across every audience, format, and market."
+  },
+  "presentation-design": {
+    subtitle: "Structure.\nSimplify.\nPersuade.",
+    cardTitle: "Presentations That Close B2B Deals",
+    cardBody: "Marcomm defines your positioning, identity, and creative system—then produces presentation designs that turn complex B2B narratives into clear, persuasive visuals that move decision-makers across every audience, format, and market."
   }
 };
 
