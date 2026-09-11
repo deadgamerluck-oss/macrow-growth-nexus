@@ -10,6 +10,7 @@ import {
 } from "@/components/site/Primitives";
 
 import { objectives } from "@/content/site";
+import { slugify } from "@/lib/utils";
 
 export const Route = createFileRoute("/solutions/$objective")({
   loader: ({ params }) => {
@@ -72,8 +73,10 @@ function ObjectivePage() {
         />
         <ul className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {objective.services.map((s: string) => (
-            <li key={s} className="card-elevate p-5 text-sm font-semibold">
-              {s}
+            <li key={s} className="relative card-elevate p-5 text-sm font-semibold transition-colors hover:bg-secondary">
+              <Link to={`/services/${slugify(s)}` as any} className="hover:text-accent transition-colors before:absolute before:inset-0">
+                {s}
+              </Link>
             </li>
           ))}
         </ul>

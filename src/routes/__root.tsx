@@ -17,7 +17,7 @@ import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { Toaster } from "@/components/ui/sonner";
 import { ContactForm } from "@/components/site/ContactForm";
-import { Section } from "@/components/site/Primitives";
+import { CtaBand, Section } from "@/components/site/Primitives";
 import { CookieBanner } from "@/components/site/CookieBanner";
 
 function NotFoundComponent() {
@@ -162,12 +162,6 @@ function RootComponent() {
           return;
         }
 
-        const isComingSoon = ["/technology", "/solutions", "/industries", "/insights", "/careers", "/blog"].some(route => href.startsWith(route));
-        if (isComingSoon) {
-          e.preventDefault();
-          e.stopPropagation();
-          toast("Coming soon");
-        }
       }
     };
 
@@ -184,6 +178,7 @@ function RootComponent() {
           {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
           <Outlet />
         </main>
+
         <Section className="!bg-[#111111] !py-24" id="contact-form">
           <div className=" mx-auto">
             <div className="mb-10">
