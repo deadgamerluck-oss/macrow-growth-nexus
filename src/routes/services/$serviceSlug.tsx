@@ -8,18 +8,14 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
-import {
-  Breadcrumbs,
-  CtaBand,
-  SectionHeading,
-} from "@/components/site/Primitives";
+
+
 import { pillars, objectives, type Pillar } from "@/content/site";
 import { slugify } from "@/lib/utils";
-import { TestimonialCarousel } from "@/components/site/TestimonialCarousel";
+
 import subheroImg from "@/assets/subhero.jpg";
 import subherorightImg from "@/assets/subheroright.jpg";
-import subrelatedImg from "@/assets/subgrelated.jpg";
+
 
 const faqCopy: Record<Pillar["slug"], { q: string; a: string }[]> = {
   digital: [
@@ -285,6 +281,96 @@ const serviceHeroData: Record<string, { subtitle: string; cardTitle: string; car
     subtitle: "Structure.\nSimplify.\nPersuade.",
     cardTitle: "Presentations That Close B2B Deals",
     cardBody: "Marcomm defines your positioning, identity, and creative system—then produces presentation designs that turn complex B2B narratives into clear, persuasive visuals that move decision-makers across every audience, format, and market."
+  },
+  "uiux-design": {
+    subtitle: "Architect.\nAutomate.\nAccelerate.",
+    cardTitle: "Systems Built for B2B Scale",
+    cardBody: "Technology decisions are business decisions—we design and build the products, platforms, and automation that your marketing, operations, and customers depend on as your B2B business grows."
+  },
+  "product-design": {
+    subtitle: "Design.\nBuild.\nScale.",
+    cardTitle: "Product Design That Scales B2B",
+    cardBody: "Technology decisions are business decisions—we design and build the products, platforms, and automation that your marketing, operations, and customers depend on as your B2B business grows."
+  },
+  "mvp-development": {
+    subtitle: "Validate.\nBuild.\nLaunch.",
+    cardTitle: "MVP Development Built for B2B Growth",
+    cardBody: "We design and build the products, platforms, and automation that your marketing, operations, and customers depend on—because technology decisions are business decisions that must scale as your B2B business grows."
+  },
+  "ai-solutions": {
+    subtitle: "Integrate.\nAutomate.\nAccelerate.",
+    cardTitle: "AI Solutions Engineered for B2B Scale",
+    cardBody: "We design and build the products, platforms, and automation that your marketing, operations, and customers depend on—because technology decisions are business decisions that must scale as your B2B business grows."
+  },
+  "ai-integration": {
+    subtitle: "Connect.\nDeploy.\nTransform.",
+    cardTitle: "AI Integration Built for B2B Scale",
+    cardBody: "We design and build the products, platforms, and automation that your marketing, operations, and customers depend on—because technology decisions are business decisions that must scale as your B2B business grows."
+  },
+  "ai-agents": {
+    subtitle: "Orchestrate.\nOptimize.\nOutperform.",
+    cardTitle: "AI Agents Engineered for B2B Growth",
+    cardBody: "We design and build the products, platforms, and automation that your marketing, operations, and customers depend on—because technology decisions are business decisions that must scale as your B2B business grows."
+  },
+  "website-development": {
+    subtitle: "Architect.\nDevelop.\nDeploy.",
+    cardTitle: "Website Development Built for B2B Scale",
+    cardBody: "We design and build the products, platforms, and automation that your marketing, operations, and customers depend on—because technology decisions are business decisions that must scale as your B2B business grows."
+  },
+  "web-applications": {
+    subtitle: "Build.\nIntegrate.\nScale.",
+    cardTitle: "Web Applications Engineered for B2B Growth",
+    cardBody: "We design and build the products, platforms, and automation that your marketing, operations, and customers depend on—because technology decisions are business decisions that must scale as your B2B business grows."
+  },
+  "saas-development": {
+    subtitle: "Architect.\nLaunch.\nScale.",
+    cardTitle: "SaaS Development Built for B2B Scale",
+    cardBody: "We design and build the products, platforms, and automation that your marketing, operations, and customers depend on—because technology decisions are business decisions that must scale as your B2B business grows."
+  },
+  "mobile-applications": {
+    subtitle: "Design.\nBuild.\nDeliver.",
+    cardTitle: "Mobile Applications Engineered for B2B Growth",
+    cardBody: "We design and build the products, platforms, and automation that your marketing, operations, and customers depend on—because technology decisions are business decisions that must scale as your B2B business grows."
+  },
+  "cloud-solutions": {
+    subtitle: "Migrate.\nOptimize.\nSecure.",
+    cardTitle: "Cloud Solutions Built for B2B Scale",
+    cardBody: "We design and build the products, platforms, and automation that your marketing, operations, and customers depend on—because technology decisions are business decisions that must scale as your B2B business grows."
+  },
+  "devops": {
+    subtitle: "Automate.\nDeploy.\nMonitor.",
+    cardTitle: "DevOps Engineered for B2B Growth",
+    cardBody: "We design and build the products, platforms, and automation that your marketing, operations, and customers depend on—because technology decisions are business decisions that must scale as your B2B business grows."
+  },
+  "cybersecurity": {
+    subtitle: "Protect.\nDetect.\nRespond.",
+    cardTitle: "Cybersecurity Built for B2B Scale",
+    cardBody: "We design and build the products, platforms, and automation that your marketing, operations, and customers depend on—because technology decisions are business decisions that must scale as your B2B business grows."
+  },
+  "api-development": {
+    subtitle: "Connect.\nIntegrate.\nScale.",
+    cardTitle: "API Development Engineered for B2B Integration",
+    cardBody: "We architect and deliver the connected platforms, automation workflows, and integration systems that power your marketing, operations, and customer experiences—because in B2B, every API decision is a business decision that must scale with growth."
+  },
+  "crm-development": {
+    subtitle: "Unify.\nAutomate.\nConvert.",
+    cardTitle: "CRM Development Built for B2B Relationships",
+    cardBody: "We craft and deploy the customer platforms, sales automation, and relationship systems that drive your marketing, operations, and revenue teams—because in B2B, every CRM decision shapes how your business grows and retains clients."
+  },
+  "erp-solutions": {
+    subtitle: "Unify.\nControl.\nScale.",
+    cardTitle: "ERP Solutions Engineered for B2B Operations",
+    cardBody: "We build and integrate the enterprise platforms, process automation, and operational systems that unify your marketing, operations, and customer workflows—because in B2B, every ERP decision determines how efficiently your business scales."
+  },
+  "hrms-solutions": {
+    subtitle: "Streamline.\nEngage.\nEmpower.",
+    cardTitle: "HRMS Solutions Built for B2B Teams",
+    cardBody: "We develop and deploy the workforce platforms, people automation, and talent systems that align your HR, operations, and employee experiences—because in B2B, every HRMS decision shapes how your team performs and grows."
+  },
+  "business-automation": {
+    subtitle: "Automate.\nAccelerate.\nScale.",
+    cardTitle: "Business Automation Engineered for B2B Efficiency",
+    cardBody: "We create and implement the workflow platforms, process automation, and operational systems that connect your marketing, operations, and customer journeys—because in B2B, every automation decision determines how fast and smoothly your business scales."
   }
 };
 

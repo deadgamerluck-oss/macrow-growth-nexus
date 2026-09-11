@@ -40,15 +40,8 @@ export function Header() {
 
   const pillar = pillars.find((p) => p.slug === open);
 
-  const isComingSoonRoute = ["/technology", "/solutions", "/industries", "/insights", "/careers", "/blog"].some(route => currentPath.startsWith(route));
-
   return (
     <>
-      {isComingSoonRoute && (
-        <div className="fixed top-24 left-1/2 -translate-x-1/2 z-50 bg-red-500 text-white text-xs font-medium px-4 py-1.5 rounded shadow-lg shadow-red-500/20 pointer-events-none">
-          Coming soon
-        </div>
-      )}
       <header className="sticky top-0 z-50 border-b border-white/10 bg-[#111] text-white">
         <div className="container-macrow flex h-16 items-center justify-between gap-6 lg:h-20">
           <Link
@@ -69,22 +62,12 @@ export function Header() {
                   className="px-2.5 py-2 text-[13px] font-medium text-white transition-colors hover:text-accent data-[active=true]:text-accent"
                   data-active={open === p.slug || currentPath.startsWith(`/${p.slug}`)}
                   aria-expanded={open === p.slug}
-                  onClick={(e) => {
-                    if (["technology"].includes(p.slug)) {
-                      e.preventDefault();
-                      toast("Coming soon");
-                    } else {
-                      setOpen(open === p.slug ? null : (p.slug as MegaKey));
-                    }
+                  onClick={() => {
+                    setOpen(open === p.slug ? null : (p.slug as MegaKey));
                   }}
                 >
                   {p.name}
                 </button>
-                {["technology"].includes(p.slug) && (
-                  <span className="absolute top-full mt-1 left-1/2 -translate-x-1/2 whitespace-nowrap bg-red-500 text-white text-[10px] px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50">
-                    Coming soon
-                  </span>
-                )}
               </div>
             ))}
 
@@ -93,16 +76,12 @@ export function Header() {
                 className="px-2.5 py-2 text-[13px] font-medium text-white transition-colors hover:text-accent data-[active=true]:text-accent"
                 data-active={open === "solutions" || currentPath.startsWith("/solutions")}
                 aria-expanded={open === "solutions"}
-                onClick={(e) => {
-                  e.preventDefault();
-                  toast("Coming soon");
+                onClick={() => {
+                  setOpen(open === "solutions" ? null : "solutions");
                 }}
               >
                 Solutions
               </button>
-              <span className="absolute top-full mt-1 left-1/2 -translate-x-1/2 whitespace-nowrap bg-red-500 text-white text-[10px] px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50">
-                Coming soon
-              </span>
             </div>
 
             <div className="relative group">
@@ -110,47 +89,31 @@ export function Header() {
                 className="px-2.5 py-2 text-[13px] font-medium text-white transition-colors hover:text-accent data-[active=true]:text-accent"
                 data-active={open === "industries" || currentPath.startsWith("/industries")}
                 aria-expanded={open === "industries"}
-                onClick={(e) => {
-                  e.preventDefault();
-                  toast("Coming soon");
+                onClick={() => {
+                  setOpen(open === "industries" ? null : "industries");
                 }}
               >
                 Industries
               </button>
-              <span className="absolute top-full mt-1 left-1/2 -translate-x-1/2 whitespace-nowrap bg-red-500 text-white text-[10px] px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50">
-                Coming soon
-              </span>
             </div>
 
-            <div className="relative group">
-              <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  toast("Coming soon");
-                }}
-                className="px-2.5 py-2 text-[13px] font-medium text-white transition-colors hover:text-accent block"
-              >
-                Insights
-              </button>
-              <span className="absolute top-full mt-1 left-1/2 -translate-x-1/2 whitespace-nowrap bg-red-500 text-white text-[10px] px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50">
-                Coming soon
-              </span>
-            </div>
+            <Link
+              to="/insights"
+              onClick={() => setOpen(null)}
+              className="px-2.5 py-2 text-[13px] font-medium text-white transition-colors hover:text-accent"
+              activeProps={{ className: "text-accent" }}
+            >
+              Insights
+            </Link>
 
-            <div className="relative group">
-              <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  toast("Coming soon");
-                }}
-                className="px-2.5 py-2 text-[13px] font-medium text-white transition-colors hover:text-accent block"
-              >
-                Careers
-              </button>
-              <span className="absolute top-full mt-1 left-1/2 -translate-x-1/2 whitespace-nowrap bg-red-500 text-white text-[10px] px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50">
-                Coming soon
-              </span>
-            </div>
+            <Link
+              to="/careers"
+              onClick={() => setOpen(null)}
+              className="px-2.5 py-2 text-[13px] font-medium text-white transition-colors hover:text-accent"
+              activeProps={{ className: "text-accent" }}
+            >
+              Careers
+            </Link>
 
             <Link
               to="/about"
@@ -280,22 +243,6 @@ export function Header() {
                 { label: "Careers", to: "/careers" },
                 { label: "About", to: "/about" },
               ].map((item) => {
-                const isComingSoon = ["/technology", "/solutions", "/industries", "/insights", "/careers", "/blog"].includes(item.to);
-
-                if (isComingSoon) {
-                  return (
-                    <button
-                      key={item.to}
-                      onClick={() => {
-                        setMobileOpen(false);
-                        toast("Coming soon");
-                      }}
-                      className="border-b border-black/10 py-3.5 text-base font-medium hover:text-accent transition-colors text-left"
-                    >
-                      {item.label}
-                    </button>
-                  );
-                }
                 return (
                   <Link
                     key={item.to}
