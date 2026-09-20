@@ -16,7 +16,7 @@ import { toast } from "sonner";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { Toaster } from "@/components/ui/sonner";
-import { ContactForm } from "@/components/site/ContactForm";
+import { ContactPage } from "@/components/pages/ContactPage";
 import { CtaBand, Section } from "@/components/site/Primitives";
 import { CookieBanner } from "@/components/site/CookieBanner";
 
@@ -95,16 +95,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:site_name", content: "MACROW" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "theme-color", content: "#111111" },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.png", type: "image/png", sizes: "32x32" },
-      { rel: "icon", href: "/favicon.png", type: "image/png", sizes: "16x16" },
-      { rel: "apple-touch-icon", href: "/favicon.png", sizes: "180x180" },
+      { rel: "icon", href: "/favicon.png", type: "image/png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
@@ -147,58 +145,47 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const router = useRouter();
+  const isMinimalRoute = router.state.location.pathname.startsWith("/admin/careers");
 
   useEffect(() => {
     const handleClick = (e: MouseEvent) => {
-      const target = (e.target as HTMLElement).closest('a');
+      const target = (e.target as HTMLElement).closest("a");
       if (!target) return;
 
-      const href = target.getAttribute('href');
+      const href = target.getAttribute("href");
       if (href) {
         if (href === "/contact") {
           e.preventDefault();
           e.stopPropagation();
-          document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' });
+          document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth" });
           return;
         }
-
       }
     };
 
-    document.addEventListener('click', handleClick, true);
-    return () => document.removeEventListener('click', handleClick, true);
+    document.addEventListener("click", handleClick, true);
+    return () => document.removeEventListener("click", handleClick, true);
   }, []);
 
   return (
     <QueryClientProvider client={queryClient}>
       <div className="flex min-h-screen flex-col">
         <ScrollRestoration />
-        <Header />
+        {!isMinimalRoute && <Header />}
         <main className="flex-1">
           {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
           <Outlet />
         </main>
 
-        <Section className="!bg-[#111111] !py-24" id="contact-form">
-          <div className=" mx-auto">
-            <div className="mb-10">
-              <p className="text-[10px] font-bold tracking-[0.15em] text-white/60 uppercase">
-                Contact us
-              </p>
-              <h2 className="mt-4 text-4xl leading-[1.1] sm:text-5xl lg:text-[3.5rem] font-serif font-medium text-white">
-                Partner with<br />MACROW
-              </h2>
-              <p className="mt-4 text-[13px] leading-relaxed text-white/60 max-w-lg">
-                Bring us your product, roadmap, or problem. We'll tell you where to start.
-              </p>
-            </div>
-            <ContactForm />
+        {!isMinimalRoute && (
+          <div id="contact-form">
+            <ContactPage />
           </div>
-        </Section>
-        <Footer />
-
+        )}
+        {!isMinimalRoute && <Footer />}
       </div>
-      <CookieBanner />
+      {!isMinimalRoute && <CookieBanner />}
       <Toaster />
     </QueryClientProvider>
   );

@@ -42,11 +42,15 @@ export function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 border-b border-white/10 bg-[#111] text-white">
+      <header 
+        className="sticky top-0 z-50 border-b border-white/10 bg-[#111] text-white"
+        onMouseLeave={() => setOpen(null)}
+      >
         <div className="container-macrow flex h-16 items-center justify-between gap-6 lg:h-20">
           <Link
             to="/"
             aria-label="MACROW home"
+            onMouseEnter={() => setOpen(null)}
             onClick={() => {
               setOpen(null);
               window.scrollTo({ top: 0, behavior: "smooth" });
@@ -59,9 +63,10 @@ export function Header() {
             {pillars.map((p) => (
               <div key={p.slug} className="relative group">
                 <button
-                  className="px-2.5 py-2 text-[13px] font-medium text-white transition-colors hover:text-accent data-[active=true]:text-accent"
+                  className="px-2.5 py-2 text-[13px] font-medium text-white transition-colors hover:text-accent data-[active=true]:text-accent cursor-pointer"
                   data-active={open === p.slug || currentPath.startsWith(`/${p.slug}`)}
                   aria-expanded={open === p.slug}
+                  onMouseEnter={() => setOpen(p.slug as MegaKey)}
                   onClick={() => {
                     setOpen(open === p.slug ? null : (p.slug as MegaKey));
                   }}
@@ -73,9 +78,10 @@ export function Header() {
 
             <div className="relative group">
               <button
-                className="px-2.5 py-2 text-[13px] font-medium text-white transition-colors hover:text-accent data-[active=true]:text-accent"
+                className="px-2.5 py-2 text-[13px] font-medium text-white transition-colors hover:text-accent data-[active=true]:text-accent cursor-pointer"
                 data-active={open === "solutions" || currentPath.startsWith("/solutions")}
                 aria-expanded={open === "solutions"}
+                onMouseEnter={() => setOpen("solutions")}
                 onClick={() => {
                   setOpen(open === "solutions" ? null : "solutions");
                 }}
@@ -86,9 +92,10 @@ export function Header() {
 
             <div className="relative group">
               <button
-                className="px-2.5 py-2 text-[13px] font-medium text-white transition-colors hover:text-accent data-[active=true]:text-accent"
+                className="px-2.5 py-2 text-[13px] font-medium text-white transition-colors hover:text-accent data-[active=true]:text-accent cursor-pointer"
                 data-active={open === "industries" || currentPath.startsWith("/industries")}
                 aria-expanded={open === "industries"}
+                onMouseEnter={() => setOpen("industries")}
                 onClick={() => {
                   setOpen(open === "industries" ? null : "industries");
                 }}
@@ -99,6 +106,7 @@ export function Header() {
 
             <Link
               to="/insights"
+              onMouseEnter={() => setOpen(null)}
               onClick={() => setOpen(null)}
               className="px-2.5 py-2 text-[13px] font-medium text-white transition-colors hover:text-accent"
               activeProps={{ className: "text-accent" }}
@@ -108,6 +116,7 @@ export function Header() {
 
             <Link
               to="/careers"
+              onMouseEnter={() => setOpen(null)}
               onClick={() => setOpen(null)}
               className="px-2.5 py-2 text-[13px] font-medium text-white transition-colors hover:text-accent"
               activeProps={{ className: "text-accent" }}
@@ -117,6 +126,7 @@ export function Header() {
 
             <Link
               to="/about"
+              onMouseEnter={() => setOpen(null)}
               onClick={() => setOpen(null)}
               className="px-2.5 py-2 text-[13px] font-medium text-white transition-colors hover:text-accent"
               activeProps={{ className: "text-accent" }}
@@ -125,7 +135,7 @@ export function Header() {
             </Link>
           </nav>
 
-          <div className="hidden lg:flex items-center gap-6">
+          <div className="hidden lg:flex items-center gap-6" onMouseEnter={() => setOpen(null)}>
             <a href="https://www.linkedin.com/company/macrow-digital/" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="bg-white hover:bg-white/90 p-1 transition-colors">
               <Linkedin className="h-4 w-4 text-black" fill="currentColor" strokeWidth={0} />
             </a>
@@ -145,10 +155,7 @@ export function Header() {
         </div>
 
         {open && (
-          <div
-            className="hidden border-t border-white/10 bg-[#111] lg:block"
-            onMouseLeave={() => setOpen(null)}
-          >
+          <div className="hidden border-t border-white/10 bg-[#111] lg:block">
             <div className="container-macrow py-8">
               {pillar && (
                 <div className="grid gap-8 lg:grid-cols-[18rem_1fr]">

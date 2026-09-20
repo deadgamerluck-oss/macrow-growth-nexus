@@ -78,14 +78,7 @@ function Home() {
           preload="metadata"
           aria-hidden
         />
-        <div
-          className="pointer-events-none absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(100deg, color-mix(in oklab, var(--ink) 88%, transparent), color-mix(in oklab, var(--ink) 45%, transparent))",
-          }}
-          aria-hidden
-        />
+
         <div className="grid-mesh pointer-events-none absolute inset-0 opacity-25" aria-hidden />
         <div className="container-macrow relative pt-28 pb-10 lg:pt-40 lg:pb-16">
           <div className="max-w-4xl animate-rise">
