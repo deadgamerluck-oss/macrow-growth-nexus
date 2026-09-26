@@ -5,6 +5,8 @@ import { Check, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Breadcrumbs, CtaBand } from "@/components/site/Primitives";
+import { CareerForm } from "@/components/site/CareerForm";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { publishedOpeningsQuery } from "@/lib/content";
 
 export const Route = createFileRoute("/careers/$slug")({
@@ -111,13 +113,24 @@ function CareerDetail() {
           <aside className="card-elevate h-fit p-6">
             <h2 className="text-base font-semibold">Apply</h2>
             <p className="mt-2 text-sm text-muted-foreground">
-              Send a short note about why this role, plus links to work you own.
+              Submit your application by filling out the form below.
             </p>
-            <Button asChild className="mt-5 w-full rounded-full">
-              <a href={`mailto:careers@macrow.com?subject=${encodeURIComponent(`Application: ${job.title}`)}`}>
-                Apply by email
-              </a>
-            </Button>
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button className="mt-5 w-full rounded-full">
+                  Apply Now
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-[500px]">
+                <DialogHeader>
+                  <DialogTitle>Apply for {job.title}</DialogTitle>
+                  <DialogDescription>
+                    Fill out the form below to apply. We'll get back to you soon.
+                  </DialogDescription>
+                </DialogHeader>
+                <CareerForm jobTitle={job.title} />
+              </DialogContent>
+            </Dialog>
             <p className="mt-3 text-xs text-muted-foreground">careers@macrow.com</p>
           </aside>
         </div>

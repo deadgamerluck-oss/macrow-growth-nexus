@@ -12,13 +12,23 @@ import shilpa from "@/assets/shilpa.png"
 import chitranshi from "@/assets/Chitranshi.png"
 import { Mail } from "lucide-react"
 const mockMembers = [
-
+  {
+    id: "3",
+    name: "Honey Sinha",
+    role: "Co-Founder",
+    pillar: "DIGITAL",
+    bio: "She leads our digital growth strategy, focusing on measurable performance and scalable acquisition.",
+    is_active: true,
+    photo_url: honey,
+    email: "honey@macrowdigital.com",
+    linkedin_url: "https://www.linkedin.com/in/the-honey-sinha/"
+  },
   {
     id: "1",
     name: "Atul Sinha",
-    role: "CO-FOUNDER",
+    role: "Design Director",
     pillar: "MARCOMM",
-    bio: "He leads our digital growth strategy, focusing on measurable performance and scalable acquisition.",
+    bio: "He brings 9+ years of experience aligning brand narrative with business objectives.",
     is_active: true,
     photo_url: atul,
     email: "atul@macrowdigital.com",
@@ -35,17 +45,7 @@ const mockMembers = [
     email: "lakshman@macrowdigital.com",
     linkedin_url: "https://www.linkedin.com/in/lakshman-sharma/"
   },
-  {
-    id: "3",
-    name: "Honey Sinha",
-    role: "DIRECTOR, LEAD STRATEGIST",
-    pillar: "DIGITAL",
-    bio: "She brings 9+ years of experience aligning brand narrative with business objectives.",
-    is_active: true,
-    photo_url: honey,
-    email: "honey@macrowdigital.com",
-    linkedin_url: "https://www.linkedin.com/in/the-honey-sinha/"
-  },
+
   {
     id: "4",
     name: "Gajendra Singh",

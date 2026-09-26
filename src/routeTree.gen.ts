@@ -19,6 +19,7 @@ import { Route as MarcommRouteImport } from './routes/marcomm'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as TechnologyRouteImport } from './routes/technology'
 import { Route as AuthenticatedAdminRouteImport } from './routes/_authenticated/admin'
+import { Route as AdminCareersRouteImport } from './routes/admin.careers'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as CareersIndexRouteImport } from './routes/careers.index'
@@ -81,6 +82,11 @@ const AuthenticatedAdminRoute = AuthenticatedAdminRouteImport.update({
   id: '/admin',
   path: '/admin',
   getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
+const AdminCareersRoute = AdminCareersRouteImport.update({
+  id: '/admin/careers',
+  path: '/admin/careers',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const BlogIndexRoute = BlogIndexRouteImport.update({
   id: '/blog/',
@@ -158,6 +164,7 @@ export interface FileRoutesByFullPath {
   '/privacy': typeof PrivacyRoute
   '/technology': typeof TechnologyRoute
   '/admin': typeof AuthenticatedAdminRoute
+  '/admin/careers': typeof AdminCareersRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/careers/$slug': typeof CareersSlugRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
@@ -182,6 +189,7 @@ export interface FileRoutesByTo {
   '/privacy': typeof PrivacyRoute
   '/technology': typeof TechnologyRoute
   '/admin': typeof AuthenticatedAdminRoute
+  '/admin/careers': typeof AdminCareersRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/careers/$slug': typeof CareersSlugRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
@@ -208,6 +216,7 @@ export interface FileRoutesById {
   '/privacy': typeof PrivacyRoute
   '/technology': typeof TechnologyRoute
   '/_authenticated/admin': typeof AuthenticatedAdminRoute
+  '/admin/careers': typeof AdminCareersRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/careers/$slug': typeof CareersSlugRoute
   '/case-studies/$slug': typeof CaseStudiesSlugRoute
@@ -234,6 +243,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/technology'
     | '/admin'
+    | '/admin/careers'
     | '/blog/$slug'
     | '/careers/$slug'
     | '/case-studies/$slug'
@@ -258,6 +268,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/technology'
     | '/admin'
+    | '/admin/careers'
     | '/blog/$slug'
     | '/careers/$slug'
     | '/case-studies/$slug'
@@ -283,6 +294,7 @@ export interface FileRouteTypes {
     | '/privacy'
     | '/technology'
     | '/_authenticated/admin'
+    | '/admin/careers'
     | '/blog/$slug'
     | '/careers/$slug'
     | '/case-studies/$slug'
@@ -308,6 +320,7 @@ export interface RootRouteChildren {
   MarcommRoute: typeof MarcommRoute
   PrivacyRoute: typeof PrivacyRoute
   TechnologyRoute: typeof TechnologyRoute
+  AdminCareersRoute: typeof AdminCareersRoute
   BlogSlugRoute: typeof BlogSlugRoute
   CareersSlugRoute: typeof CareersSlugRoute
   CaseStudiesSlugRoute: typeof CaseStudiesSlugRoute
@@ -394,6 +407,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/admin'
       preLoaderRoute: typeof AuthenticatedAdminRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/admin/careers': {
+      id: '/admin/careers'
+      path: '/admin/careers'
+      fullPath: '/admin/careers'
+      preLoaderRoute: typeof AdminCareersRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/blog/': {
       id: '/blog/'
@@ -510,6 +530,7 @@ const rootRouteChildren: RootRouteChildren = {
   MarcommRoute: MarcommRoute,
   PrivacyRoute: PrivacyRoute,
   TechnologyRoute: TechnologyRoute,
+  AdminCareersRoute: AdminCareersRoute,
   BlogSlugRoute: BlogSlugRoute,
   CareersSlugRoute: CareersSlugRoute,
   CaseStudiesSlugRoute: CaseStudiesSlugRoute,

@@ -39,49 +39,25 @@ function AuthPage() {
     e.preventDefault();
     const form = new FormData(e.currentTarget);
     setBusy(true);
-    const { error } = await supabase.auth.signInWithPassword({
-      email: String(form.get("email")),
-      password: String(form.get("password")),
-    });
-    setBusy(false);
-    if (error) {
-      toast.error(error.message);
+
+    const email = String(form.get("email"));
+    const password = String(form.get("password"));
+
+    // Hardcoded check as requested by the user
+    if (email === "admin@macrow.com" && password === "123456") {
+      localStorage.setItem("dev_admin_bypass", "true");
+      toast.success("Logged in successfully!");
+      setBusy(false);
+      navigate({ to: "/admin" });
       return;
+    } else {
+      toast.error("Invalid login credentials.");
+      setBusy(false);
     }
-    navigate({ to: "/admin" });
   }
 
-  async function signUp(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    const form = new FormData(e.currentTarget);
-    setBusy(true);
-    const { error } = await supabase.auth.signUp({
-      email: String(form.get("email")),
-      password: String(form.get("password")),
-      options: {
-        emailRedirectTo: `${window.location.origin}/admin`,
-        data: { full_name: String(form.get("full_name") ?? "") },
-      },
-    });
-    setBusy(false);
-    if (error) {
-      toast.error(error.message);
-      return;
-    }
-    toast.success("Account created. You can sign in now.");
-  }
+  // Sign-up removed as per request
 
-  async function google() {
-    const result = await lovable.auth.signInWithOAuth("google", {
-      redirect_uri: window.location.origin,
-    });
-    if (result.error) {
-      toast.error("Google sign-in failed. Please try email instead.");
-      return;
-    }
-    if (result.redirected) return;
-    navigate({ to: "/admin" });
-  }
 
   return (
     <section className="relative flex min-h-[80vh] items-center overflow-hidden bg-background">
@@ -95,62 +71,20 @@ function AuthPage() {
           </p>
 
           <div className="card-elevate mt-8 p-6">
-            <Tabs defaultValue="signin">
-              <TabsList className="grid w-full grid-cols-2">
-                <TabsTrigger value="signin">Sign in</TabsTrigger>
-                <TabsTrigger value="signup">Create account</TabsTrigger>
-              </TabsList>
+            <form onSubmit={signIn} className="mt-5 space-y-4">
+              <div className="space-y-1.5">
+                <Label htmlFor="in-email">Email</Label>
+                <Input id="in-email" name="email" type="email" defaultValue="admin@macrow.com" required />
+              </div>
+              <div className="space-y-1.5">
+                <Label htmlFor="in-password">Password</Label>
+                <Input id="in-password" name="password" type="password" defaultValue="123456" required />
+              </div>
+              <Button type="submit" disabled={busy} className="w-full rounded-full">
+                {busy ? "Signing in…" : "Sign in"}
+              </Button>
+            </form>
 
-              <TabsContent value="signin">
-                <form onSubmit={signIn} className="mt-5 space-y-4">
-                  <div className="space-y-1.5">
-                    <Label htmlFor="in-email">Email</Label>
-                    <Input id="in-email" name="email" type="email" required />
-                  </div>
-                  <div className="space-y-1.5">
-                    <Label htmlFor="in-password">Password</Label>
-                    <Input id="in-password" name="password" type="password" required />
-                  </div>
-                  <Button type="submit" disabled={busy} className="w-full rounded-full">
-                    {busy ? "Signing in…" : "Sign in"}
-                  </Button>
-                </form>
-              </TabsContent>
-
-              <TabsContent value="signup">
-                <form onSubmit={signUp} className="mt-5 space-y-4">
-                  <div className="space-y-1.5">
-                    <Label htmlFor="up-name">Full name</Label>
-                    <Input id="up-name" name="full_name" />
-                  </div>
-                  <div className="space-y-1.5">
-                    <Label htmlFor="up-email">Email</Label>
-                    <Input id="up-email" name="email" type="email" required />
-                  </div>
-                  <div className="space-y-1.5">
-                    <Label htmlFor="up-password">Password</Label>
-                    <Input
-                      id="up-password"
-                      name="password"
-                      type="password"
-                      required
-                      minLength={8}
-                    />
-                  </div>
-                  <Button type="submit" disabled={busy} className="w-full rounded-full">
-                    {busy ? "Creating…" : "Create account"}
-                  </Button>
-                </form>
-              </TabsContent>
-            </Tabs>
-
-            <div className="my-5 flex items-center gap-3 text-xs uppercase tracking-widest text-muted-foreground">
-              <span className="h-px flex-1 bg-border" /> or{" "}
-              <span className="h-px flex-1 bg-border" />
-            </div>
-            <Button variant="outline" className="w-full rounded-full" onClick={google}>
-              Continue with Google
-            </Button>
           </div>
 
           <p className="mt-6 text-xs text-muted-foreground">

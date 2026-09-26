@@ -5,7 +5,8 @@ import { Button } from "@/components/ui/button";
 import { ContactForm } from "@/components/site/ContactForm";
 import { TestimonialCarousel } from "@/components/site/TestimonialCarousel";
 import { CtaBand } from "@/components/site/Primitives";
-
+import { CareerForm } from "@/components/site/CareerForm";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 export const Route = createFileRoute("/careers/")({
   head: () => ({
     meta: [
@@ -82,11 +83,24 @@ function CareersIndex() {
                 <ArrowRight className="h-5 w-5 mt-1 shrink-0" />
               </h3>
               <p className="text-[#333] text-[13px] leading-relaxed flex-grow">
-                To drive sustainable revenue growth by acquiring new B2B clients, building strategic partnerships, and expanding existing acconts for our branding, marketing , and digital services bsiness.
+                To drive sustainable revenue growth by acquiring new B2B clients, building strategic partnerships, and expanding existing acconts for our branding, marketing , and digital services business.
               </p>
-              <Button asChild className="w-full mt-8 rounded-none bg-accent hover:bg-accent/90 text-white font-bold text-xs tracking-wider uppercase h-12">
-                <a href="mailto:careers@macrow.com?subject=Application:%20Business%20development%20manager">APPLY NOW</a>
-              </Button>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button className="w-full mt-8 rounded-none bg-accent hover:bg-accent/90 text-white font-bold text-xs tracking-wider uppercase h-12">
+                    APPLY NOW
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-[500px]">
+                  <DialogHeader>
+                    <DialogTitle>Apply for Business development manager</DialogTitle>
+                    <DialogDescription>
+                      Fill out the form below to apply. We'll get back to you soon.
+                    </DialogDescription>
+                  </DialogHeader>
+                  <CareerForm jobTitle="Business development manager" />
+                </DialogContent>
+              </Dialog>
             </div>
 
             {/* Role 2 */}
@@ -101,9 +115,22 @@ function CareersIndex() {
               <p className="text-[#333] text-[13px] leading-relaxed flex-grow">
                 To lead end-to-end post-production for brand films, social/reels, performance ads, and long-form content—ensuring high-quality storytelling, fast turnaround, and platform-optimized outputs that drive engagement and conversions.
               </p>
-              <Button asChild className="w-full mt-8 rounded-none bg-accent hover:bg-accent/90 text-white font-bold text-xs tracking-wider uppercase h-12">
-                <a href="mailto:careers@macrow.com?subject=Application:%20Senior%20video%20editor">APPLY NOW</a>
-              </Button>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button className="w-full mt-8 rounded-none bg-accent hover:bg-accent/90 text-white font-bold text-xs tracking-wider uppercase h-12">
+                    APPLY NOW
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-[500px]">
+                  <DialogHeader>
+                    <DialogTitle>Apply for Senior video editor</DialogTitle>
+                    <DialogDescription>
+                      Fill out the form below to apply. We'll get back to you soon.
+                    </DialogDescription>
+                  </DialogHeader>
+                  <CareerForm jobTitle="Senior video editor" />
+                </DialogContent>
+              </Dialog>
             </div>
 
             {/* Role 3 */}
@@ -118,14 +145,27 @@ function CareersIndex() {
               <p className="text-[#333] text-[13px] leading-relaxed flex-grow">
                 To lead motion design across brand campaigns, social/reels, performance ads, explainers, and product launches—transforming brand narratives into high-impact animated visuals that elevate craft, consistency, and conversion.
               </p>
-              <Button asChild className="w-full mt-8 rounded-none bg-accent hover:bg-accent/90 text-white font-bold text-xs tracking-wider uppercase h-12">
-                <a href="mailto:careers@macrow.com?subject=Application:%20Senior%20motion%20graphic%20designer">APPLY NOW</a>
-              </Button>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button className="w-full mt-8 rounded-none bg-accent hover:bg-accent/90 text-white font-bold text-xs tracking-wider uppercase h-12">
+                    APPLY NOW
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-[500px]">
+                  <DialogHeader>
+                    <DialogTitle>Apply for Senior motion graphic designer</DialogTitle>
+                    <DialogDescription>
+                      Fill out the form below to apply. We'll get back to you soon.
+                    </DialogDescription>
+                  </DialogHeader>
+                  <CareerForm jobTitle="Senior motion graphic designer" />
+                </DialogContent>
+              </Dialog>
             </div>
           </div>
         </div>
       </section>
-
+      <TestimonialCarousel />
       {/* CTA Section */}
       <CtaBand
         eyebrow="FREE 30-MINUTE SESSION"
@@ -134,7 +174,7 @@ function CareersIndex() {
         action="Start a conversation"
         to="/contact"
       />
-      <TestimonialCarousel />
+
     </>
   );
 }
