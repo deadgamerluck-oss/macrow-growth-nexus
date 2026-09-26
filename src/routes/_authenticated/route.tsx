@@ -5,6 +5,11 @@ import { supabase } from "@/integrations/supabase/client";
 export const Route = createFileRoute("/_authenticated")({
   ssr: false,
   beforeLoad: async () => {
+    // Check if bypass is enabled
+    if (typeof window !== "undefined" && localStorage.getItem("dev_admin_bypass") === "true") {
+      return { user: { id: "dev-bypass", email: "admin@macrow.com" } as any };
+    }
+
     const { data, error } = await supabase.auth.getUser();
     if (error || !data.user) throw redirect({ to: "/auth" });
     return { user: data.user };

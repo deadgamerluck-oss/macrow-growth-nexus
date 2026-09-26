@@ -18,6 +18,7 @@ import {
 } from "@/components/site/Primitives";
 import type { Pillar } from "@/content/site";
 import { objectives } from "@/content/site";
+import { slugify } from "@/lib/utils";
 
 const faqCopy: Record<Pillar["slug"], { q: string; a: string }[]> = {
   digital: [
@@ -107,13 +108,15 @@ export function PillarPage({ pillar }: { pillar: Pillar }) {
                   {c.services.map((s) => (
                     <li
                       key={s}
-                      className="flex items-start gap-3 rounded-md bg-secondary/70 px-4 py-3 text-sm font-medium"
+                      className="relative flex items-start gap-3 rounded-md bg-secondary/70 px-4 py-3 text-sm font-medium transition-colors hover:bg-secondary"
                     >
                       <span
                         className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent"
                         aria-hidden
                       />
-                      {s}
+                      <Link to={`/services/${slugify(s)}` as any} className="hover:text-accent transition-colors before:absolute before:inset-0">
+                        {s}
+                      </Link>
                     </li>
                   ))}
                 </ul>

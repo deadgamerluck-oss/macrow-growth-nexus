@@ -7,25 +7,23 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Reveal } from "@/components/site/Reveal";
-import { Section, SectionHeading } from "@/components/site/Primitives";
-import teamCollab from "@/assets/team-collab.jpg";
 
 const schema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
   email: z.string().trim().email("Enter a valid work email").max(255),
+  mobile: z.string().trim().min(1, "Mobile number is required").max(20),
   company: z.string().trim().max(120).optional(),
   country: z.string().trim().max(80).optional(),
   website: z.string().trim().max(200).optional(),
   stage: z.string().max(80).optional(),
   need: z.string().max(80).optional(),
-  budget: z.string().max(80).optional(),
+  budget: z.string().min(1, "Budget range is required").max(80),
   service: z.string().max(80).optional(),
   description: z.string().trim().min(1, "Project description is required").max(2000),
 });
 
-const selectClass =
-  "h-11 w-full rounded-md border border-input bg-card px-3 text-sm text-foreground outline-none transition-colors focus:border-accent focus:ring-2 focus:ring-ring/30";
+const inputClass =
+  "h-10 w-full rounded-none border border-[#ff3803] bg-white px-3 text-sm text-slate-900 outline-none transition-colors focus:ring-1 focus:ring-[#ff3803] placeholder:text-slate-400";
 
 function Field({
   label,
@@ -44,8 +42,8 @@ function Field({
 }) {
   return (
     <div>
-      <Label htmlFor={name}>
-        {label} {required && <span className="text-accent">*</span>}
+      <Label htmlFor={name} className="text-[11px] font-semibold text-slate-700 mb-1.5 block">
+        {label} {required && <span className="text-[#ff3803]">*</span>}
       </Label>
       <Input
         id={name}
@@ -53,9 +51,9 @@ function Field({
         type={type}
         placeholder={placeholder}
         aria-invalid={Boolean(error)}
-        className="mt-2 h-11"
+        className={inputClass}
       />
-      {error && <p className="mt-1.5 text-xs text-destructive">{error}</p>}
+      {error && <p className="mt-1.5 text-xs text-red-500">{error}</p>}
     </div>
   );
 }
@@ -129,46 +127,40 @@ export function ContactPage() {
   };
 
   return (
-    <>
-      <Section className="pb-0 pt-24 lg:pt-32">
-        <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-          <Reveal>
-            <SectionHeading
-              eyebrow="Contact"
-              title="Let's build what's next."
-              intro="Tell us where your business is and what you're trying to achieve. We'll come back with a considered view — not a template proposal."
-            />
-          </Reveal>
-          <Reveal delay={0.1}>
-            <img
-              src={teamCollab}
-              alt="MACROW team discussing growth strategies"
-              loading="lazy"
-              className="aspect-[4/3] w-full rounded-lg object-cover"
-            />
-          </Reveal>
+    <div className="min-h-screen bg-[#940808] text-white pt-24 lg:pt-32 pb-20">
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-2xl mb-12">
+          <p className="text-[10px] font-bold tracking-widest uppercase text-white/80 mb-6">Start the conversation</p>
+          <h1 className="text-5xl lg:text-7xl font-serif text-white leading-[1.1] mb-6">
+            Let's build<br />what's <span className="italic font-medium">Next.</span>
+          </h1>
+          <p className="text-white/80 text-[15px] leading-relaxed max-w-lg">
+            Tell us where your business is and what you're trying to achieve. We'll come back with a considered view — not a template proposal.
+          </p>
         </div>
-      </Section>
 
-      <Section>
-        <div className="grid gap-12 lg:grid-cols-[1.5fr_1fr]">
+        <div className="grid gap-8 lg:grid-cols-[1.5fr_1fr] items-start">
           {success ? (
-            <div className="card-elevate p-12 lg:p-16 w-full flex flex-col items-center justify-center text-center space-y-4">
-              <h3 className="text-3xl font-semibold text-foreground">
+            <div className="bg-white p-12 lg:p-16 w-full flex flex-col items-center justify-center text-center space-y-4">
+              <h3 className="text-3xl font-semibold text-slate-900">
                 Thank you for choosing MACROW Digital, we will contact you soon.
               </h3>
             </div>
           ) : (
-            <form onSubmit={onSubmit} noValidate className="card-elevate p-6 lg:p-9">
-              <div className="grid gap-5 sm:grid-cols-2">
+            <form onSubmit={onSubmit} noValidate className="bg-white p-8 lg:p-10 w-full shadow-2xl">
+              <div className="grid gap-x-6 gap-y-5 sm:grid-cols-2">
                 <Field label="Name" name="name" error={errors["name"]} required />
                 <Field label="Work Email" name="email" type="email" error={errors["email"]} required />
+                
+                <Field label="Mobile Number" name="mobile" type="tel" error={errors["mobile"]} required />
                 <Field label="Company" name="company" />
+                
                 <Field label="Country" name="country" />
                 <Field label="Website" name="website" placeholder="https://" />
+                
                 <div>
-                  <Label htmlFor="stage">Business Stage</Label>
-                  <select id="stage" name="stage" className={`mt-2 ${selectClass}`}>
+                  <Label htmlFor="stage" className="text-[11px] font-semibold text-slate-700 mb-1.5 block">Business Stage</Label>
+                  <select id="stage" name="stage" className={inputClass}>
                     <option>Starting from zero</option>
                     <option>Startup</option>
                     <option>Growing business</option>
@@ -177,8 +169,8 @@ export function ContactPage() {
                   </select>
                 </div>
                 <div>
-                  <Label htmlFor="service">Service focus</Label>
-                  <select id="service" name="service" className={`mt-2 ${selectClass}`}>
+                  <Label htmlFor="service" className="text-[11px] font-semibold text-slate-700 mb-1.5 block">Service Focus</Label>
+                  <select id="service" name="service" className={inputClass}>
                     <option>Digital</option>
                     <option>Marcomm</option>
                     <option>Technology</option>
@@ -189,69 +181,85 @@ export function ContactPage() {
                     <option>Not Sure</option>
                   </select>
                 </div>
+                
                 <div>
-                  <Label htmlFor="budget">Budget Range</Label>
-                  <select id="budget" name="budget" className={`mt-2 ${selectClass}`}>
+                  <Label htmlFor="budget" className="text-[11px] font-semibold text-slate-700 mb-1.5 block">
+                    Budget Range <span className="text-[#ff3803]">*</span>
+                  </Label>
+                  <select id="budget" name="budget" className={inputClass}>
+                    <option value="">eg. $5,000 - $10,000</option>
                     <option>Not defined yet</option>
                     <option>Under $5,000</option>
                     <option>$5,000 – $25,000</option>
                     <option>$25,000 – $100,000</option>
                     <option>$100,000+</option>
                   </select>
+                  {errors["budget"] && <p className="mt-1.5 text-xs text-red-500">{errors["budget"]}</p>}
                 </div>
-                <div className="sm:col-span-2">
-                  <Label htmlFor="need">What do you need help with?</Label>
-                  <Input id="need" name="need" className="mt-2 h-11" placeholder="In one line" />
+                <div>
+                  <Field label="What do you need help with?" name="need" placeholder="In one line" />
                 </div>
+                
                 <div className="sm:col-span-2">
-                  <Label htmlFor="description">
-                    Project Description <span className="text-accent">*</span>
+                  <Label htmlFor="description" className="text-[11px] font-semibold text-slate-700 mb-1.5 block">
+                    Project Description <span className="text-[#ff3803]">*</span>
                   </Label>
                   <Textarea
                     id="description"
                     name="description"
-                    rows={5}
-                    className="mt-2"
-                    placeholder="What's happening now, and what would a good outcome look like?"
+                    rows={4}
+                    className={`${inputClass} py-3 min-h-[120px] resize-y`}
                     aria-invalid={Boolean(errors["description"])}
                   />
                   {errors["description"] && (
-                    <p className="mt-1.5 text-xs text-destructive">{errors["description"]}</p>
+                    <p className="mt-1.5 text-xs text-red-500">{errors["description"]}</p>
                   )}
                 </div>
               </div>
 
-              <Button type="submit" size="lg" className="mt-8 rounded-full px-7" disabled={submitting}>
-                {submitting ? "Sending…" : "Start a Conversation"}
+              <Button type="submit" className="mt-8 w-full rounded-none bg-[#ff3803] hover:bg-[#ff3803]/90 text-white h-12 text-[15px] font-medium transition-colors" disabled={submitting}>
+                {submitting ? "Sending…" : "Send"}
               </Button>
             </form>
           )}
 
-          <aside className="space-y-8">
-            <div className="card-elevate p-6">
-              <p className="eyebrow">Where we are</p>
-              <p className="mt-3 font-medium">Ahmedabad, Gujarat, India</p>
-              <p className="mt-1 text-sm text-muted-foreground">
-                Working with businesses across markets.
-              </p>
-            </div>
-            <div className="card-elevate p-6">
-              <p className="eyebrow">Not sure what you need?</p>
-              <p className="mt-3 text-sm text-muted-foreground">
-                Answer five questions and we'll outline a starting combination of capabilities.
-              </p>
-              <Link
-                to="/contact"
-                hash="discovery"
-                className="mt-4 inline-block text-sm font-medium text-accent hover:underline"
-              >
-                I'm not sure what I need →
-              </Link>
+          <aside className="bg-[#590404] p-10 h-fit text-white">
+            <h3 className="text-xl font-bold mb-8">Contact Details</h3>
+            
+            <div className="space-y-6">
+              <div>
+                <h4 className="text-[12px] font-bold uppercase tracking-wider mb-1">EMAIL</h4>
+                <p className="text-[14px] text-white/90">growth@macrowdigital.com</p>
+                <div className="h-px bg-white/20 mt-4" />
+              </div>
+              
+              <div>
+                <h4 className="text-[12px] font-bold uppercase tracking-wider mb-1">Assessment Format</h4>
+                <p className="text-[14px] text-white/90">60-90 minute strategic discussion call</p>
+                <div className="h-px bg-white/20 mt-4" />
+              </div>
+              
+              <div>
+                <h4 className="text-[12px] font-bold uppercase tracking-wider mb-1">Response Window</h4>
+                <p className="text-[14px] text-white/90">Within 1-2 business days</p>
+                <div className="h-px bg-white/20 mt-4" />
+              </div>
+              
+              <div>
+                <h4 className="text-[12px] font-bold uppercase tracking-wider mb-1">Typical Engagement Start</h4>
+                <p className="text-[14px] text-white/90">1-3 weeks from initial call</p>
+                <div className="h-px bg-white/20 mt-4" />
+              </div>
+              
+              <div>
+                <h4 className="text-[12px] font-bold uppercase tracking-wider mb-1">Regions</h4>
+                <p className="text-[14px] text-white/90">India</p>
+              </div>
             </div>
           </aside>
         </div>
-      </Section>
-    </>
+      </div>
+    </div>
   );
 }
 

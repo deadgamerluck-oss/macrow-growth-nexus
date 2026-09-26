@@ -213,24 +213,6 @@ function AboutPage() {
         </div>
       </section>
 
-      {/* <TestimonialCarousel /> */}
-
-      <section className="bg-[#111111] py-20 lg:py-28" id="contact-form">
-        <div className="container-macrow max-w-5xl mx-auto">
-          <div className="mb-12">
-            <p className="text-[10px] font-bold tracking-[0.15em] text-white/60 uppercase mb-4">CONTACT US</p>
-            <h2 className="text-4xl lg:text-5xl font-serif font-medium leading-[1.1] mb-6 text-white">
-              Partner with<br />MACROW
-            </h2>
-            <p className="text-white/60 text-base lg:text-lg max-w-xl">
-              Bring us your product, roadmap, or problem. We'll tell you where to start.
-            </p>
-          </div>
-          <div className="w-full">
-            <ContactForm />
-          </div>
-        </div>
-      </section>
     </>
   );
 }

@@ -8,18 +8,14 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
-import {
-  Breadcrumbs,
-  CtaBand,
-  SectionHeading,
-} from "@/components/site/Primitives";
+
+
 import { pillars, objectives, type Pillar } from "@/content/site";
 import { slugify } from "@/lib/utils";
-import { TestimonialCarousel } from "@/components/site/TestimonialCarousel";
+
 import subheroImg from "@/assets/subhero.jpg";
 import subherorightImg from "@/assets/subheroright.jpg";
-import subrelatedImg from "@/assets/subgrelated.jpg";
+
 
 const faqCopy: Record<Pillar["slug"], { q: string; a: string }[]> = {
   digital: [
@@ -101,9 +97,9 @@ const serviceHeroData: Record<string, { subtitle: string; cardTitle: string; car
     cardBody: "A high-performing website brings demand, distribution, and measurement together in one connected system—turning the right audience, offer, and channel mix into measurable business growth."
   },
   "brand-strategy": {
-    subtitle: "Clear.\nConsistent.\nCoherent.",
-    cardTitle: "One Clear Story, Everywhere.",
-    cardBody: "A strong brand goes beyond a logo or a campaign. We shape one clear story and express it consistently across every audience, format, and market—creating a brand that feels connected, recognisable, and purposeful."
+    subtitle: "Unify.\nAdapt.\nResonate.",
+    cardTitle: "One Story, Everywhere It Matters",
+    cardBody: "Marcomm that aligns your narrative across audiences, formats, and markets—so your brand speaks with one clear voice, no matter where it’s heard."
   },
   "digital-strategy": {
     subtitle: "Unified.\nStrategic.\nMeasurable.",
@@ -194,6 +190,187 @@ const serviceHeroData: Record<string, { subtitle: string; cardTitle: string; car
     subtitle: "Create.\nConnect.\nConvert.",
     cardTitle: "Content That Drives Real Growth",
     cardBody: "Content marketing that unites audience demand, strategic distribution, and performance measurement into one system—so every piece you publish works harder, reaches further, and delivers measurable results."
+  },
+  "brand-identity": {
+    subtitle: "One voice .\nConsistent .\nAmplify.",
+    cardTitle: "One Story, Every Audience, Everywhere",
+    cardBody: "Marcomm that delivers a single, consistent narrative across all audiences, formats, and markets—so your brand is always clear, coherent, and compelling."
+  },
+  "corporate-branding": {
+    subtitle: "Define .\nExpress .\nDeliver.",
+    cardTitle: "Your Story, Defined and Delivered",
+    cardBody: "Marcomm shapes how your business is understood—aligning positioning, identity, and creative execution into one coherent system that speaks clearly across every audience, format, and market."
+  },
+  "employer-branding": {
+    subtitle: "Position .\nExpress .\nProduce.",
+    cardTitle: "Your Brand, Clearly Understood Everywhere",
+    cardBody: "Marcomm defines your positioning, identity, and creative system—then produces work that tells one clear story across every audience, format, and market."
+  },
+  "video-production": {
+    subtitle: "Clarify .\nUnify .\nExecute.",
+    cardTitle: "One Story, Told Consistently Everywhere",
+    cardBody: "Marcomm defines your positioning, identity, and creative system—then produces work that expresses one clear story across every audience, format, and market."
+  },
+  "motion-graphics": {
+    subtitle: "Define .\nUnify .\nProduce.",
+    cardTitle: "Your Brand, One Clear Story",
+    cardBody: "Marcomm shapes how your business is understood by defining positioning, identity, and the creative system that carries it—then producing work that speaks consistently across every audience, format, and market."
+  },
+  "social-media-creative": {
+    subtitle: "Clarify .\nAlign .\nDeliver.",
+    cardTitle: "One Story, Every Platform, Always Clear",
+    cardBody: "Marcomm defines your positioning, identity, and creative system—then produces social media work that tells one clear story consistently across every audience, format, and market."
+  },
+  "packaging": {
+    subtitle: "Define .\nDesign.\nDeliver.",
+    cardTitle: "One Story, Packaged for Impact",
+    cardBody: "Marcomm defines your positioning, identity, and creative system—then produces packaging that expresses one clear story consistently across every audience, format, and market."
+  },
+  "creative-strategy": {
+    subtitle: "Strategise.\nUnify.\nExecute",
+    cardTitle: "Your Brand, One Clear Story",
+    cardBody: "Marcomm shapes how your business is understood by defining positioning, identity, and the creative system that carries it—then producing work that speaks consistently across every audience, format, and market."
+  },
+  "creative-design": {
+    subtitle: "Position.\nCraft.\nConvert.",
+    cardTitle: "One Story, Designed for B2B",
+    cardBody: "Marcomm defines your positioning, identity, and creative system—then produces design work that tells one clear story consistently across every B2B audience, format, and market."
+  },
+  "campaign-development": {
+    subtitle: "Plan.\nCreate.\nLaunch.",
+    cardTitle: "Campaigns That Drive B2B Growth",
+    cardBody: "Marcomm aligns your positioning, identity, and creative system to build campaigns that speak with one clear voice—turning complex B2B narratives into focused, high-impact work that moves decision-makers across every channel and market."
+  },
+  "advertising": {
+    subtitle: "Target.\nPersuade.\nConvert.",
+    cardTitle: "Advertising That Moves B2B Decisions",
+    cardBody: "Marcomm defines your positioning, identity, and creative system—then produces advertising that speaks with one clear, persuasive voice to the right B2B audiences across every format and market."
+  },
+  "corporate-communication": {
+    subtitle: "Align.\nAssure.\nAdvance.",
+    cardTitle: "One Voice, Every B2B Conversation",
+    cardBody: "Marcomm defines your positioning, identity, and creative system—then produces corporate communication that builds trust, clarity, and credibility with every B2B stakeholder, across every format and market."
+  },
+  "product-communication": {
+    subtitle: "Clarify.\nDifferentiate.\nConvert",
+    cardTitle: "Product Stories That Win B2B Deals",
+    cardBody: "Marcomm defines your positioning, identity, and creative system—then produces product communication that turns complex features into clear, compelling narratives that resonate with B2B buyers across every audience, format, and market."
+
+  },
+  "influencer-creator-campaigns": {
+    subtitle: "Partner.\nAmplify.\nConvert",
+    cardTitle: "Influencer Campaigns Built for B2B",
+    cardBody: "Marcomm defines your positioning, identity, and creative system—then produces influencer and creator campaigns that carry one clear, credible story to the right B2B audiences across every format and market."
+  },
+  "content-strategy": {
+    subtitle: "Map.\nMessage.\nMove.",
+    cardTitle: "Content Strategy That Drives B2B Decisions",
+    cardBody: "Marcomm defines your positioning, identity, and creative system—then builds content strategies that turn complex B2B narratives into clear, purposeful stories that guide buyers across every audience, format, and market."
+  },
+  "copywriting": {
+    subtitle: "Craft.\nConvince.\nConvert.",
+    cardTitle: "Copy That Closes B2B Deals",
+    cardBody: "Marcomm defines your positioning, identity, and creative system—then produces copywriting that turns complex B2B value into clear, persuasive words that move decision-makers across every audience, format, and market."
+  },
+  "visual-communication": {
+    subtitle: "Show.\nSimplify.\nSell.",
+    cardTitle: "Visual Stories That Win B2B Buyers",
+    cardBody: "Marcomm defines your positioning, identity, and creative system—then produces visual communication that turns complex B2B ideas into clear, compelling visuals that resonate with decision-makers across every audience, format, and market."
+  },
+  "presentation-design": {
+    subtitle: "Structure.\nSimplify.\nPersuade.",
+    cardTitle: "Presentations That Close B2B Deals",
+    cardBody: "Marcomm defines your positioning, identity, and creative system—then produces presentation designs that turn complex B2B narratives into clear, persuasive visuals that move decision-makers across every audience, format, and market."
+  },
+  "uiux-design": {
+    subtitle: "Architect.\nAutomate.\nAccelerate.",
+    cardTitle: "Systems Built for B2B Scale",
+    cardBody: "Technology decisions are business decisions—we design and build the products, platforms, and automation that your marketing, operations, and customers depend on as your B2B business grows."
+  },
+  "product-design": {
+    subtitle: "Design.\nBuild.\nScale.",
+    cardTitle: "Product Design That Scales B2B",
+    cardBody: "Technology decisions are business decisions—we design and build the products, platforms, and automation that your marketing, operations, and customers depend on as your B2B business grows."
+  },
+  "mvp-development": {
+    subtitle: "Validate.\nBuild.\nLaunch.",
+    cardTitle: "MVP Development Built for B2B Growth",
+    cardBody: "We design and build the products, platforms, and automation that your marketing, operations, and customers depend on—because technology decisions are business decisions that must scale as your B2B business grows."
+  },
+  "ai-solutions": {
+    subtitle: "Integrate.\nAutomate.\nAccelerate.",
+    cardTitle: "AI Solutions Engineered for B2B Scale",
+    cardBody: "We design and build the products, platforms, and automation that your marketing, operations, and customers depend on—because technology decisions are business decisions that must scale as your B2B business grows."
+  },
+  "ai-integration": {
+    subtitle: "Connect.\nDeploy.\nTransform.",
+    cardTitle: "AI Integration Built for B2B Scale",
+    cardBody: "We design and build the products, platforms, and automation that your marketing, operations, and customers depend on—because technology decisions are business decisions that must scale as your B2B business grows."
+  },
+  "ai-agents": {
+    subtitle: "Orchestrate.\nOptimize.\nOutperform.",
+    cardTitle: "AI Agents Engineered for B2B Growth",
+    cardBody: "We design and build the products, platforms, and automation that your marketing, operations, and customers depend on—because technology decisions are business decisions that must scale as your B2B business grows."
+  },
+  "website-development": {
+    subtitle: "Architect.\nDevelop.\nDeploy.",
+    cardTitle: "Website Development Built for B2B Scale",
+    cardBody: "We design and build the products, platforms, and automation that your marketing, operations, and customers depend on—because technology decisions are business decisions that must scale as your B2B business grows."
+  },
+  "web-applications": {
+    subtitle: "Build.\nIntegrate.\nScale.",
+    cardTitle: "Web Applications Engineered for B2B Growth",
+    cardBody: "We design and build the products, platforms, and automation that your marketing, operations, and customers depend on—because technology decisions are business decisions that must scale as your B2B business grows."
+  },
+  "saas-development": {
+    subtitle: "Architect.\nLaunch.\nScale.",
+    cardTitle: "SaaS Development Built for B2B Scale",
+    cardBody: "We design and build the products, platforms, and automation that your marketing, operations, and customers depend on—because technology decisions are business decisions that must scale as your B2B business grows."
+  },
+  "mobile-applications": {
+    subtitle: "Design.\nBuild.\nDeliver.",
+    cardTitle: "Mobile Applications Engineered for B2B Growth",
+    cardBody: "We design and build the products, platforms, and automation that your marketing, operations, and customers depend on—because technology decisions are business decisions that must scale as your B2B business grows."
+  },
+  "cloud-solutions": {
+    subtitle: "Migrate.\nOptimize.\nSecure.",
+    cardTitle: "Cloud Solutions Built for B2B Scale",
+    cardBody: "We design and build the products, platforms, and automation that your marketing, operations, and customers depend on—because technology decisions are business decisions that must scale as your B2B business grows."
+  },
+  "devops": {
+    subtitle: "Automate.\nDeploy.\nMonitor.",
+    cardTitle: "DevOps Engineered for B2B Growth",
+    cardBody: "We design and build the products, platforms, and automation that your marketing, operations, and customers depend on—because technology decisions are business decisions that must scale as your B2B business grows."
+  },
+  "cybersecurity": {
+    subtitle: "Protect.\nDetect.\nRespond.",
+    cardTitle: "Cybersecurity Built for B2B Scale",
+    cardBody: "We design and build the products, platforms, and automation that your marketing, operations, and customers depend on—because technology decisions are business decisions that must scale as your B2B business grows."
+  },
+  "api-development": {
+    subtitle: "Connect.\nIntegrate.\nScale.",
+    cardTitle: "API Development Engineered for B2B Integration",
+    cardBody: "We architect and deliver the connected platforms, automation workflows, and integration systems that power your marketing, operations, and customer experiences—because in B2B, every API decision is a business decision that must scale with growth."
+  },
+  "crm-development": {
+    subtitle: "Unify.\nAutomate.\nConvert.",
+    cardTitle: "CRM Development Built for B2B Relationships",
+    cardBody: "We craft and deploy the customer platforms, sales automation, and relationship systems that drive your marketing, operations, and revenue teams—because in B2B, every CRM decision shapes how your business grows and retains clients."
+  },
+  "erp-solutions": {
+    subtitle: "Unify.\nControl.\nScale.",
+    cardTitle: "ERP Solutions Engineered for B2B Operations",
+    cardBody: "We build and integrate the enterprise platforms, process automation, and operational systems that unify your marketing, operations, and customer workflows—because in B2B, every ERP decision determines how efficiently your business scales."
+  },
+  "hrms-solutions": {
+    subtitle: "Streamline.\nEngage.\nEmpower.",
+    cardTitle: "HRMS Solutions Built for B2B Teams",
+    cardBody: "We develop and deploy the workforce platforms, people automation, and talent systems that align your HR, operations, and employee experiences—because in B2B, every HRMS decision shapes how your team performs and grows."
+  },
+  "business-automation": {
+    subtitle: "Automate.\nAccelerate.\nScale.",
+    cardTitle: "Business Automation Engineered for B2B Efficiency",
+    cardBody: "We create and implement the workflow platforms, process automation, and operational systems that connect your marketing, operations, and customer journeys—because in B2B, every automation decision determines how fast and smoothly your business scales."
   }
 };
 
