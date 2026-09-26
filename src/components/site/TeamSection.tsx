@@ -56,6 +56,7 @@ const mockMembers = [
     photo_url: gajendra,
     // email: "gajendra@macrowdigital.com"
   },
+
   {
     id: "5",
     name: "Chitranshi Chouhan",

@@ -81,7 +81,7 @@ function AdminLogin() {
       // Force a reload to trigger the session useEffect
       window.location.reload();
     } else {
-      toast.error("Failed to log in. Invalid credentials.");
+      toast.error("Failed to log inss. Invalid credentials.");
     }
     setLoading(false);
   };
