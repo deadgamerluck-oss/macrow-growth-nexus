@@ -13,7 +13,7 @@ import chitranshi from "@/assets/Chitranshi.png"
 import { Mail } from "lucide-react"
 const mockMembers = [
   {
-    id: "3",
+    id: "1",
     name: "Honey Sinha",
     role: "Co-Founder",
     pillar: "DIGITAL",
@@ -24,7 +24,7 @@ const mockMembers = [
     linkedin_url: "https://www.linkedin.com/in/the-honey-sinha/"
   },
   {
-    id: "1",
+    id: "2",
     name: "Atul Sinha",
     role: "Design Director",
     pillar: "MARCOMM",
@@ -35,7 +35,7 @@ const mockMembers = [
     linkedin_url: "https://www.linkedin.com/in/atulsinhaa/"
   },
   {
-    id: "2",
+    id: "3",
     name: "Lakshman Sharma",
     role: "Mentor & Strategic Advisor",
     pillar: "TECHNOLOGY",
