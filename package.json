@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev",
+    "prebuild": "npx tsx scripts/generate-sitemap.ts",
     "build": "cross-env NITRO_PRESET=node-server vite build",
     "build:dev": "cross-env NITRO_PRESET=node-server vite build --mode development",
     "start": "cross-env NITRO_HOST=0.0.0.0 node .output/server/index.mjs",
