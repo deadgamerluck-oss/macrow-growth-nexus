@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite dev",
-    "prebuild": "npx tsx scripts/generate-sitemap.ts",
+    "prebuild": " tsx scripts/generate-sitemap.ts",
     "build": "cross-env NITRO_PRESET=node-server vite build",
     "build:dev": "cross-env NITRO_PRESET=node-server vite build --mode development",
     "start": "cross-env NITRO_HOST=0.0.0.0 node .output/server/index.mjs",
@@ -88,6 +88,7 @@
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^15.15.0",
     "prettier": "^3.7.3",
+    "tsx": "^4.23.15",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.56.1",
     "vite": "^8.2.0"
