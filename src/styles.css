@@ -1,9 +1,9 @@
 @import "tailwindcss" source(none);
-@source "../src";
+
 @import "tw-animate-css";
+@source "../src";
 
 @custom-variant dark (&:is(.dark *));
-
 /*
  * Design system definition.
  *
@@ -96,13 +96,10 @@
   --font-body: "Manrope", ui-sans-serif, system-ui, sans-serif;
   --font-serif: "Playfair Display", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   --gradient-ink: linear-gradient(140deg, oklch(0.14 0 0), oklch(0.24 0.03 30));
-  --gradient-accent: linear-gradient(
-    100deg,
-    oklch(0.647 0.253 30.5),
-    oklch(0.72 0.19 45)
-  );
+  --gradient-accent: linear-gradient(100deg, oklch(0.647 0.253 30.5), oklch(0.72 0.19 45));
   --shadow-elevate: 0 24px 60px -32px color-mix(in oklab, var(--ink) 45%, transparent);
-  --shadow-soft: 0 1px 2px color-mix(in oklab, var(--ink) 8%, transparent),
+  --shadow-soft:
+    0 1px 2px color-mix(in oklab, var(--ink) 8%, transparent),
     0 12px 32px -24px color-mix(in oklab, var(--ink) 40%, transparent);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
@@ -228,8 +225,16 @@
 
 @utility grid-mesh {
   background-image:
-    linear-gradient(to right, color-mix(in oklab, var(--foreground) 7%, transparent) 1px, transparent 1px),
-    linear-gradient(to bottom, color-mix(in oklab, var(--foreground) 7%, transparent) 1px, transparent 1px);
+    linear-gradient(
+      to right,
+      color-mix(in oklab, var(--foreground) 7%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in oklab, var(--foreground) 7%, transparent) 1px,
+      transparent 1px
+    );
   background-size: 72px 72px;
 }
 
